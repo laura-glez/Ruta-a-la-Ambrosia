@@ -35,7 +35,7 @@ h1, h2 {
   left: 152px;
   bottom:48px;}
 
-/**aadfasdfdsa/
+
  /*FORMULARIOS*/ 
  #popup-Modificarcontent, #popup-Altacontent{
   display: none;
@@ -53,7 +53,7 @@ form {
   flex-direction: column;
   justify-content: flex-end;
 }
-.formulario .campo:last-child {
+#popup-Altacontent .bloque:last-child {
   grid-column: span 2; /* Hace que el último campo ocupe ambas columnas */
   text-align: center; /* Centra el contenido del último campo */
   justify-content: center;
@@ -94,8 +94,6 @@ form select {
   color: #2e2e2e;
   padding: 10px 20px;
   border: 3px thin #53646f;
-  
- 
   font-weight: 500;
 }
 
@@ -322,7 +320,7 @@ opacity: 0;
 }
 
 /* Ventana del pop-up */
-#popup, .modal {
+#popupD, #popupA, #popupM, #popupR {
   display: none;
   position: fixed;
   top: 50%; left: 50%;
@@ -356,13 +354,13 @@ opacity: 0;
 }
 
 /* Mostrar ventana con animación */
-#popup.show {
+#popup.show, #popupA.show, #popupM.show, #popupR.show {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
 /* Botón de cierre (X) */
-#cerrarPopupDetalles, #cerrarPopupForm {
+#cerrarPopupD, #cerrarPopupA, #cerrarPopupM, #cerrarPopupR {
   position: absolute;
   top: 0.1em; right: 0.5em;
   background: transparent;
@@ -373,7 +371,7 @@ opacity: 0;
 }
 
 /* Contenido del pop-up */
-#popup-content {
+#popup-contentD {
   margin-top: 20px;
   font-family: sans-serif;
   padding: 1em;
@@ -385,6 +383,7 @@ opacity: 0;
   }
 }
 
+/*ESTILOS DE LOS ICONOS DE LA TABLA*/
 .img4-hover {
   transition: transform 0.3s ease;
   cursor: pointer;
