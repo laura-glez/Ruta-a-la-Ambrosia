@@ -53,11 +53,15 @@ form {
   flex-direction: column;
   justify-content: flex-end;
 }
-#popup-Altacontent .bloque:last-child {
+#formAltaEvento .bloque:last-child {
   grid-column: span 2; /* Hace que el último campo ocupe ambas columnas */
   text-align: center; /* Centra el contenido del último campo */
   justify-content: center;
   justify-items: center;
+  align-items: center;
+  
+  
+
 }
 form label {
   display: block;
