@@ -20,12 +20,13 @@
         if(user.idUsuario === 1){
             console.log('if = 1')
             //localStorage.setItem(user);
+            localStorage.setItem('usuario', JSON.stringify(user));
             window.location.href = 'eventos.html';
             //login.reset();
         }else{
             console.log('if != 1')
             //localStorage.setItem(user);
-
+            localStorage.setItem('usuario', JSON.stringify(user));
             window.location.href = 'loginCliente.html';
             login.reset();}
         }
