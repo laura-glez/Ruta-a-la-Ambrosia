@@ -127,10 +127,10 @@ left:300px;
 
 }
 #tablaReservasContainer thead{
-    background-color: #f4f6f8;
+    background-color: #750f3b;
     text-transform: uppercase;
     font-size: 12px;
-    color: #9eabb4;
+    color: #ffffff;
 }
 
 #tablaReservasContainer th, #tabla td {
@@ -145,3 +145,10 @@ left:300px;
   #tablaReservasContainer td{
     text-align: center;
   }
+ h2{
+    color: #111;
+    position:relative;
+    top:200px;
+    left:650px;
+    font-size: 40px;
+}

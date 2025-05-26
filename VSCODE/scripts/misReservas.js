@@ -37,7 +37,6 @@ async function obtenerReservas(idUsuario) {
   
     // Insertar la tabla en el contenedor
     tablaContainer.innerHTML = `
-      <h2>Detalles de las Reservas</h2>
       <br><br>
       <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
         <thead>
