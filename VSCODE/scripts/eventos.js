@@ -198,7 +198,7 @@ const celdaReservas = fila.insertCell();
     });
     
 
- function mostrarDatosReserva(reserva) {
+ function mostrarDatosReserva(reservas) {
       const popup = document.getElementById('popupD');
 
       const overlay = document.getElementById('popup-overlay');
