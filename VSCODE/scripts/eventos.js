@@ -201,6 +201,7 @@ const celdaReservas = fila.insertCell();
  function mostrarDatosReserva(reservas) {
       const popup = document.getElementById('popupR');
 
+
       const overlay = document.getElementById('popup-overlay');
       const divDetallesReserva = document.getElementById('popup-contentR');
     

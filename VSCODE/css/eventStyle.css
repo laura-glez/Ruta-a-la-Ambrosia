@@ -121,10 +121,11 @@ form select, form input{
 }
 
 #tabla thead {
-  background-color: #f4f6f8;
+  background-color:#750f3b;
+  ;
   text-transform: uppercase;
   font-size: 12px;
-  color: #9eabb4;
+  color: #ffffff;
 }
 
 #tabla th, #tabla td {
@@ -145,10 +146,10 @@ form select, form input{
   overflow: hidden;
 }
 #tablaReservas thead {
-  background-color: #f4f6f8;
+  background-color: #750f3b;
   text-transform: uppercase;
   font-size: 12px;
-  color: #9eabb4;
+  color: #ffffff;
 }
 
 #tablaReservas th, #tabla td {
