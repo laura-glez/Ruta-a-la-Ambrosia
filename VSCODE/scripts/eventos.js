@@ -190,15 +190,15 @@ const celdaReservas = fila.insertCell();
     });
     
  function mostrarDatosReserva(reserva) {
-      const popup = document.getElementById('popup');
+      const popup = document.getElementById('popupD');
       const overlay = document.getElementById('popup-overlay');
-      const divDetallesReserva = document.getElementById('popup-content');
+      const divDetallesReserva = document.getElementById('popup-contentD');
     
       popup.classList.add('show');
       popup.style.display = 'block';
       overlay.style.display = 'block';
     
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
+      document.getElementById('cerrarPopupD').addEventListener('click', () => {
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
@@ -390,8 +390,6 @@ function mostrarModificarEvento(){
         setTimeout(() => {
           popup.style.display = 'none';
           overlay.style.display = 'none';
-          
-
         }, 200)
 });}
 

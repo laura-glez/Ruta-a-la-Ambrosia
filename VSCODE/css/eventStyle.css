@@ -37,10 +37,10 @@ h1, h2 {
 
 
  /*FORMULARIOS*/ 
- #popup-Modificarcontent, #popup-Altacontent{
+form{
   display: none;
  }
-form {
+ form {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
   gap: 10px; /* Espacio entre los campos */
@@ -53,15 +53,12 @@ form {
   flex-direction: column;
   justify-content: flex-end;
 }
-#formAltaEvento .bloque:last-child {
+form .bloque:last-child{
   grid-column: span 2; /* Hace que el último campo ocupe ambas columnas */
   text-align: center; /* Centra el contenido del último campo */
   justify-content: center;
   justify-items: center;
   align-items: center;
-  
-  
-
 }
 form label {
   display: block;
@@ -69,9 +66,7 @@ form label {
   color: #2e2e2e;
   font-weight: 400;
   display: block;
-  
 }
-
 form select, form input{
   align-content: start;
   border: 1px solid #ddd;
@@ -81,8 +76,18 @@ form select, form input{
   padding: 8px;
   box-sizing: border-box;
 }
+/* #popup-Modificarcontent select, #popup-Altacontent select, 
+#popup-Modificarcontent input, #popup-Altacontent input{
+  align-content: start;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+} */
 
-form button {
+#popup-Modificarcontent button, #popup-Altacontent button {
   align-content: end;
   background-color: #750f3b;
   color: #f4f6f8;
@@ -94,14 +99,14 @@ form button {
   transition: background-color 0.3s ease;
 }
 
-form select {
+#popup-Modificarcontent select, #popup-Altacontent select {
   color: #2e2e2e;
   padding: 10px 20px;
   border: 3px thin #53646f;
   font-weight: 500;
 }
 
-form button:hover {
+#popup-Modificarcontent button:hover, #popup-Altacontent button:hover {
   background-color:#53646f;
 }
 
@@ -358,7 +363,7 @@ opacity: 0;
 }
 
 /* Mostrar ventana con animación */
-#popup.show, #popupA.show, #popupM.show, #popupR.show {
+#popupD.show, #popupA.show, #popupM.show, #popupR.show {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
@@ -428,7 +433,7 @@ opacity: 0;
   transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
 }
 
-#popup-contentForm{
+/* #popup-contentForm{
   margin-top: 20px;
   font-family: sans-serif;
   padding: 1em;
@@ -438,4 +443,4 @@ opacity: 0;
   h2{
     text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
   }
-}
+} */
