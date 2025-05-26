@@ -56,6 +56,14 @@ async function obtenerReservas(idUsuario) {
     `;
   }
   
-  const idUsuario = 2; 
+  const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
   obtenerReservas(idUsuario);
+
+  //LIMPIAR EL LOCALSTORAG AL SALIR
+  const cerrarSesion = document.getElementById('cerrarSesion');
+  cerrarSesion.addEventListener('click', function(e){
+    e.preventDefault();
+    localStorage.clear();
+    window.location.href= "prueba.html";
+  });
   

@@ -51,61 +51,54 @@ document.querySelectorAll('.card').forEach(card => {
     });
   });
 
-  const idUsuario = 2;
 
-  async function getUsuario(idUsuario) {
-      try {
+
+        async function getUsuario(idUsuario) {
+            try {
+                
+                const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
+                const usuario = await resUsuario.json();
+
+                if (!usuario) {
+                    document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
+                    return;
+                }
+
+               
+                renderizarTablaUsuario([usuario]);  
+            } catch (error) {
+                console.error(error);
+                document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+            }
+        }
+
+        function renderizarTablaUsuario(usuarios) {
+            const tablaContainer = document.getElementById('tablaUsuarioContainer');
+            
           
-          const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
-          const usuario = await resUsuario.json();
+            const filas = usuarios.map(usuario => `
+            <br>
+            <br>
+            <br>
+                <h2>Detalles del Usuario: ${usuario.nombre}</h2>
+                <p><strong>ID:</strong> ${usuario.idUsuario}</p>
+                <p><strong>Email:</strong> ${usuario.email}</p>
+                <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+                <p><strong>Apellidos:</strong> ${usuario.apellidos}</p>
+                <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
+            `).join('');
 
-         
-          if (!usuario) {
-              document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
-              return;
-          }
+            
+            tablaContainer.innerHTML = filas;
+        }
 
-          renderizarTablaUsuario([usuario]);
-      } catch (error) {
-          console.error(error);
-          document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
-      }
-  }
+      const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
+        getUsuario(idUsuario);
 
-  function renderizarTablaUsuario(usuarios) {
-      const tablaContainer = document.getElementById('tablaUsuarioContainer');
-      
-      
-      const filas = usuarios.map(usuario => `
-          <tr>
-              <td>${usuario.idUsuario || "N/A"}</td>
-              <td>${usuario.email || "Sin email"}</td>
-              <td>${usuario.nombre || "Sin nombre"}</td>
-              <td>${usuario.apellidos || "Sin apellidos"}</td>
-              <td>
-                  <input type="password" value="${usuario.password}" disabled />
-              </td>
-          </tr>
-      `).join('');
-
-    
-      tablaContainer.innerHTML = `
-          <table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
-              <thead>
-                  <tr>
-                      <th>Id Usuario</th>
-                      <th>Email</th>
-                      <th>Nombre</th>
-                      <th>Apellidos</th>
-                      <th>Password</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  ${filas}
-              </tbody>
-          </table>
-      `;
-  }
-
-  // Llamar a la función para obtener los datos del usuario
-  getUsuario(idUsuario);
+        //LIMPIAR EL LOCALSTORAG AL SALIR
+    const cerrarSesion = document.getElementById('cerrarSesion');
+    cerrarSesion.addEventListener('click', function(e){
+      e.preventDefault();
+      localStorage.clear();
+      window.location.href= "prueba.html";
+    });
