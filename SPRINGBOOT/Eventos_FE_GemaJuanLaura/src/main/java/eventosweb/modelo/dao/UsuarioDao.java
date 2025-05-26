@@ -2,6 +2,7 @@ package eventosweb.modelo.dao;
 
 import java.util.List;
 
+import eventosweb.modelo.dto.UsuarioDtoDatos;
 import eventosweb.modelo.entities.Usuario;
 
 public interface UsuarioDao {

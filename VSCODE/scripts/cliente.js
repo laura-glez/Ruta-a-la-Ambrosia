@@ -52,48 +52,50 @@ document.querySelectorAll('.card').forEach(card => {
   });
 
 
+  const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
+  console.log(idUsuario);
+  
 
-        async function getUsuario(idUsuario) {
+        async function getReservasUsuario(idUsuario) {
             try {
                 
                 const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
-                const usuario = await resUsuario.json();
+                const usuarios = await resUsuario.json();
+                console.log(usuarios);
 
-                if (!usuario) {
+                if (!usuarios) {
                     document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
                     return;
                 }
 
                
-                renderizarTablaUsuario([usuario]);  
+                  
             } catch (error) {
-                console.error(error);
+                //console.error(error);
                 document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
             }
         }
 
-        function renderizarTablaUsuario(usuarios) {
-            const tablaContainer = document.getElementById('tablaUsuarioContainer');
-            
-          
-            const filas = usuarios.map(usuario => `
+        function renderizarTablaUsuario(u) {
+            //const tablaContainer = document.getElementById('tablaUsuarioContainer');
+            const divDetalles = document.getElementById('tablaUsuarioContainer');
+            u = getUsuario(idUsuario);
+            console.log(u);
+            divDetalles.innerHTML =`
             <br>
             <br>
             <br>
-                <h2>Detalles del Usuario: ${usuario.nombre}</h2>
-                <p><strong>ID:</strong> ${usuario.idUsuario}</p>
-                <p><strong>Email:</strong> ${usuario.email}</p>
-                <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-                <p><strong>Apellidos:</strong> ${usuario.apellidos}</p>
-                <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
-            `).join('');
-
-            
-            tablaContainer.innerHTML = filas;
+                <h2>Detalles del Usuario: ${u.nombre}</h2>
+                <p><strong>ID:</strong> ${u.idUsuario}</p>
+                <p><strong>Email:</strong> ${u.email}</p>
+                <p><strong>Nombre:</strong> ${u.nombre}</p>
+                <p><strong>Apellidos:</strong> ${u.apellidos}</p>
+                <p><strong>Password:</strong> <input type="password" value="${u.password}" disabled /></p>
+            `;
         }
 
-      const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
-        getUsuario(idUsuario);
+      const usuario = getUsuario(idUsuario);
+      renderizarTablaUsuario(usuario);
 
         //LIMPIAR EL LOCALSTORAG AL SALIR
     const cerrarSesion = document.getElementById('cerrarSesion');

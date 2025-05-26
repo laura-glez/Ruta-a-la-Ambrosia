@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import eventosweb.modelo.dao.UsuarioDao;
-import eventosweb.modelo.dto.ReservaDto;
 import eventosweb.modelo.dto.UsuarioDto;
+import eventosweb.modelo.dto.UsuarioDtoDatos;
 import eventosweb.modelo.entities.Usuario;
 
 @RestController
@@ -73,6 +73,12 @@ public class UsuarioRestController {
 			 return null;
 	 }
 	 
+	 @GetMapping("buscarDatosUsuaro/{idUsuario}")
+	 public UsuarioDtoDatos buscarDatosUsuario (@PathVariable Integer id) {
+		
+		 return null;
+	 }
+	  
 
 	 
 	 
