@@ -51,59 +51,61 @@ document.querySelectorAll('.card').forEach(card => {
     });
   });
 
+  const idUsuario = 2;
 
-const idUsuario = 2; 
-async function getUsuario(idUsuario) {
-  try {
-    
-    const resUsuario = await fetch(`localhost:9003/reserva/usuarioId/${idUsuario}`);
-    const usuario = await resUsuario.json();
-    
-    if (!usuario) {
-      document.getElementById('tablaBody').innerHTML = `<tr><td colspan="5">No se encontraron datos para el usuario.</td></tr>`;
-      return;
-    }
+  async function getUsuario(idUsuario) {
+      try {
+          
+          const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
+          const usuario = await resUsuario.json();
 
-    
-    renderTablaUsuario(usuario);
-  } catch (error) {
-    console.error(error);
-    document.getElementById('tablaBody').innerHTML = `<tr><td colspan="5" style="color:red">${error.message}</td></tr>`;
+         
+          if (!usuario) {
+              document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
+              return;
+          }
+
+          renderizarTablaUsuario([usuario]);
+      } catch (error) {
+          console.error(error);
+          document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      }
   }
-}
 
+  function renderizarTablaUsuario(usuarios) {
+      const tablaContainer = document.getElementById('tablaUsuarioContainer');
+      
+      
+      const filas = usuarios.map(usuario => `
+          <tr>
+              <td>${usuario.idUsuario || "N/A"}</td>
+              <td>${usuario.email || "Sin email"}</td>
+              <td>${usuario.nombre || "Sin nombre"}</td>
+              <td>${usuario.apellidos || "Sin apellidos"}</td>
+              <td>
+                  <input type="password" value="${usuario.password}" disabled />
+              </td>
+          </tr>
+      `).join('');
 
-function renderTablaUsuario(usuario) {
-  const tablaBody = document.getElementById('tablaBody');
-  tablaBody.innerHTML = ""; 
+    
+      tablaContainer.innerHTML = `
+          <table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+              <thead>
+                  <tr>
+                      <th>Id Usuario</th>
+                      <th>Email</th>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Password</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  ${filas}
+              </tbody>
+          </table>
+      `;
+  }
 
-  // Crear la fila con los datos del usuario
-  const fila = tablaBody.insertRow();
-
-  // Celda de Id Usuario
-  const celdaId = fila.insertCell();
-  celdaId.textContent = usuario.idUsuario;
-
-  // Celda de Email
-  const celdaEmail = fila.insertCell();
-  celdaEmail.textContent = usuario.email;
-
-  // Celda de Nombre
-  const celdaNombre = fila.insertCell();
-  celdaNombre.textContent = usuario.nombre;
-
-  // Celda de Apellidos
-  const celdaApellidos = fila.insertCell();
-  celdaApellidos.textContent = usuario.apellidos;
-
-  // Celda de Password (input tipo password)
-  const celdaPassword = fila.insertCell();
-  const inputPassword = document.createElement("input");
-  inputPassword.type = "password";  // Mostrar como password (asteriscos)
-  inputPassword.value = usuario.password;  
-  inputPassword.disabled = true; 
-  celdaPassword.appendChild(inputPassword);
-}
-
-
-getUsuario(idUsuario);
+  // Llamar a la función para obtener los datos del usuario
+  getUsuario(idUsuario);
