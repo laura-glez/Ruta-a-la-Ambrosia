@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import eventosweb.modelo.dao.UsuarioDao;
+import eventosweb.modelo.dto.ReservaDto;
 import eventosweb.modelo.dto.UsuarioDto;
 import eventosweb.modelo.entities.Usuario;
 
@@ -65,8 +66,15 @@ public class UsuarioRestController {
 //	 }
 	 
 	 @GetMapping("/buscarEmailYPass/{email}/{pass}")
-	 public Integer buscarPorEmailYPass (@PathVariable String email, @PathVariable String pass ) {
-		 return udao.porEmailYPass(email, pass);
+	 public UsuarioDto buscarPorEmailYPass (@PathVariable String email, @PathVariable String pass ) {
+		 if(udao.porEmailYPass(email, pass) == 1) {
+			 return  UsuarioDto.convert(udao.porEmail(email));
+		 }else
+			 return null;
 	 }
+	 
+
+	 
+	 
 	 
 }

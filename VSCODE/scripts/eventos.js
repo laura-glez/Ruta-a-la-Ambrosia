@@ -198,17 +198,17 @@ const celdaReservas = fila.insertCell();
     });
     
 
- function mostrarDatosReserva(reserva) {
-      const popup = document.getElementById('popupD');
+ function mostrarDatosReserva(reservas) {
+      const popup = document.getElementById('popupR');
 
       const overlay = document.getElementById('popup-overlay');
-      const divDetallesReserva = document.getElementById('popup-contentD');
+      const divDetallesReserva = document.getElementById('popup-contentR');
     
       popup.classList.add('show');
       popup.style.display = 'block';
       overlay.style.display = 'block';
    
-      document.getElementById('cerrarPopupD').addEventListener('click', () => {
+      document.getElementById('cerrarPopupR').addEventListener('click', () => {
 
         popup.classList.remove('show');
         setTimeout(() => {
@@ -281,11 +281,8 @@ const celdaReservas = fila.insertCell();
           renderTabla();  // Volver a renderizar la tabla sin el evento eliminado
         } catch (error) {
           alert('Error al eliminar el evento: ' + error.message);
-        }}});
-    
-    });
-
-    
+        }}});  
+    });    
 }
 
 
