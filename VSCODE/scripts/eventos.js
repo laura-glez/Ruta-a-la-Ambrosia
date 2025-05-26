@@ -183,12 +183,12 @@ const celdaReservas = fila.insertCell();
       try {
         const res = await fetch(`http://localhost:9003/reserva/evento/${e.idEvento}`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        
+    
         const reservasEvento = await res.json();
         console.log("Reservas recibidas:", reservasEvento);
     
         if (Array.isArray(reservasEvento) && reservasEvento.length > 0) {
-          mostrarDatosReserva(reservasEvento[0]);
+          mostrarDatosReserva(reservasEvento);  // pasar TODAS las reservas
         } else {
           alert("No se encontraron reservas para este evento.");
         }
@@ -201,15 +201,15 @@ const celdaReservas = fila.insertCell();
  function mostrarDatosReserva(reserva) {
       const popup = document.getElementById('popupD');
 
-
       const overlay = document.getElementById('popup-overlay');
       const divDetallesReserva = document.getElementById('popup-contentD');
     
       popup.classList.add('show');
       popup.style.display = 'block';
       overlay.style.display = 'block';
-    
+   
       document.getElementById('cerrarPopupD').addEventListener('click', () => {
+
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
@@ -218,41 +218,49 @@ const celdaReservas = fila.insertCell();
       });
     
       divDetallesReserva.style.display = "block";
+    
+      // Crear las filas de la tabla dinámicamente
+      let filas = reservas.map(reserva => `
+        <tr>
+          <td>${reserva.idReserva || "N/A"}</td>
+          <td>${reserva.idEvento || "Sin evento"}</td>
+          <td>${reserva.nombreEvento || "Sin evento"}</td>
+          <td>${reserva.idUsuario || "Sin usuario"}</td>
+          <td>${reserva.email || "Sin usuario"}</td>
+          <td>${reserva.nombre || "Sin usuario"}</td>
+          <td>${reserva.apellidos || "Sin usuario"}</td>
+          <td>${reserva.precioVenta ?? "No especificado"}</td>
+          <td>${reserva.aforoMaximo ?? "No especificado"}</td>
+          <td>${reserva.precioEvento ?? "No especificado"}</td>
+          <td>${reserva.cantidad ?? "No especificada"}</td>
+        </tr>
+      `).join('');
+    
       divDetallesReserva.innerHTML = `
         <h2>Detalles de la Reserva</h2>
-        <table id="tablaReserva" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
-          <tbody>
-          <tr>
-          <th><strong>ID Reserva</strong></th>
-          <th><strong>Evento ID</strong> </th>
-          <th> <strong>Nombre Evento</strong></th>
-          <th> <strong>Usuario ID</strong></th>
-          <th><strong>Email</strong></th>
-          <th> <strong>Nombre</strong></th>
-          <th><strong>Apellidos</strong></th>
-          <th><strong>Precio Venta</strong></th>
-          <th><strong>Aforo máximo</strong></th>
-          <th><strong>Precio Evento</strong></th>
-          <th><strong>Cantidad</strong></th>
-
-          </tr>
-              <td>${reserva.idReserva || "N/A"}</td> 
-              <td>${reserva.idEvento || "Sin evento"}</td>
-              <td>${reserva.nombreEvento || "Sin evento"}</td>
-              <td>${reserva.idUsuario || "Sin usuario"}</td>
-              <td>${reserva.email || "Sin usuario"}</td>
-              <td>${reserva.nombre || "Sin usuario"}</td>
-              <td>${reserva.apellidos || "Sin usuario"}</td>
-              <td>${reserva.precioVenta ?? "No especificado"}</td>
-              <td>${reserva.aforoMaximo ?? "No especificado"}</td>
-              <td>${reserva.precioEvento ?? "No especificado"}</td>
-              <td>${reserva.cantidad ?? "No especificada"}</td>
+        <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+          <thead>
+            <tr>
+              <th>ID Reserva</th>
+              <th>Evento ID</th>
+              <th>Nombre Evento</th>
+              <th>Usuario ID</th>
+              <th>Email</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Precio Venta</th>
+              <th>Aforo máximo</th>
+              <th>Precio Evento</th>
+              <th>Cantidad</th>
             </tr>
-          
+          </thead>
+          <tbody>
+            ${filas}
           </tbody>
         </table>
       `;
-    }      
+    }
+     
     
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
