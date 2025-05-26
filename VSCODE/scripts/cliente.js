@@ -50,3 +50,60 @@ document.querySelectorAll('.card').forEach(card => {
       });
     });
   });
+
+
+const idUsuario = 2; 
+async function getUsuario(idUsuario) {
+  try {
+    
+    const resUsuario = await fetch(`localhost:9003/reserva/usuarioId/${idUsuario}`);
+    const usuario = await resUsuario.json();
+    
+    if (!usuario) {
+      document.getElementById('tablaBody').innerHTML = `<tr><td colspan="5">No se encontraron datos para el usuario.</td></tr>`;
+      return;
+    }
+
+    
+    renderTablaUsuario(usuario);
+  } catch (error) {
+    console.error(error);
+    document.getElementById('tablaBody').innerHTML = `<tr><td colspan="5" style="color:red">${error.message}</td></tr>`;
+  }
+}
+
+
+function renderTablaUsuario(usuario) {
+  const tablaBody = document.getElementById('tablaBody');
+  tablaBody.innerHTML = ""; 
+
+  // Crear la fila con los datos del usuario
+  const fila = tablaBody.insertRow();
+
+  // Celda de Id Usuario
+  const celdaId = fila.insertCell();
+  celdaId.textContent = usuario.idUsuario;
+
+  // Celda de Email
+  const celdaEmail = fila.insertCell();
+  celdaEmail.textContent = usuario.email;
+
+  // Celda de Nombre
+  const celdaNombre = fila.insertCell();
+  celdaNombre.textContent = usuario.nombre;
+
+  // Celda de Apellidos
+  const celdaApellidos = fila.insertCell();
+  celdaApellidos.textContent = usuario.apellidos;
+
+  // Celda de Password (input tipo password)
+  const celdaPassword = fila.insertCell();
+  const inputPassword = document.createElement("input");
+  inputPassword.type = "password";  // Mostrar como password (asteriscos)
+  inputPassword.value = usuario.password;  
+  inputPassword.disabled = true; 
+  celdaPassword.appendChild(inputPassword);
+}
+
+
+getUsuario(idUsuario);

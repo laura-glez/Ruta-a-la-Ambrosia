@@ -114,3 +114,12 @@ header {
     background: white; 
     font-family: sans-serif;
 }
+
+#tablaCliente{
+position:relative ;
+top: 200px;
+justify-content: space-between;
+gap: 1rem;
+border-color: #111;
+
+}

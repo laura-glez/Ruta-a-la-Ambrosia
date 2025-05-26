@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mis Datos</title>
     <link href="css/datosClienteStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -15,11 +15,26 @@
               <li><a href='DatosCliente.html'>Mis Datos</a></li>
               <li><a href="MisReservas.html">Mis Reservas</a></li>
               <li><a href="#">Añadir Nombre usuario</a></li>
-              <li><a href="prueba.html">Cerrar Sesión</a></li>
-              
+              <li><a href="prueba.html">Cerrar Sesión</a></li>   
           </ul>
+          
           
           </nav>
     </header>
+    <table id="tablaCliente" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+        <thead>
+          <tr>
+            <th>Id Usuario</th>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody id="tablaBody">
+
+        </tbody>
+      </table>
+      <script src="scripts/cliente.js"></script>
 </body>
 </html>
