@@ -68,6 +68,8 @@ public class ReservaRestController {
 		 
 	 }
 	 
-	    
-
+	 @GetMapping("/usuarioEmail/{email}")
+	 public List <ReservaDto> porEmail (@PathVariable String email){
+		 return ReservaDto.converList(rdao.buscarPorEmail(email));
+	 }
 }
