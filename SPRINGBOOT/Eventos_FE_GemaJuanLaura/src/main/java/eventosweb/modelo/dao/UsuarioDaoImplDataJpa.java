@@ -11,16 +11,9 @@ import eventosweb.modelo.repository.UsuarioRepository;
 
 @Service
 public class UsuarioDaoImplDataJpa implements UsuarioDao{
-
-    private final UsuarioRestController usuarioRestController;
-	
-	private final PerfilDaoImplDataJpa perfilDaoImplDataJpa;
 	@Autowired
 	private UsuarioRepository urepo;
 
-	UsuarioDaoImplDataJpa(PerfilDaoImplDataJpa perfilDaoImplDataJpa, UsuarioRestController usuarioRestController){
-		this.perfilDaoImplDataJpa = perfilDaoImplDataJpa;
-		this.usuarioRestController = usuarioRestController;}
 	
 	@Override
 	public List<Usuario> todos() {
@@ -85,6 +78,27 @@ public class UsuarioDaoImplDataJpa implements UsuarioDao{
 				filas= 0;
 		
 		return filas;
+	}
+
+	@Override
+	public List<Usuario> porEmail(String email) {
+		// TODO Auto-generated method stub
+		return urepo.findByEmail(email);
+	}
+
+	@Override
+	public int porEmailYPass(String email, String pass) {
+		//si devuelve 0 es admin 
+		//si es 1 es un cliente
+		//si es -1 no es cliente
+		int existe = 0;
+		Usuario u = urepo.findByEmailAndPassword(email, pass);
+		if(u != null) {
+			existe = u.getIdUsuario();
+		}else	
+			existe = u.getIdUsuario();
+		
+		return existe;
 	}
 
 

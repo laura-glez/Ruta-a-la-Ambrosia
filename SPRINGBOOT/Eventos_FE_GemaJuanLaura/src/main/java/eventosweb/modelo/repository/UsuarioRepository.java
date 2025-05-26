@@ -9,4 +9,5 @@ import eventosweb.modelo.entities.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	public List<Usuario> findByNombreContaining(String cadena);
 	public Usuario findByEmailAndPassword(String email, String password);	
+	public List<Usuario> findByEmail (String email);
 }

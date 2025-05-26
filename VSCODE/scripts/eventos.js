@@ -197,22 +197,19 @@ const celdaReservas = fila.insertCell();
       }
     });
     
-    
-    function mostrarDatosReserva(reservas) {
-      console.log("Reservas recibidas en mostrarDatosReserva:", reservas);
-    
-      const popup = document.getElementById('popup');
+
+ function mostrarDatosReserva(reserva) {
+      const popup = document.getElementById('popupD');
+
       const overlay = document.getElementById('popup-overlay');
-      const divDetallesReserva = document.getElementById('popup-content');
+      const divDetallesReserva = document.getElementById('popup-contentD');
     
       popup.classList.add('show');
       popup.style.display = 'block';
       overlay.style.display = 'block';
-    
-      // Para evitar múltiples listeners de cerrar
-      const cerrarBtn = document.getElementById('cerrarPopup');
-      cerrarBtn.replaceWith(cerrarBtn.cloneNode(true));
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
+   
+      document.getElementById('cerrarPopupD').addEventListener('click', () => {
+
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
@@ -349,9 +346,9 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
 
 // Función para mostrar los detalles del evento
 function mostrarDatosEvento(evento) {
-  const popup = document.getElementById('popup');
+  const popup = document.getElementById('popupD');
   const overlay = document.getElementById('popup-overlay');
-  const divDetalles = document.getElementById('popup-content');
+  const divDetalles = document.getElementById('popup-contentD');
 
   popup.classList.add('show');
   popup.style.display = 'block';
@@ -359,7 +356,7 @@ function mostrarDatosEvento(evento) {
 
 
 
-document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
+document.getElementById('cerrarPopupD').addEventListener('click', async () => {
 
   popup.classList.remove('show');
 
@@ -386,24 +383,10 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
 
-    document.getElementById('cerrarPopup').addEventListener('click', () => {
-      const popup = document.getElementById('popup');
-      const overlay = document.getElementById('popup-overlay');
-
-      popup.classList.remove('show');
-      setTimeout(() => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-        divDetalles.style.display = 'none';
-
-      }, 200);
-      
-    });
-
 }
 
 function mostarAlta(){
-        const popup = document.getElementById('popup');
+        const popup = document.getElementById('popupA');
         const overlay = document.getElementById('popup-overlay');
         const form = document.getElementById('popup-Altacontent');
 
@@ -413,8 +396,8 @@ function mostarAlta(){
         form.style.display ='block';
     
       // Event listener para cerrar el modal
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
+      document.getElementById('cerrarPopupA').addEventListener('click', () => {
+        const popup = document.getElementById('popupA');
         const overlay = document.getElementById('popup-overlay');
 
         popup.classList.remove('show');
@@ -428,7 +411,7 @@ function mostarAlta(){
 
 function mostrarModificarEvento(){
   //Asignar event listener para abrir el modal con el formulario
-        const popup = document.getElementById('popup');
+        const popup = document.getElementById('popupM');
         const overlay = document.getElementById('popup-overlay');
         const form = document.getElementById('popup-Modificarcontent');
 
@@ -438,32 +421,14 @@ function mostrarModificarEvento(){
         form.style.display = 'block';
     
       // Event listener para cerrar el modal
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
+      document.getElementById('cerrarPopupM').addEventListener('click', () => {
+        const popup = document.getElementById('popupM');
         const overlay = document.getElementById('popup-overlay');
 
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
           overlay.style.display = 'none';
-          
-
         }, 200)
 });}
-
-    function cerrarPopUp(){
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        const overlay = document.getElementById('popup-overlay');
-
-        popup.classList.remove('show');
-        setTimeout(() => {
-          popup.style.display = 'none';
-          overlay.style.display = 'none';
-          
-
-        }, 200);
-        
-      });
-    } 
 
