@@ -181,16 +181,27 @@ const celdaReservas = fila.insertCell();
 
     img4.addEventListener("click", async () => {
       try {
-        const res = await fetch(`http://localhost:9003/reserva/uno/${e.idEvento}`);
-        const reservaEvento = await res.json();
-        mostrarDatosReserva(reservaEvento);
+        const res = await fetch(`http://localhost:9003/reserva/evento/${e.idEvento}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        
+        const reservasEvento = await res.json();
+        console.log("Reservas recibidas:", reservasEvento);
+    
+        if (Array.isArray(reservasEvento) && reservasEvento.length > 0) {
+          mostrarDatosReserva(reservasEvento[0]);
+        } else {
+          alert("No se encontraron reservas para este evento.");
+        }
       } catch (error) {
         alert("Error al obtener la reserva: " + error.message);
       }
     });
     
+
  function mostrarDatosReserva(reserva) {
       const popup = document.getElementById('popupD');
+
+
       const overlay = document.getElementById('popup-overlay');
       const divDetallesReserva = document.getElementById('popup-contentD');
     
@@ -208,21 +219,41 @@ const celdaReservas = fila.insertCell();
     
       divDetallesReserva.style.display = "block";
       divDetallesReserva.innerHTML = `
-      <h2>Detalles de la Reserva</h2>
-      <p><strong>ID Reserva:</strong> ${reserva.idReserva || "N/A"}</p>
-      <p><strong>Evento:</strong> ${reserva.evento?.idEvento || "Sin evento"}</p>
-      <p><strong>Usuario:</strong> ${reserva.usuario?.idUsuario || "Sin usuario"}</p>
-      <p><strong>Email:</strong> ${reserva.usuario?.email || "Sin usuario"}</p>
-      <p><strong>Nombre:</strong> ${reserva.usuario?.nombre || "Sin usuario"}</p>
-      <p><strong>Apellidos:</strong> ${reserva.usuario?.apellidos || "Sin usuario"}</p>
-      <p><strong>Precio Venta:</strong> ${reserva.precioVenta ?? "No especificado"}</p>
-      <p><strong>Aforo máximo</strong> ${reserva.evento.aforoMaximo ?? "No especificado"}</p>
-      <p><strong>Precio Evento:</strong> ${reserva.evento.precio?? "No especificado"}</p>
-      <p><strong>Observaciones:</strong> ${reserva.observaciones || "Ninguna"}</p>
-      <p><strong>Cantidad:</strong> ${reserva.cantidad ?? "No especificada"}</p>
-    `;
-  
-    }
+        <h2>Detalles de la Reserva</h2>
+        <table id="tablaReserva" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+          <tbody>
+          <tr>
+          <th><strong>ID Reserva</strong></th>
+          <th><strong>Evento ID</strong> </th>
+          <th> <strong>Nombre Evento</strong></th>
+          <th> <strong>Usuario ID</strong></th>
+          <th><strong>Email</strong></th>
+          <th> <strong>Nombre</strong></th>
+          <th><strong>Apellidos</strong></th>
+          <th><strong>Precio Venta</strong></th>
+          <th><strong>Aforo máximo</strong></th>
+          <th><strong>Precio Evento</strong></th>
+          <th><strong>Cantidad</strong></th>
+
+          </tr>
+              <td>${reserva.idReserva || "N/A"}</td> 
+              <td>${reserva.idEvento || "Sin evento"}</td>
+              <td>${reserva.nombreEvento || "Sin evento"}</td>
+              <td>${reserva.idUsuario || "Sin usuario"}</td>
+              <td>${reserva.email || "Sin usuario"}</td>
+              <td>${reserva.nombre || "Sin usuario"}</td>
+              <td>${reserva.apellidos || "Sin usuario"}</td>
+              <td>${reserva.precioVenta ?? "No especificado"}</td>
+              <td>${reserva.aforoMaximo ?? "No especificado"}</td>
+              <td>${reserva.precioEvento ?? "No especificado"}</td>
+              <td>${reserva.cantidad ?? "No especificada"}</td>
+            </tr>
+          
+          </tbody>
+        </table>
+      `;
+    }      
+    
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
       const confirmDelete = confirm(`¿Estás seguro de eliminar el evento: ${e.nombre}?`);
