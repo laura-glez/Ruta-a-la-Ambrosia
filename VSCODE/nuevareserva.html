@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón de Reserva</title>
+    <style>
+        #formularioreserva{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn-reserva" id="btnReserva">Hacer Reserva</button>
+    </div>
+
+    <div id="formularioreserva">
+        <form id="reserva">
+            <label>Cantidad</label>
+            <input type="number" name="cantidad" placeholder="cantidad" max="10" min="1">
+
+            <label>Observaciones</label>
+            <input type="text" cantidad="obervaciones" placeholder="observaciones">
+
+            <button type="submit" id="reservarEvento">reservar</button>
+        </form>
+    </div>
+
+    <script>
+async function getUnEvento() {
+    try {
+        const res = await fetch('http://localhost:9003/evento/uno/2');
+        if (!res.ok) {
+            throw new Error(`Error en la respuesta del evento: ${res.status}`);
+        }
+        const listResult = await res.json();
+
+        console.log("Datos obtenidos del evento: ", listResult);
+
+        return listResult;  // Devuelves el evento directamente
+    } catch (error) {
+        console.error(error);
+        document.getElementById('tabla').innerHTML = `<p style="color:red">${error.message}</p>`;
+        throw error;  // Lanzar el error para que se maneje fuera de la función
+    }
+}
+
+async function getUnUsuario() {
+    try {
+        const res = await fetch('http://localhost:9003/usuario/uno/3');
+        if (!res.ok) {
+            throw new Error(`Error en la respuesta del usuario: ${res.status}`);
+        }
+        const listResult = await res.json();
+
+        console.log("Datos obtenidos del usuario: ", listResult);
+
+        return listResult;  // Devuelves el usuario directamente
+    } catch (error) {
+        console.error(error);
+        document.getElementById('tabla').innerHTML = `<p style="color:red">${error.message}</p>`;
+        throw error;  // Lanzar el error para que se maneje fuera de la función
+    }
+}
+
+
+async function inicializarDatos() {
+    try {
+        const evento = await getUnEvento();  // Espera a que se resuelva el evento
+        const usuario = await getUnUsuario();  // Espera a que se resuelva el usuario
+        
+        console.log("Evento:", evento);
+        console.log("Usuario:", usuario);
+
+        // Aquí puedes continuar con el proceso de reserva después de obtener los datos
+
+        document.getElementById('btnReserva').addEventListener('click', function() {
+            document.getElementById('formularioreserva').style.display = "block";
+        });
+
+        document.getElementById('reservarEvento').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            let nuevoReserva = {
+                cantidad: parseInt(document.getElementById("cantidad").value),
+                observaciones: document.getElementById("observaciones").value,
+                usuario: { idUsuario: usuario.idUsuario },
+                evento: { idEvento: evento.idEvento },
+                precioVenta: evento.precioVenta
+            };
+
+            console.log(nuevoReserva);
+            try {
+                const response = await fetch('http://localhost:9003/evento/alta', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(nuevoReserva)  //Usa nuevoReserva, no nuevoEvento
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.json();
+                    throw new Error('Error al crear la reserva: ' + JSON.stringify(errorDetails));
+                }
+
+                const reservaCreada = await response.json();
+                console.log("Reserva creada con éxito:", reservaCreada);
+                alert("Reserva realizada con éxito!");
+
+                // Limpiar el formulario o realizar cualquier acción posterior
+                document.getElementById("formularioreserva").reset();
+            } catch (error) {
+                console.error("Error al crear la reserva:", error.message);
+                alert("Error al crear la reserva: " + error.message);
+            }
+        });
+
+    } catch (error) {
+        console.error("Error al inicializar los datos:", error.message);
+    }
+}
+
+// Llamamos a la función para inicializar los datos cuando se cargue la página
+inicializarDatos();
+    </script>
+</body>
+</html>
