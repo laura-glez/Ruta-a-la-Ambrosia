@@ -175,8 +175,8 @@
     </footer>
     <div id="login-popup" style="display: none;">
         <div id="popup-overlay" onclick="closeLoginPopup()"></div>
-        <div id="popup-content">
-            <span id="popup-close" onclick="closeLoginPopup()">×</span>
+        <div id="popup-content1">
+            <span id="popup-close" onclick="closeLoginPopup()">X</span>
             <h2>Iniciar Sesión</h2>
             <form>
                 <label for="usuario">Usuario</label>
@@ -185,7 +185,25 @@
                 <label for="contrasena">Contraseña</label>
                 <input type="password" id="contrasena" name="contrasena" required>
     
+                <a href="#" id="enlaceGirar">Registrate</a>
                 <button type="submit" id="entrar-btn">Entrar</button>
+            </form>
+        </div>
+    </div>
+    <div id="login-popup2" style="display: none;">
+        <div id="popup-overlay" onclick="closeLoginPopup()"></div>
+        <div id="popup-content2">
+            <span id="popup-close2" onclick="closeLoginPopup()">X</span>
+            <h2>Iniciar Sesión</h2>
+            <form>
+                <label for="usuarioNew">Usuario</label>
+                <input type="text" id="usuarioN" name="usuarioN" required>
+    
+                <label for="contrasenaNew">Contraseña</label>
+                <input type="password" id="contrasenaN" name="contrasenaN" required>
+    
+                <a href="#" id="enlaceGirar">Inicia sesión</a>
+                <button type="submit" id="registrar-btn">Entrar</button>
             </form>
         </div>
     </div>
