@@ -24,18 +24,22 @@ async function obtenerReservas(idUsuario) {
   
     // Crear las filas de la tabla dinámicamente
     const filas = reservas.map(reserva => `
-      <tr>
-        <td>${reserva.idReserva || "N/A"}</td>
-        <td>${reserva.idEvento || "Sin evento"}</td>
-        <td>${reserva.nombreEvento || "Sin evento"}</td>
-        <td>${reserva.precioVenta ?? "No especificado"}</td>
-        <td>${reserva.precioEvento ?? "No especificado"}</td>
-        <td>${reserva.cantidad ?? "No especificada"}</td>
-      </tr>
-    `).join('');
+  <tr>
+    <td>${reserva.idReserva || "N/A"}</td>
+    <td>${reserva.idEvento || "Sin evento"}</td>
+    <td>${reserva.nombreEvento || "Sin evento"}</td>
+    <td>${reserva.precioVenta ?? "No especificado"}</td>
+    <td>${reserva.precioEvento ?? "No especificado"}</td>
+    <td>${reserva.cantidad ?? "No especificada"}</td>
+    <td>
+        <img src="https://img.icons8.com/?size=100&id=uFiFoKw72geP&format=png&color=000000" alt="icono" width="30" height="30" />
+      </a>
+    </td>
+  </tr>
+  `).join('');
   
     // Insertar la tabla en el contenedor
-    tablaContainer.innerHTML = `
+    tablaContainer.innerHTML =  `
       <br><br>
       <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
         <thead>
@@ -46,14 +50,16 @@ async function obtenerReservas(idUsuario) {
             <th>Precio Evento</th>
             <th>Precio Venta</th>
             <th>Cantidad</th>
+            <th>Modificar</th>
           </tr>
         </thead>
         <tbody>
           ${filas}
         </tbody>
       </table>
-    `;
-  }
+      `;
+  };
+  
   async function getUsuario(idUsuario) {
     try {
         const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
