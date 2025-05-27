@@ -76,7 +76,7 @@ public class UsuarioRestController {
 	 @GetMapping("buscarDatosUsuaro/{idUsuario}")
 	 public UsuarioDtoDatos buscarDatosUsuario (@PathVariable Integer id) {
 		
-		 return null;
+		 return UsuarioDtoDatos.convert(udao.buscarUno(id));
 	 }
 	  
 
