@@ -79,9 +79,9 @@ const container = document.querySelector(".container");
             });
         });
 
-const enlace = document.querySelector('enlaceGirar');
-const logIn = document.getElementById('login-popup');
-const singIn = document.getElementById('login-popup2');
+// const enlace = document.querySelector('enlaceGirar');
+// const logIn = document.getElementById('login-popup');
+// const singIn = document.getElementById('login-popup2');
 
 // Función que se ejecuta al hacer clic en el enlace
 // enlace.addEventListener('click', (event) => {
