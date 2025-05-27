@@ -72,4 +72,6 @@ public class ReservaRestController {
 	 public List <ReservaDto> porEmail (@PathVariable String email){
 		 return ReservaDto.converList(rdao.buscarPorEmail(email));
 	 }
+	 
+	 
 }
