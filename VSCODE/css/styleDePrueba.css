@@ -11,9 +11,6 @@ body {
   font-family: "cinzel";
 }
 
-
-
-
 header {
   background: #750f3b;
   padding: 20px 40px;
@@ -98,16 +95,6 @@ header nav a {
   background: rgba(0, 0, 0, 0.097);
 }
 
-
-
-
-
-
-
-
-
-
-
 .Principal {
   position: relative;
   height: 85vh;     
@@ -124,14 +111,12 @@ header nav a {
   
 }
 
-
 .Principal::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.081);
 }
-
 
 .Principal-texto {
   position: relative;
@@ -143,7 +128,6 @@ header nav a {
   border-radius: 10px;
 }
 
-
 .Principal-texto h1 {
   font-size: 2rem;
   color: #2e2e2e;
@@ -151,14 +135,12 @@ header nav a {
   font-family: "Playfair Display";
 }
 
-
 .Principal-texto p {
   font-size: 1rem;
   color: #2e2e2e;
   margin-bottom: 30px;
   font-family: "Source Sans 3" ;
 }
-
 
 .Principal-texto a {
   display: inline-block;
@@ -171,14 +153,9 @@ header nav a {
   transition: background 0.3s ease;
 }
 
-
 .Principal-texto a:hover {
   background: #333;
 }
-
-
-
-
 
 #reserva{
   font-family: "Cinzel";
@@ -196,7 +173,6 @@ header nav a {
   height: 30px;
 }
 
-
 #reserva::after{
   content: "y Brindemos";
   position: absolute;
@@ -208,7 +184,6 @@ header nav a {
   transition: opacity 0.3s;
   pointer-events: none;
 }
-
 
 #reserva:hover{
   background-color: #750f3b;
@@ -889,7 +864,7 @@ opacity: 0;
 
 
 /* Estilo para el overlay */
-#popup-overlay {
+#popup-overlay1, #popup-overlay2 {
     position: fixed;
     top: 0;
     left: 0;
@@ -901,7 +876,7 @@ opacity: 0;
 }
 
 /* Estilo para el contenido del pop-up */
-#popup-content {
+#popup-content1, #pop-content2 {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -942,7 +917,7 @@ input[type="password"] {
     font-size: 16px;
 }
 
-button#entrar-btn {
+button#entrar-btn,  button#registrar-btn{
     background-color:wheat;  /* Rojo vino */
     color: rgb(0, 0, 0);
     padding: 12px;
@@ -958,7 +933,7 @@ button#entrar-btn:hover {
 }
 
 /* Estilo para la 'X' de cierre */
-#popup-close {
+#popup-close1, #popup-close2 {
     position: absolute;
     top: 10px;
     right: 10px;

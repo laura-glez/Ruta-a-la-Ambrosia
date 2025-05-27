@@ -78,3 +78,25 @@ const container = document.querySelector(".container");
                 });
             });
         });
+
+const enlace = document.querySelector('enlaceGirar');
+const logIn = document.getElementById('login-popup');
+const singIn = document.getElementById('login-popup2');
+
+// Función que se ejecuta al hacer clic en el enlace
+enlace.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir la acción por defecto del enlace
+    
+    // Alternar entre los formularios
+    logIn.classList.toggle('oculto');  // Oculta o muestra el formulario 1
+    singIn.classList.toggle('oculto');  // Oculta o muestra el formulario 2
+
+    // Cambiar el texto del enlace según el formulario visible
+    if (logIn.classList.contains('oculto')) {
+        logIn.style.display='none';
+        singIn.style.display = 'block';
+    } else {
+        singIn.style.display='none';
+        logIn.style.display = 'block';
+    }
+});

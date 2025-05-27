@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 
 import eventosweb.modelo.entities.Usuario;
 import eventosweb.modelo.repository.UsuarioRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Service
 public class UsuarioDaoImplDataJpa implements UsuarioDao{
 	@Autowired
 	private UsuarioRepository urepo;
 
-	
 	@Override
 	public List<Usuario> todos() {
 		// TODO Auto-generated method stub
@@ -30,6 +31,7 @@ public class UsuarioDaoImplDataJpa implements UsuarioDao{
 	public Usuario insertOne(Usuario usuario) {
 		// TODO Auto-generated method stub
 		try {
+			
 			return urepo.save(usuario);
 		}catch(Exception e) {
 			e.printStackTrace();
