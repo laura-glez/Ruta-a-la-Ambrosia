@@ -1,5 +1,4 @@
-
- // Función para obtener los datos desde localStorage
+// Función para obtener los datos desde localStorage
  const getData = () => JSON.parse(localStorage.getItem('user') || '[]');
  
  const login = document.getElementById('login-popup');
@@ -37,66 +36,72 @@
         
     });
 
-
 //POPUP LOGIN
-const container = document.querySelector(".container");
-        Array.from(container.querySelectorAll(".card")).forEach(card => {
-            card.addEventListener("click", (e) => {  
-                const clone = card.cloneNode(true);
-                card.classList.toggle("flat");
-                const closeButton = document.createElement("button");
-                closeButton.classList.add("close-button");
-                closeButton.innerHTML = "&times;";
-                clone.appendChild(closeButton);
-                clone.style.position = "fixed";
-                clone.style.left = card.getBoundingClientRect().left + "px";
-                clone.style.top = card.getBoundingClientRect().top + "px";
-                clone.style.width = card.offsetWidth + "px";
-                clone.style.height = card.offsetHeight + "px";
-                clone.style.zIndex = 999;
-      
-                // Mostrar los detalles al expandir
-                const details = clone.querySelector(".card-details");
-                if (details) {
-                    details.style.display = "block";
-                }
-      
-                document.body.appendChild(clone);
-                requestAnimationFrame(() => clone.classList.add("card-full"));
-      
-                closeButton.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    clone.classList.remove("card-full");
-                    card.classList.toggle("flat");
-                    setTimeout(() => clone.remove(), 300);
-                });
-      
-                clone.addEventListener("click", e => {
-                    clone.classList.remove("card-full");
-                    card.classList.toggle("flat");
-                    setTimeout(() => clone.remove(), 300);
-                });
-            });
-        });
+function mostarAlta(){
+        const popup = document.getElementById('login-popup');
+        const overlay = document.getElementById('popup-overlay');
+        const form = document.getElementById('login-form');
+        const formC = document.getElementById('login-form2');
 
-// const enlace = document.querySelector('enlaceGirar');
-// const logIn = document.getElementById('login-popup');
-// const singIn = document.getElementById('login-popup2');
-
-// Función que se ejecuta al hacer clic en el enlace
-// enlace.addEventListener('click', (event) => {
-//     event.preventDefault(); // Prevenir la acción por defecto del enlace
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+        form.style.display ='block';
+        formC.style.display ='none'; 
     
-//     // Alternar entre los formularios
-//     logIn.classList.toggle('oculto');  // Oculta o muestra el formulario 1
-//     singIn.classList.toggle('oculto');  // Oculta o muestra el formulario 2
+      // Event listener para cerrar el modal
+      document.getElementById('popup-close').addEventListener('click', () => {
+        const popup = document.getElementById('login-popup');
+        const overlay = document.getElementById('popup-overlay');
 
-//     // Cambiar el texto del enlace según el formulario visible
-//     if (logIn.classList.contains('oculto')) {
-//         logIn.style.display='none';
-//         singIn.style.display = 'block';
-//     } else {
-//         singIn.style.display='none';
-//         logIn.style.display = 'block';
-//     }
-// });
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+        }, 200)
+    });}
+
+//POPUP SINGIN
+function mostarRegistro(){
+        const popup = document.getElementById('login-popup2');
+        const overlay = document.getElementById('popup-overlay');
+        const form = document.getElementById('login-form2');
+        const formC = document.getElementById('login-form');
+
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+        form.style.display ='block';
+        formC.style.display ='none';    
+    
+      // Event listener para cerrar el modal
+      document.getElementById('popup-close2').addEventListener('click', () => {
+        const popup = document.getElementById('login-popup2');
+        const overlay = document.getElementById('popup-overlay');
+
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+          
+
+        }, 200)
+    });}
+
+function mostrarRegistro(){
+  // Oculta el formulario de login y muestra el de registro
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('login-form2').style.display = 'block';
+}
+
+function mostrarLogin(){
+  // Oculta el formulario de registro y muestra el de login
+  document.getElementById('login-form').style.display = 'block';
+  document.getElementById('login-form2').style.display = 'none';
+}
+
+function openLoginPopup(e) {
+    e.preventDefault();
+    mostarAlta();
+}
+
