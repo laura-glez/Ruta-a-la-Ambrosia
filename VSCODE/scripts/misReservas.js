@@ -1,55 +1,67 @@
-const idUsuario = JSON.parse(localStorage.getItem('usuario'))?.idUsuario; 
-console.log(idUsuario);
-
-async function getReservasUsuario(idUsuario) {
+async function obtenerReservas(idUsuario) {
     try {
-        const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
-        const usuarios = await resUsuario.json();
-        console.log(usuarios);
-
-        if (!usuarios || usuarios.length === 0) {
-            document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
-            return;
-        }
+      const res = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
+      const reservas = await res.json();
+      
+      // Si no se encuentran reservas, mostramos un mensaje
+      if (!reservas || reservas.length === 0) {
+        document.getElementById('tablaReservasContainer').innerHTML = `<p>No se encontraron reservas</p>`;
+        return;
+      }
+  
+      // Si se encontraron reservas, renderizamos la tabla
+      renderizarTablaReservas(reservas);
     } catch (error) {
-        document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      console.error('Error al obtener reservas:', error);
+      document.getElementById('tablaReservasContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
     }
-}
-
-async function getUsuario(idUsuario) {
-    try {
-        const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
-        const usuario = await res.json();
-        console.log(usuario);
-        return usuario; 
-    } catch (error) {
-        document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
-        throw error; 
-    }
-}
-
-async function renderizarTablaUsuario(idUsuario) {
-    const usuario = await getUsuario(idUsuario);
-    const divDetalles = document.getElementById('tablaUsuarioContainer');
-    divDetalles.innerHTML = `
-        <br><br><br>
-        <h2>Detalles del Usuario: ${usuario.nombre}</h2>
-        <p><strong>ID:</strong> ${usuario.idUsuario}</p>
-        <p><strong>Email:</strong> ${usuario.email}</p>
-        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-        <p><strong>Apellidos:</strong> ${usuario.apellidos}</p>
-        <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
+  }
+  
+  // Función para renderizar la tabla con los datos de las reservas
+  function renderizarTablaReservas(reservas) {
+    // Obtener el contenedor donde se va a insertar la tabla
+    const tablaContainer = document.getElementById('tablaReservasContainer');
+  
+    // Crear las filas de la tabla dinámicamente
+    const filas = reservas.map(reserva => `
+      <tr>
+        <td>${reserva.idReserva || "N/A"}</td>
+        <td>${reserva.idEvento || "Sin evento"}</td>
+        <td>${reserva.nombreEvento || "Sin evento"}</td>
+        <td>${reserva.precioVenta ?? "No especificado"}</td>
+        <td>${reserva.precioEvento ?? "No especificado"}</td>
+        <td>${reserva.cantidad ?? "No especificada"}</td>
+      </tr>
+    `).join('');
+  
+    // Insertar la tabla en el contenedor
+    tablaContainer.innerHTML = `
+      <br><br>
+      <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+        <thead>
+          <tr>
+            <th>ID Reserva</th>
+            <th>Evento ID</th>
+            <th>Nombre Evento</th>
+            <th>Precio Evento</th>
+            <th>Precio Venta</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${filas}
+        </tbody>
+      </table>
     `;
-}
+  }
+  
+  const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
+  obtenerReservas(idUsuario);
 
-async function renderizarNombreUsuario(idUsuario) {
-    const usuario = await getUsuario(idUsuario);
-    const divNombre = document.getElementById('tablaUsuarioContainer');
-    divNombre.innerHTML = `
-        <nav class="nav nav1">
-        <li><a href="#"> ${usuario.nombre}</a></li>
-        </ul>`;
-}
-
-renderizarTablaUsuario(idUsuario);
-renderizarNombreUsuario(idUsuario);
+  //LIMPIAR EL LOCALSTORAG AL SALIR
+  const cerrarSesion = document.getElementById('cerrarSesion');
+  cerrarSesion.addEventListener('click', function(e){
+    e.preventDefault();
+    localStorage.clear();
+    window.location.href= "prueba.html";
+  });
