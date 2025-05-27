@@ -1,45 +1,45 @@
+
 async function obtenerReservas(idUsuario) {
     try {
       const res = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
       const reservas = await res.json();
       
-      // Si no se encuentran reservas, mostramos un mensaje
       if (!reservas || reservas.length === 0) {
         document.getElementById('tablaReservasContainer').innerHTML = `<p>No se encontraron reservas</p>`;
         return;
       }
   
-      // Si se encontraron reservas, renderizamos la tabla
       renderizarTablaReservas(reservas);
     } catch (error) {
       console.error('Error al obtener reservas:', error);
       document.getElementById('tablaReservasContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
     }
-  }
-  
-  // Función para renderizar la tabla con los datos de las reservas
-  function renderizarTablaReservas(reservas) {
-    // Obtener el contenedor donde se va a insertar la tabla
+}
+
+
+function renderizarTablaReservas(reservas) {
     const tablaContainer = document.getElementById('tablaReservasContainer');
   
-    // Crear las filas de la tabla dinámicamente
-    const filas = reservas.map(reserva => `
-  <tr>
-    <td>${reserva.idReserva || "N/A"}</td>
-    <td>${reserva.idEvento || "Sin evento"}</td>
-    <td>${reserva.nombreEvento || "Sin evento"}</td>
-    <td>${reserva.precioVenta ?? "No especificado"}</td>
-    <td>${reserva.precioEvento ?? "No especificado"}</td>
-    <td>${reserva.cantidad ?? "No especificada"}</td>
-    <td>
-        <img src="https://img.icons8.com/?size=100&id=uFiFoKw72geP&format=png&color=000000" alt="icono" width="30" height="30" />
-      </a>
-    </td>
-  </tr>
-  `).join('');
+    const filas = reservas.map((reserva, index) => `
+      <tr>
+        <td>${reserva.idReserva || "N/A"}</td>
+        <td>${reserva.idEvento || "Sin evento"}</td>
+        <td>${reserva.nombreEvento || "Sin evento"}</td>
+        <td>${reserva.precioVenta ?? "No especificado"}</td>
+        <td>${reserva.precioEvento ?? "No especificado"}</td>
+        <td>
+            <input type="number" value="${reserva.cantidad ?? 1}" class="cantidadInput" data-idReserva="${reserva.idReserva}" min="1" max="10" />
+        </td>
+        <td>
+            <button class="guardarCantidadBtn" data-idReserva="${reserva.idReserva}">Guardar</button>
+        </td>
+        <td>
+            <button class="eliminarReservaBtn" data-idReserva="${reserva.idReserva}">Cancelar Reserva</button>
+        </td>
+      </tr>
+    `).join('');
   
-    // Insertar la tabla en el contenedor
-    tablaContainer.innerHTML =  `
+    tablaContainer.innerHTML = `
       <br><br>
       <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
         <thead>
@@ -51,16 +51,36 @@ async function obtenerReservas(idUsuario) {
             <th>Precio Venta</th>
             <th>Cantidad</th>
             <th>Modificar</th>
+            <th>Cancela tu Reserva</th>
           </tr>
         </thead>
         <tbody>
           ${filas}
         </tbody>
       </table>
-      `;
-  };
+    `;
+
+
+    const guardarBtns = document.querySelectorAll('.guardarCantidadBtn');
+    guardarBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const idReserva = this.getAttribute('data-idReserva');
+            const cantidadInput = this.closest('tr').querySelector('.cantidadInput');
+            const nuevaCantidad = cantidadInput.value;
+            guardarCantidadModificada(idReserva, nuevaCantidad); 
+        });
+    });
+
   
-  async function getUsuario(idUsuario) {
+    const eliminarBtns = document.querySelectorAll('.eliminarReservaBtn');
+    eliminarBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const idReserva = this.getAttribute('data-idReserva');
+            eliminarReserva(idReserva);  
+        });
+    });
+}
+async function getUsuario(idUsuario) {
     try {
         const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
         if (!res.ok) {
@@ -72,28 +92,72 @@ async function obtenerReservas(idUsuario) {
         document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
         throw error; 
     }
-}
-  async function renderizarNombreUsuario() {
+  }
+
+async function guardarCantidadModificada(idReserva, nuevaCantidad) {
+    let eventos = [];
+    const reservaModificada = { idReserva, 
+        cantidad: nuevaCantidad,
+        precioVenta,
+        observaciones,
+        usuario:{idUsuario: idUsuario} 
+    };
+    console.log(reservaModificada);
     try {
-        const usuario = await getUsuario(idUsuario); 
-        const divNombre = document.getElementById('nombreUsuario');
-        divNombre.innerHTML = `
-            <nav class="nav nav1">
-                <li><a href="#"> ${usuario.nombre}</a></li>
-            </nav>
-        `;
+        const response = await fetch('http://localhost:9003/reserva/modificar', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reservaModificada),
+        });
+
+        if (response.ok) {
+            alert("Reserva modificada con éxito");
+            obtenerReservas(idUsuario); 
+        } else {
+            throw new Error('Error al modificar la reserva');
+        }
     } catch (error) {
-        console.error("Error al renderizar el nombre del usuario:", error);
+        console.error('Error al modificar la reserva:', error);
+        alert('Hubo un problema al modificar la reserva.');
+    }
+console.log(reservaModificada);
+}
+
+
+
+async function eliminarReserva(idReserva) {
+    const confirmDelete = confirm("¿Estás seguro de eliminar esta reserva?");
+    
+    if (confirmDelete) {
+        try {
+            
+            const response = await fetch(`http://localhost:9003/reserva/eliminar/${idReserva}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                alert("Reserva cancelada con éxito");
+                obtenerReservas(idUsuario); 
+            } else {
+                throw new Error('No se pudo cancelar la reserva');
+            }
+        } catch (error) {
+            console.error('Error al cancelar la reserva:', error);
+            alert('Hubo un problema al cancelar la reserva.');
+        }
     }
 }
-  const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
-  obtenerReservas(idUsuario);
-  renderizarNombreUsuario();
 
-  //LIMPIAR EL LOCALSTORAG AL SALIR
-  const cerrarSesion = document.getElementById('cerrarSesion');
-  cerrarSesion.addEventListener('click', function(e){
+
+const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
+obtenerReservas(idUsuario);
+
+// Función para cerrar sesión
+const cerrarSesion = document.getElementById('cerrarSesion');
+cerrarSesion.addEventListener('click', function(e) {
     e.preventDefault();
     localStorage.clear();
-    window.location.href= "prueba.html";
-  });
+    window.location.href = "prueba.html";
+});
