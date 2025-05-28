@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import eventosweb.modelo.entities.Destacado;
 import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.EstadoEvento;
 import eventosweb.modelo.repository.EventoRepository;
 @Service
 
@@ -29,6 +31,19 @@ public class EventoDaoImplDataJpa implements EventoDao{
 		// TODO Auto-generated method stub
 		return prepo.findByNombreContaining(cadena);
 	}
+	
+	@Override
+	public List<Evento> porDestacado(String destacado) {
+		// TODO Auto-generated method stub
+		return prepo.findByDestacado(Destacado.valueOf(destacado));
+	}
+	
+	@Override
+	public List<Evento> porEstado(String estado) {
+		// TODO Auto-generated method stub
+		return prepo.findByEstado(EstadoEvento.valueOf(estado));
+	}
+
 
 	@Override
 	public Evento insertOne(Evento evento) {
@@ -78,7 +93,14 @@ public class EventoDaoImplDataJpa implements EventoDao{
 				filas= 0;
 		
 		return filas;
-	}}
+	}
+
+}
+
 	
+
+	
+
+
 
 

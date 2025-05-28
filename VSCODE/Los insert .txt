@@ -1,0 +1,302 @@
+CREATE DATABASE EVENTOS_FP_FEE;
+USE EVENTOS_FP_FEE;
+
+CREATE TABLE TIPOS
+(ID_TIPO INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+NOMBRE VARCHAR(45) NOT NULL,
+DESCRIPCION VARCHAR(200)
+);
+insert into TIPOS ( NOMBRE, DESCRIPCION)
+		   values ( "Vinos", "Catas de vinos.");
+insert into TIPOS ( NOMBRE, DESCRIPCION)
+		   values ("Cervezas", "Catas de cerveza.");
+insert into TIPOS ( NOMBRE, DESCRIPCION)
+		   values ("Cócteles", "Catas de cócteles.");
+CREATE TABLE PERFILES
+(ID_PERFIL INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+NOMBRE VARCHAR(45) NOT NULL
+);
+
+insert into perfiles values(1,'ADMON'), (2,'CLIENTE');
+
+CREATE TABLE USUARIOS
+(ID_USUARIO INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+email VARCHAR(45) NOT NULL UNIQUE,
+PASSWORD VARCHAR(250) NOT NULL,
+NOMBRE VARCHAR(50),
+APELLIDOS VARCHAR(100),
+ENABLED INT NOT NULL DEFAULT 1,
+FECHA_REGISTRO DATE,
+ID_PERFIL INT NOT NULL,
+foreign key(ID_PERFIL) REFERENCES PERFILES(ID_PERFIL)
+);
+
+insert into usuarios values
+(1, 'ramon@fp.com', '12345', 'Ramon', 'Santaolaya Lopez',1,  '2024-03-15', 1),
+(2, 'eva@fp.com', '12345', 'Eva', 'Goma Papel',1,  '2025-01-15', 2),
+(3, 'carlos@fp.com', '12345', 'Carlos', 'Panadero Estupendo',1,  '2025-03-15', 2),
+(4, 'sara@fp.com', '12345', 'Sara', 'Madera',1,  '2025-04-10', 2);
+
+
+CREATE TABLE EVENTOS
+(ID_EVENTO INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nombre varchar(50) not null,
+DESCRIPCION VARCHAR(200),
+FECHA_INICIO DATE,
+UNIDAD_DURACION ENUM('HORAS', 'DIAS'),
+DURACION INT,
+DIRECCION VARCHAR(100),
+AFORO_MAXIMO INT,
+ESTADO ENUM('ACTIVO', 'TERMINADO' ,'CANCELADO') default 'ACTIVO',
+DESTACADO ENUM('S', 'N'),
+PRECIO DOUBLE,
+ID_TIPO INT NOT NULL,
+FECHA_ALTA DATE,
+FOREIGN KEY(ID_TIPO) REFERENCES TIPOS(ID_TIPO)
+);
+
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Cata vinos Bodega Los Reyes",
+             "Experiencia groumet en la bodega Los Reyes", 
+             "2025-04-12","HORAS", 
+             2,
+             "Bodega de los reyes, calle de los reyes, 3", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             1, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Vinos y quesos italianos premium en cata",
+             "Just Italia te ofrece un plan insuperable, relación calidad precio, una cata como si estuvieras en Italia, con 5 vinos, y una tabla con la mejor selección de 4 de los mejores quesos italianos.", 
+             "2025-04-12",
+             "HORAS", 
+             2,
+             "Just Italia, Calle de Castelló, 113", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             1, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Cata de vinos con un experto enólogo",
+             "Disfruta y aprende sobre el vino en este curso de iniciación a la cata con el experto Jesús Flores Téllez, reconocido enólogo, sumiller y Premio Nacional de Gastronomía. ", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Aula Española del Vino Simancas, 5- C", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             1, 
+             "2025-05-19");
+             
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Curso de Cata de Vinos con Maridaje Gourmet",
+			"Curso de iniciación con maridaje gourmet en un restaurante de 5 estrellas, dirigido por un sommelier exclusivo. Incluye la cata de 6 a 8 vinos.",
+			"2025-06-10", 
+			"HORAS", 
+            2,
+			"Hotel Torre de Madrid, Plaza de España",
+			16, 
+			"ACTIVO",
+			"N",
+			66, 
+			1,
+			"2025-05-19");
+
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Curso de Iniciación a la Cata de Vinos",
+			"Curso práctico para aprender a catar vinos, ideal para principiantes, organizado por Gourmet Madrid.",
+			"2025-06-15",
+			"HORAS",
+			2,
+			"Calle Vallehermoso, 36, Madrid",
+			20,
+			"ACTIVO",
+			"N",
+			30,
+			1,
+			"2025-05-19");
+
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Catas Temáticas Semanales",
+			"Catas con diferentes temáticas como vinos de Madrid, catas maridadas o catas a ciegas por Madrid & Darracott.",
+			"2025-06-20", "HORAS", 2,
+			"Calle del Conde de Romanones, 2, Madrid",
+			25, 
+			"ACTIVO", 
+			"N", 
+			30,
+			2,
+			"2025-05-19");
+
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Curso de Cata – Escuela Española de Cata",
+			"Cursos presenciales, online y semipresenciales para convertirse en sommelier o mejorar habilidades de cata.",
+			"2025-06-22",
+			"HORAS",
+			3,
+			"Calle Francisco Silvela, 70, Madrid",
+			18,
+			"ACTIVO",
+			"N",
+			45,
+			1,
+			"2025-05-19"); 
+
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Curso Avanzado de Cata de Vinos – Enoteca Barolo",
+			"Curso avanzado en 4 sesiones para profundizar en varietales y regiones vinícolas.",
+			"2025-07-01",
+			"HORAS",
+			6,
+			"Calle Príncipe de Vergara, 211, Madrid",
+			15,
+			"ACTIVO",
+			"N",
+			75,
+			2,
+			"2025-05-19");
+		
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Cata de Vinos Premium",
+			"Cata dirigida por un profesional, ideal para grupos o parejas, con una duración de 2,5 horas.",
+			"2025-07-05",
+			"HORAS",
+			2.5,
+			"Calle Príncipe de Vergara, 211",
+			12,
+			"ACTIVO",
+			"N",
+			35,
+			1,
+			"2025-05-19");
+
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Curso de Cata de Vinos – Vinology",
+			"Eventos y cursos de cata para empresas y particulares en espacios únicos de Madrid.",
+			"2025-07-10",
+			"HORAS",
+			2,
+			"Vinology Madrid",
+			20,
+			"ACTIVO",
+			"N",
+			40,
+			1, 
+			"2025-05-19");
+
+
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Mundo de la cerveza en este taller con cata",
+             "Entre Cepas te propone experimentar y compartir unas sensaciones que quizá hayas notado alguna vez en los bares, pero que seguramente nunca te has parado a pensar en ellas.", 
+             "2025-04-12",
+             "HORAS", 
+             4,
+             "FITENI I Calle López de Hoyos, 42", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Cervezas artesanas y quesos eco",
+             "Si eres de los que no puede pasar sin una buena cerveza bien fresca, conocerás las cervezas artesanas. ¿Aún no?", 
+             "2025-04-12",
+             "HORAS", 
+             2,
+             "C/ Francisco Silvela, 25", 
+             30, 
+             "ACTIVO", 
+             "N", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Visita La Caníbal fábrica de cerveza con cata",
+             "Sumérgete en el proceso cervecero, desde la magia de la elaboración hasta la cata de sus últimas creaciones.", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Julián Camarillo 19", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Taller de gin-tonic",
+             "Camuflado en los bajos de un edificio de la Dreta de l’Eixample se encuentra el local de Cocktail Shop.", 
+             "2025-04-12",
+             "HORAS", 
+             2,
+             "Roger de Llúria, 46 Bajos", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             3, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Masterclass de coctelería, crea y disfruta",
+             "La magia del Jardinet es de sobra conocida. Su decoración y su atmósfera evocan un oasis en mitad de la ciudad, que resalta sobre lo cotidiano.", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Carrer Mozart, 4", 
+             30, 
+             "ACTIVO", 
+             "N", 
+             28, 
+             3, 
+             "2025-05-19");
+
+CREATE TABLE RESERVAS
+(ID_RESERVA INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ID_USUARIO INT NOT NULL,
+ID_EVENTO INT NOT NULL,
+PRECIO_VENTA DOUBLE,
+OBSERVACIONES VARCHAR(200),
+CANTIDAD INT not null default 1,
+FOREIGN KEY(ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO),
+FOREIGN KEY(ID_EVENTO) REFERENCES EVENTOS(ID_EVENTO),
+unique(id_usuario,id_evento),
+CHECK(CANTIDAD BETWEEN 1 AND 10)
+);
+
+INSERT INTO RESERVAS (ID_RESERVA, ID_USUARIO, ID_EVENTO, PRECIO_VENTA, OBSERVACIONES, CANTIDAD)
+VALUES 
+(1, 2, 1, 20.5, 'Reserva para cata vinos Bodega los reyes', 2),  
+(2, 2, 2, 15.0, 'Reserva para cata de vinos y quesos italianos premium', 1),  
+(3, 2, 3, 30.0, 'Reserva para cata de vinos con un experto enólogo', 3);
+
+

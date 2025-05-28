@@ -13,7 +13,6 @@ public class PerfilDaoImplDataJpa implements PerfilDao{
 	private PerfilRepository prepo;
 	@Override
 	public List<Perfil> todos() {
-		// TODO Auto-generated method stub
 		return prepo.findAll();
 	}
 	@Override
