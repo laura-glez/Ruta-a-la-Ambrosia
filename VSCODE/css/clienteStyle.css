@@ -1,0 +1,332 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    color: #2e2e2e;
+    background-color: #F9F4EF;
+    line-height: 1.6;
+    font-family: "cinzel";
+  }
+  
+  
+header {
+    background: #750f3b;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  header .logo {
+    font-weight: 800;
+    font-size: 24px;
+    color: #111;
+  }
+  
+  header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  
+  .nav1 ul {
+    list-style: none;
+  
+    background:#750f3b;
+  
+  }
+  
+  .nav1 ul:before,
+  .nav1 ul:after {
+    content: "";
+    display: table;
+  }
+  .nav1 ul:after {
+    clear: both;
+  }
+  
+  .nav1 ul > li {
+    float: left;
+    position: relative;
+  }
+  
+  .nav1 a {
+    display: block;
+    padding: 10px 17px;
+    line-height: 1.2em;
+    color:  #F9F4EF;
+    transition: color 0.7s ;
+  }
+  
+  .nav1 a:hover {
+    text-decoration: none;
+    color:rgb(241, 208, 145);
+  }
+  
+  .nav1 li ul {
+    position: absolute;
+    left: -9999em;
+    top: 36px;
+    z-index: 1;
+    background: wheat;
+  }
+  
+  .nav1 li ul li {
+    width: 100%;
+  }
+  
+  .nav1 ul > li:hover ul {
+    left: 0;
+  }
+  
+  .nav1 li ul a {
+    border: none;
+  }
+  
+  .nav1 li ul a:hover {
+    background: rgba(0, 0, 0, 0.097);
+  }
+  .container {
+    padding: 16px; 
+    display: grid;
+    gap: 16px; 
+    grid-template-columns: repeat(5, 270px);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+  }
+  
+  
+  .flat {
+    box-shadow: none !important;
+  }
+  
+  body {
+    margin: 0;
+    background: white; 
+    font-family: sans-serif;
+}
+
+
+.flat {
+    box-shadow: none !important;
+}
+
+.card {
+    position: relative;
+    top: 200px;
+
+    overflow: hidden;
+    color: lightgray; 
+    font-size: 18px;
+    height: 245px; 
+    border: 1px solid darkgray; 
+    transition: all 1.3s cubic-bezier(1, 0, 0, 1);
+    cursor: pointer;
+}
+
+#A1{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A2{
+    background-image: url(https://www.vinopack.es/wp-content/uploads/2016/05/vp-vi%C3%B1edos-penedes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A3{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A4{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A5{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A6{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A7{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A8{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#A9{
+    background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+
+.card:hover {
+    box-shadow: 0 1px 26px lightgray; 
+}
+
+.card-title {
+    text-align: center;
+
+    font-size: 40px;
+    color: white;
+}
+
+
+.card-details {
+    display: none;
+}
+
+.block {
+    height: 32px; 
+    margin-bottom: 16px;
+}
+
+
+.card-full {
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: vw !important;
+    height: 70vh !important;
+
+    font-size: 32px;
+    box-shadow: 0 1px 26px lightgray; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+    z-index: 999;
+}
+
+
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 54px;
+    color: whitesmoke; 
+    cursor: pointer;
+    z-index: 1000;
+    transition: color 0.5s ease; 
+}
+
+.close-button:hover {
+    color: #750f3b;
+}
+
+
+.btn-P-Reseñas {
+    cursor: pointer;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+
+
+.card-details {
+    display: none;              
+    flex-direction: column;    
+    height: 100%;              
+    padding: 1rem;             
+    box-sizing: border-box;
+}
+
+
+.card-full .card-details {
+    display: flex;
+}
+
+
+.btn-P-Reseñas {
+    cursor: pointer;
+
+    margin-top: auto;
+    margin-bottom: 1.5rem;      
+    align-self: center;       
+
+    padding: 1rem 2rem;       
+    font-size: 1rem;            
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 4px;         
+    transition: transform 0.2s;
+}
+
+.btn-P-Reseñas:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+.card-full .btn-P-Reseñas {
+    position: absolute;
+    bottom: 1.5rem;           
+    left: 50%;                 
+    transform: translateX(-50%); 
+    margin: 0;                
+}
+
+h1{
+    color: #111;
+    position:relative;
+    top:180px;
+    left:650px;
+}

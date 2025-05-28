@@ -16,7 +16,7 @@
 <body>
   <header>
     <div class="logo">Ruta a la Ambrosia</div>
-    
+    <li><a href="#" id="nombreUsuario">Hola</a></li> <!-- Este es el enlace donde se añadirá el nombre -->
 </header>
 <br>
 <br>
@@ -54,55 +54,58 @@
  <!-- Fondo oscuro desenfocado para el modal -->
  <div id="popup-overlay" style="display: none;"></div>
  <!-- Contenedor del pop-up (formulario) -->
- <div id="popup">
-   <button id="cerrarPopup">&times;</button>
-   <div id="popup-content">
+ <div id="popupD">
+   <button id="cerrarPopupD">&times;</button>
+   <div id="popup-contentD"></div>
+  </div>
      <!-- Aquí se incluye el formulario para dar de alta el evento -->
-     <div id="popup-Altacontent">
-       <h2>Alta de Evento</h2>
-       <form id="formAltaEvento" >
+  <div id="popupA">
+  <button id="cerrarPopupA">&times;</button>
+    <div id="popup-Altacontent">
+      <h2>Alta de Evento</h2>
+      <form id="formAltaEvento" >
         <div class="bloque">
-       <label for="nombre">Nombre:</label>
-       <input type="text" placeholder="Nombre del evento" id="nombre" required>
+          <label for="nombre">Nombre:</label>
+          <input type="text" placeholder="Nombre del evento" id="nombre" required>
        </div>
        <div class="bloque">
-       <label for="descripcion">Descripción:</label>
-       <input type="text" id="descripcion" required placeholder="Descripcion del evento">
+          <label for="descripcion">Descripción:</label>
+          <input type="text" id="descripcion" required placeholder="Descripcion del evento">
       </div>
       <div class="bloque">
-       <label for="fechaInicio">Fecha Inicio:</label>
-       <input type="date" id="fechaInicio" required>
+          <label for="fechaInicio">Fecha Inicio:</label>
+          <input type="date" id="fechaInicio" required>
       </div>
       <div class="bloque">
-       <label for="duracion">Duración:</label>
-       <input type="number" id="duracion" required placeholder="Duración">
+          <label for="duracion">Duración:</label>
+          <input type="number" id="duracion" required placeholder="Duración">
       </div>
       <div class="bloque">
-       <label for="unidadDuracion">Unidad de duración:</label>
-       <select id="unidadDuracion">
-         <option value="HORAS">Horas</option>
-         <option value="DIAS">Días</option>
-       </select>
+        <label for="unidadDuracion">Unidad de duración:</label>
+        <select id="unidadDuracion">
+          <option value="HORAS">Horas</option>
+          <option value="DIAS">Días</option>
+        </select>
       </div>
       <div class="bloque">
-       <label for="direccion">Dirección:</label>
-       <input type="text" id="direccion" required placeholder="Dirección">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required placeholder="Dirección">
       </div>
       <div class="bloque">
-       <label for="aforo">Aforo:</label>
-       <input type="number" id="aforo" required min="1" max="30" placeholder="Aforo máximo">
+        <label for="aforo">Aforo:</label>
+        <input type="number" id="aforo" required min="1" max="30" placeholder="Aforo máximo">
       </div>
       <div class="bloque">
-       <label for="precio">Precio:</label>
-       <input type="number" id="precio" required min="15" placeholder="Precio por persona">
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" required min="15" placeholder="Precio por persona">
       </div>
       <div class="bloque">
-       <label for="idTipo">Tipo:</label>
-       <select id="idTipo">
-         <option value="1">Vino</option>
-         <option value="2">Cerveza</option>
-         <option value="3">Cóctel</option>
-       </select>
+        <label for="idTipo">Tipo:</label>
+        <select id="idTipo">
+          <option value="1">Vino</option>
+          <option value="2">Cerveza</option>
+          <option value="3">Cóctel</option>
+        </select>
       </div>
       <div class="bloque">
         <label for="destacado">Destacado:</label>
@@ -111,76 +114,88 @@
           <option value="N">No</option>
         </select>
      </div>
-    <div class="bloque">
+     <div class="bloque">
        <button type="submit">Guardar Cambios</button>
-      </div>
+     </div>
      </form>
     </div>
+  </div>
 
+   <div id="popupM">
+   <button id="cerrarPopupM">&times;</button>
     <div id="popup-Modificarcontent">
-     <form id="formModificarEvento" style="display: none;">
-    
-    <div class="bloque">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="MODnombre" required><br><br>
-    </div>
-    <div class="bloque">
-      <label for="descripcion">Descripcion:</label>
-      <input type="text" id="MODdescripcion" required><br><br>
-    </div>
-    <div class="bloque">
-      <label for="fechaInicio">Fecha Inicio:</label>
-      <input type="date" id="MODfechaInicio" required><br><br>
-    </div>
-    <div class="bloque">
-      <label for="unidadDuracion">Unidad de duracion:</label>
-      <select id="MODunidadDuracion"required>
-        <option value="HORAS">Horas</option>
-        <option value="DIAS">Dias</option>
-      </select>
-    </div>
-    <div class="bloque">
-      <label for="duracion">Duracion:</label>
-      <input type="number" id="MODduracion" required><br><br>
-    </div>
-    <div class="bloque">
-      <label for="estado">Estado:</label>
-      <select id="MODestado"required>
-        <option value="ACTIVO">ACTIVO</option>
-        <option value="TERMINADO">TERMINADO</option>
-        <option value="CANCELADO">CANCELADO</option>
-      </select> <br><br>
-    </div>
-    <div class="bloque">
-      <label for="direccion">Direccion:</label>
-      <input type="text" id="MODdireccion" required><br><br>
-    </div>
-    <div class="bloque">
-      <label for="aforo">Aforo:</label>
-      <input type="number" id="MODaforo" required min="1" max="30"><br><br>
-    </div>
-    <div class="bloque">
-      <label for="precio">Precio:</label>
-      <input type="number" id="MODprecio" required min="15"><br><br>
-    </div>
-    <div class="bloque">
-      <label for="idTipo">Id Tipo:</label>
-      <select id="MODidTipo"required>
-        <option value="1">Vino</option>
-        <option value="2">Cerveza</option>
-        <option value="3">Cóctel</option></select> <br><br>
-
-      </div>
-    <div class="bloque">
-       a
-    </div>
+      
+     <form id="formModificarEvento" >
       <div class="bloque">
-      <button type="submit">Guardar Cambios</button>
-    </div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="MODnombre" required>
+      </div>
+
+      <div class="bloque">
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="MODdescripcion" required>
+      </div>
+      <div class="bloque">
+        <label for="fechaInicio">Fecha Inicio:</label>
+        <input type="date" id="MODfechaInicio" required>
+      </div>
+
+      <div class="bloque">
+        <label for="unidadDuracion">Unidad de duracion:</label>
+        <select id="MODunidadDuracion"required>
+          <option value="HORAS">Horas</option>
+          <option value="DIAS">Dias</option>
+        </select>
+      </div>
+
+      <div class="bloque">
+        <label for="duracion">Duracion:</label>
+        <input type="number" id="MODduracion" required>
+      </div>
+      <div class="bloque">
+        <label for="estado">Estado:</label>
+        <select id="MODestado"required>
+          <option value="ACTIVO">ACTIVO</option>
+          <option value="TERMINADO">TERMINADO</option>
+          <option value="CANCELADO">CANCELADO</option>
+        </select> 
+      </div>
+
+      <div class="bloque">
+        <label for="direccion">Direccion:</label>
+        <input type="text" id="MODdireccion" required>
+      </div>
+
+      <div class="bloque">
+        <label for="aforo">Aforo:</label>
+        <input type="number" id="MODaforo" required min="1" max="30">
+      </div>
+
+      <div class="bloque">
+        <label for="precio">Precio:</label>
+        <input type="number" id="MODprecio" required min="15">
+      </div>
+
+      <div class="bloque">
+        <label for="idTipo">Id Tipo:</label>
+        <select id="MODidTipo"required>
+          <option value="1">Vino</option>
+          <option value="2">Cerveza</option>
+          <option value="3">Cóctel</option></select>
+      </div>
+
+      <div class="bloque">
+        <button type="submit">Guardar Cambios</button>
+      </div>
       </form>
     </div>
-   </div>
- </div>
+    </div>
+
+  <div id="popupR">
+    <button id="cerrarPopupR">&times;</button>
+    <div id="popup-contentR"></div>
+  </div>
+  <script src="scripts/misReservas.js"></script>
   <script src="scripts/eventos.js"></script>
 </body>
 </html>

@@ -1,26 +1,18 @@
 package eventosweb.modelo.dao;
 
 import java.util.List;
-import eventosweb.restcontroller.UsuarioRestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import eventosweb.modelo.entities.Usuario;
-import eventosweb.modelo.repository.ReservaRepository;
 import eventosweb.modelo.repository.UsuarioRepository;
 
 @Service
 public class UsuarioDaoImplDataJpa implements UsuarioDao{
-
-    private final UsuarioRestController usuarioRestController;
-	
-	private final PerfilDaoImplDataJpa perfilDaoImplDataJpa;
 	@Autowired
 	private UsuarioRepository urepo;
 
-	UsuarioDaoImplDataJpa(PerfilDaoImplDataJpa perfilDaoImplDataJpa, UsuarioRestController usuarioRestController){
-		this.perfilDaoImplDataJpa = perfilDaoImplDataJpa;
-		this.usuarioRestController = usuarioRestController;}
 	
 	@Override
 	public List<Usuario> todos() {
@@ -87,5 +79,28 @@ public class UsuarioDaoImplDataJpa implements UsuarioDao{
 		return filas;
 	}
 
+	@Override
+	public Usuario porEmail(String email) {
+		// TODO Auto-generated method stub
+		return urepo.findByEmail(email);
+	}
+
+	@Override
+	public int porEmailYPass(String email, String pass) {
+		//si devuelve 0 no ha llegado nada 
+		//si es 1 es un cliente o admin
+		//si es -1 no es cliente
+		int existe = 0;
+		Usuario u = urepo.findByEmailAndPassword(email, pass);
+		if(u != null) {
+			System.out.println(u);
+			existe = 1;
+		}else	
+			existe = -1;
+		
+		return existe;
+	}
+
+	
 
 }

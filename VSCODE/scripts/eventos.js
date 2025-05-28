@@ -183,12 +183,12 @@ const celdaReservas = fila.insertCell();
       try {
         const res = await fetch(`http://localhost:9003/reserva/evento/${e.idEvento}`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        
+    
         const reservasEvento = await res.json();
         console.log("Reservas recibidas:", reservasEvento);
     
         if (Array.isArray(reservasEvento) && reservasEvento.length > 0) {
-          mostrarDatosReserva(reservasEvento[0]);
+          mostrarDatosReserva(reservasEvento);  // pasar TODAS las reservas
         } else {
           alert("No se encontraron reservas para este evento.");
         }
@@ -197,18 +197,20 @@ const celdaReservas = fila.insertCell();
       }
     });
     
-    function mostrarDatosReserva(reserva) {
-      console.log("Reserva recibida en mostrarDatosReserva:", reserva);
-    
-      const popup = document.getElementById('popup');
+
+ function mostrarDatosReserva(reservas) {
+      const popup = document.getElementById('popupR');
+
+
       const overlay = document.getElementById('popup-overlay');
-      const divDetallesReserva = document.getElementById('popup-content');
+      const divDetallesReserva = document.getElementById('popup-contentR');
     
       popup.classList.add('show');
       popup.style.display = 'block';
       overlay.style.display = 'block';
-    
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
+   
+      document.getElementById('cerrarPopupR').addEventListener('click', () => {
+
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
@@ -217,41 +219,49 @@ const celdaReservas = fila.insertCell();
       });
     
       divDetallesReserva.style.display = "block";
+    
+      // Crear las filas de la tabla dinámicamente
+      let filas = reservas.map(reserva => `
+        <tr>
+          <td>${reserva.idReserva || "N/A"}</td>
+          <td>${reserva.idEvento || "Sin evento"}</td>
+          <td>${reserva.nombreEvento || "Sin evento"}</td>
+          <td>${reserva.idUsuario || "Sin usuario"}</td>
+          <td>${reserva.email || "Sin usuario"}</td>
+          <td>${reserva.nombre || "Sin usuario"}</td>
+          <td>${reserva.apellidos || "Sin usuario"}</td>
+          <td>${reserva.precioVenta ?? "No especificado"}</td>
+          <td>${reserva.aforoMaximo ?? "No especificado"}</td>
+          <td>${reserva.precioEvento ?? "No especificado"}</td>
+          <td>${reserva.cantidad ?? "No especificada"}</td>
+        </tr>
+      `).join('');
+    
       divDetallesReserva.innerHTML = `
         <h2>Detalles de la Reserva</h2>
-        <table id="tablaReserva" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
-          <tbody>
-          <tr>
-          <th><strong>ID Reserva</strong></th>
-          <th><strong>Evento ID</strong> </th>
-          <th> <strong>Nombre Evento</strong></th>
-          <th> <strong>Usuario ID</strong></th>
-          <th><strong>Email</strong></th>
-          <th> <strong>Nombre</strong></th>
-          <th><strong>Apellidos</strong></th>
-          <th><strong>Precio Venta</strong></th>
-          <th><strong>Aforo máximo</strong></th>
-          <th><strong>Precio Evento</strong></th>
-          <th><strong>Cantidad</strong></th>
-
-          </tr>
-              <td>${reserva.idReserva || "N/A"}</td> 
-              <td>${reserva.idEvento || "Sin evento"}</td>
-              <td>${reserva.nombreEvento || "Sin evento"}</td>
-              <td>${reserva.idUsuario || "Sin usuario"}</td>
-              <td>${reserva.email || "Sin usuario"}</td>
-              <td>${reserva.nombre || "Sin usuario"}</td>
-              <td>${reserva.apellidos || "Sin usuario"}</td>
-              <td>${reserva.precioVenta ?? "No especificado"}</td>
-              <td>${reserva.aforoMaximo ?? "No especificado"}</td>
-              <td>${reserva.precioEvento ?? "No especificado"}</td>
-              <td>${reserva.cantidad ?? "No especificada"}</td>
+        <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+          <thead>
+            <tr>
+              <th>ID Reserva</th>
+              <th>Evento ID</th>
+              <th>Nombre Evento</th>
+              <th>Usuario ID</th>
+              <th>Email</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Precio Venta</th>
+              <th>Aforo máximo</th>
+              <th>Precio Evento</th>
+              <th>Cantidad</th>
             </tr>
-          
+          </thead>
+          <tbody>
+            ${filas}
           </tbody>
         </table>
       `;
-    }      
+    }
+     
     
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
@@ -272,11 +282,8 @@ const celdaReservas = fila.insertCell();
           renderTabla();  // Volver a renderizar la tabla sin el evento eliminado
         } catch (error) {
           alert('Error al eliminar el evento: ' + error.message);
-        }}});
-    
-    });
-
-    
+        }}});  
+    });    
 }
 
 
@@ -337,9 +344,9 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
 
 // Función para mostrar los detalles del evento
 function mostrarDatosEvento(evento) {
-  const popup = document.getElementById('popup');
+  const popup = document.getElementById('popupD');
   const overlay = document.getElementById('popup-overlay');
-  const divDetalles = document.getElementById('popup-content');
+  const divDetalles = document.getElementById('popup-contentD');
 
   popup.classList.add('show');
   popup.style.display = 'block';
@@ -347,7 +354,7 @@ function mostrarDatosEvento(evento) {
 
 
 
-document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
+document.getElementById('cerrarPopupD').addEventListener('click', async () => {
 
   popup.classList.remove('show');
 
@@ -374,24 +381,10 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
 
-    document.getElementById('cerrarPopup').addEventListener('click', () => {
-      const popup = document.getElementById('popup');
-      const overlay = document.getElementById('popup-overlay');
-
-      popup.classList.remove('show');
-      setTimeout(() => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-        divDetalles.style.display = 'none';
-
-      }, 200);
-      
-    });
-
 }
 
 function mostarAlta(){
-        const popup = document.getElementById('popup');
+        const popup = document.getElementById('popupA');
         const overlay = document.getElementById('popup-overlay');
         const form = document.getElementById('popup-Altacontent');
 
@@ -401,8 +394,8 @@ function mostarAlta(){
         form.style.display ='block';
     
       // Event listener para cerrar el modal
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
+      document.getElementById('cerrarPopupA').addEventListener('click', () => {
+        const popup = document.getElementById('popupA');
         const overlay = document.getElementById('popup-overlay');
 
         popup.classList.remove('show');
@@ -416,7 +409,7 @@ function mostarAlta(){
 
 function mostrarModificarEvento(){
   //Asignar event listener para abrir el modal con el formulario
-        const popup = document.getElementById('popup');
+        const popup = document.getElementById('popupM');
         const overlay = document.getElementById('popup-overlay');
         const form = document.getElementById('popup-Modificarcontent');
 
@@ -426,32 +419,14 @@ function mostrarModificarEvento(){
         form.style.display = 'block';
     
       // Event listener para cerrar el modal
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
+      document.getElementById('cerrarPopupM').addEventListener('click', () => {
+        const popup = document.getElementById('popupM');
         const overlay = document.getElementById('popup-overlay');
 
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
           overlay.style.display = 'none';
-          
-
         }, 200)
 });}
-
-    function cerrarPopUp(){
-      document.getElementById('cerrarPopup').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        const overlay = document.getElementById('popup-overlay');
-
-        popup.classList.remove('show');
-        setTimeout(() => {
-          popup.style.display = 'none';
-          overlay.style.display = 'none';
-          
-
-        }, 200);
-        
-      });
-    } 
 
