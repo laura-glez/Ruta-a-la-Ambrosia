@@ -94,15 +94,24 @@ async function getUsuario(idUsuario) {
     }
   }
 
-async function guardarCantidadModificada(idReserva, nuevaCantidad) {
-    let eventos = [];
-    const reservaModificada = { idReserva, 
+  async function guardarCantidadModificada(idReserva, nuevaCantidad) {
+    let eventos = []; // Esto no parece ser necesario, ¿seguro que lo necesitas?
+
+    // Obtener datos adicionales de la reserva (por ejemplo, precioVenta y observaciones)
+    const fila = document.querySelector(`[data-idReserva="${idReserva}"]`).closest('tr');
+    const precioVenta = fila.querySelector('.precioVenta').textContent;  // Suponiendo que tienes esa columna
+    const observaciones = fila.querySelector('.observaciones').textContent;  // Lo mismo para observaciones (si existe)
+
+    const reservaModificada = {
+        idReserva,
         cantidad: nuevaCantidad,
-        precioVenta,
-        observaciones,
-        usuario:{idUsuario: idUsuario} 
+        precioVenta, // Asegúrate de tener este dato correctamente
+        observaciones, // Si tienes observaciones
+        usuario: { idUsuario: idUsuario }
     };
-    console.log(reservaModificada);
+
+    console.log(reservaModificada);  // Esto muestra los datos que se enviarán
+
     try {
         const response = await fetch('http://localhost:9003/reserva/modificar', {
             method: 'PUT',
@@ -114,7 +123,7 @@ async function guardarCantidadModificada(idReserva, nuevaCantidad) {
 
         if (response.ok) {
             alert("Reserva modificada con éxito");
-            obtenerReservas(idUsuario); 
+            obtenerReservas(idUsuario); // Re-renderizar las reservas después de la modificación
         } else {
             throw new Error('Error al modificar la reserva');
         }
@@ -122,9 +131,7 @@ async function guardarCantidadModificada(idReserva, nuevaCantidad) {
         console.error('Error al modificar la reserva:', error);
         alert('Hubo un problema al modificar la reserva.');
     }
-console.log(reservaModificada);
 }
-
 
 
 async function eliminarReserva(idReserva) {
