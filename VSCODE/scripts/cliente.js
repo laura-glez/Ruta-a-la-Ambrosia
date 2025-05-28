@@ -56,12 +56,18 @@ document.querySelectorAll('.card').forEach(card => {
 const usuarioStored = localStorage.getItem('usuario');
 if (!usuarioStored) {
   console.log("No se encontró usuario en localStorage");
-
 } else {
-  const idUsuario = JSON.parse(usuarioStored).idUsuario;
+  const usuario = JSON.parse(usuarioStored);
+  const idUsuario = usuario.idUsuario;
   console.log("ID del usuario:", idUsuario);
 
 
+  const nombreUsuarioElement = document.getElementById('nombreUsuario');
+  if (nombreUsuarioElement) {
+    nombreUsuarioElement.textContent = `Hola, ${usuario.nombre}`; 
+  }
+
+ 
   getReservasUsuario(idUsuario);
 }
 
@@ -87,7 +93,6 @@ async function getReservasUsuario(idUsuario) {
           return;
       }
 
-    
       renderizarTablaUsuario(usuarios);
 
   } catch (error) {
@@ -112,9 +117,10 @@ function renderizarTablaUsuario(u) {
   `;
 }
 
+
 const cerrarSesion = document.getElementById('cerrarSesion');
 cerrarSesion.addEventListener('click', function(e) {
   e.preventDefault();
-  localStorage.clear();
-  window.location.href = "prueba.html"; 
+  localStorage.clear();  
+  window.location.href = "prueba.html";  
 });
