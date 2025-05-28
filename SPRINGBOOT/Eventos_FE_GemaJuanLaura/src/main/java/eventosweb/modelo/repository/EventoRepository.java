@@ -8,4 +8,5 @@ import eventosweb.modelo.entities.Evento;
 
 public interface EventoRepository extends JpaRepository<Evento, Integer>{
 	public List<Evento> findByNombreContaining(String cadena);
+
 }

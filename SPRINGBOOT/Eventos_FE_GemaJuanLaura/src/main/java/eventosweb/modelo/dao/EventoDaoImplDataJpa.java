@@ -79,6 +79,6 @@ public class EventoDaoImplDataJpa implements EventoDao{
 		
 		return filas;
 	}}
-	
+
 
 

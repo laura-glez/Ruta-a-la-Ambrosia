@@ -849,7 +849,7 @@ footer {
 
 
 
-.icono-usuario a {
+.icono-usuario a, .icono-registro a{
   position: relative;
   display: inline-block;
   width: 30px;
@@ -858,7 +858,7 @@ footer {
 .icono-usuario #icono2 {
 opacity: 0;
 }
-.icono-usuario img {
+.icono-usuario img,  .icono-registro img {
   position: absolute;
   top: 0;
   left: 0;
