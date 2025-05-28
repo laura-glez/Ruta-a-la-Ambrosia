@@ -29,11 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mostarRegistro();
   });
 
-  document.getElementById('registroP').addEventListener('click', (e) => {
-    e.preventDefault();
-    closeLoginPopup();
-    mostarRegistro();
-  });
 
   // Envío del formulario de login
   document.getElementById("login-form").addEventListener("submit", async function (event) {
