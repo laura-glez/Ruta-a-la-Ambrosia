@@ -16,14 +16,31 @@ body {
 /* Leyes para cada contenedor */
 
 .Espacio-Contenedores {
-  height: 75vh;
+  height: 87.5vh;
   position: relative;
   overflow: hidden;
   z-index: 1;
-
   text-align: center;
-  margin-top: 18vh;
+  margin-top: 15vh;
 }
+
+
+.Espacio-Contenedores-2 {
+  height: 88vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
+.Espacio-Contenedores-3 {
+  height: 78vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
 
 .Espacio-Contenedores h2 {
   font-size: 36px;
@@ -64,11 +81,12 @@ body {
 
 
 
+
 /* Todo el nav incluido el logo y las rutas */
 
 header {
   background: #750f3b;
-  padding: 20px 40px;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,7 +205,6 @@ opacity: 0;
   position: relative;
   height: 85vh;     
   width: 100%;
-  background: url('https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg') center/cover no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -252,47 +269,7 @@ opacity: 0;
 
 
 
-/*Reservas Populaders */
-
-
-
-.ElTitulo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.btn-P-Reseñas {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.65rem;
-  font-weight: bold;
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
-  color: white;
-  background-color: black;
-  border: none;
-}
-
-.content-P-reservas {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 1;
-}
-
-.P-reseña_Descrip {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-style: italic;
-  line-height: 1.35;
-}
-
+/*Reservas Destacadas */
 
 :root {
   --d: 700ms;
@@ -303,9 +280,10 @@ opacity: 0;
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 100%;
-  margin: 0 ;
   font-family:'Rubik', sans-serif;
+  width: max-content;
+  margin: 0 auto;
+  
 }
 
 @media (min-width: 600px) {
@@ -316,10 +294,18 @@ opacity: 0;
 
 @media (min-width: 800px) {
   .pagina-content-P-reservas {
-      grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 380px); 
+    justify-content: center;                 
+    grid-gap: 1rem;
+    padding: 1rem;
+    
+  }
+  .card-P-reservas {
+    width: 300px;   
+    height: 350px;  
   }
 }
-
 
 .card-P-reservas {
   position: relative;
@@ -379,16 +365,44 @@ opacity: 0;
 .card-P-reservas:nth-child(3):before {
   background-image: url(https://phantom-elmundo.unidadeditorial.es/4fc880bfd274d3e1c194e4ee835223c0/crop/0x0/720x540/resize/414/f/jpg/assets/multimedia/imagenes/2020/04/13/15867734072559.jpg);
 }
-.card-P-reservas:nth-child(4):before {
-  background-image: url(https://www.catadelvino.com/uploads/que-significa-la-categoria-de-vino-de-mesa-4917-1.jpg);
+
+
+.content-P-reservas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
 }
-.card-P-reservas:nth-child(5):before {
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+
+.ElTitulo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
+.P-reseña_Descrip {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
 
-
-
+.btn-P-Reseñas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
 
 @media (hover: hover) and (min-width: 600px) {
   .card-P-reservas:after {
@@ -422,7 +436,13 @@ opacity: 0;
 
 
 
+
+
+
+
+
 /* Todas las reseñas de la pagina */
+
 
 .container {
   padding: 16px; 
@@ -432,7 +452,6 @@ opacity: 0;
   grid-template-rows: repeat(2, auto);
   justify-content: center;
 }
-
 
 
 .flat {
@@ -520,13 +539,13 @@ opacity: 0;
 }
 
 
+
 .card:hover {
   box-shadow: 0 1px 26px lightgray; 
 }
 
 .card-title {
   text-align: center;
-
   font-size: 40px;
   color: white;
 }
@@ -575,8 +594,69 @@ opacity: 0;
 }
 
 .close-button:hover {
-  color: red; 
+  color: #750f3b;
 }
+
+.btn-todas-Reseñas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+
+.card-details {
+  display: none;              
+  flex-direction: column;    
+  height: 100%;              
+  padding: 1rem;             
+  box-sizing: border-box;
+}
+
+
+.card-full .card-details {
+  display: flex;
+}
+
+
+.btn-todas-Reseñas {
+  cursor: pointer;
+
+  margin-top: auto;
+  margin-bottom: 1.5rem;      
+  align-self: center;       
+
+  padding: 1rem 2rem;       
+  font-size: 1rem;            
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 4px;         
+  transition: transform 0.2s;
+}
+
+.btn-todas-Reseñas:hover {
+  transform: scale(1.05);
+}
+
+
+.card-full .btn-todas-Reseñas {
+  position: absolute;
+  bottom: 1.5rem;           
+  left: 50%;                 
+  transform: translateX(-50%); 
+  margin: 0;                
+}
+
 
 
 
@@ -598,61 +678,34 @@ opacity: 0;
 
 /* Todo para cambiar las Sendas */
 
-.ElTitulo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.P-reseña_Descrip {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-style: italic;
-  line-height: 1.35;
-}
-
-.btn-P-Reseñas {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.65rem;
-  font-weight: bold;
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
-  color: white;
-  background-color: black;
-  border: none;
-}
-
-.pagina-content-SubPagina {
+.pagina-contenido-Senda {
   display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
+  grid-gap: 2rem;
+  padding: 100px;
   max-width: 100%;
   margin: 0 ;
   font-family: var(--font-sans);
 }
 
 @media (min-width: 600px) {
-  .pagina-content-SubPagina {
+  .pagina-contenido-Senda {
       grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 800px) {
-  .pagina-content-SubPagina {
+  .pagina-contenido-Senda {
       grid-template-columns: repeat(3, 1fr);
   }
 }
 
-
-.card-SubPagina {
+.card-t-Senda {
   position: relative;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   padding: 1rem;
-  width: 100%;
+  width: 90%;
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
@@ -664,7 +717,7 @@ opacity: 0;
   height: 350px;
 }
 
-.card-SubPagina:before {
+.card-t-Senda:before {
   content: '';
   position: absolute;
   top: 0;
@@ -677,7 +730,7 @@ opacity: 0;
   pointer-events: none;
 }
 
-.card-SubPagina:after {
+.card-t-Senda:after {
   content: '';
   display: block;
   position: absolute;
@@ -695,32 +748,54 @@ opacity: 0;
   transition: transform calc(var(--d) * 2) var(--e);
 }
 
-.card-SubPagina:nth-child(1):before {
+.card-t-Senda:nth-child(1):before {
   background-image: url(https://cdn.palbincdn.com/users/36776/images/1-1610009759.jpg);
 }
-.card-SubPagina:nth-child(2):before {
+.card-t-Senda:nth-child(2):before {
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg);
 }
-.card-SubPagina:nth-child(3):before {
-  background-image: url(https://phantom-elmundo.unidadeditorial.es/4fc880bfd274d3e1c194e4ee835223c0/crop/0x0/720x540/resize/414/f/jpg/assets/multimedia/imagenes/2020/04/13/15867734072559.jpg);
+.card-t-Senda:nth-child(3):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
 }
 
-.content-SubPagina {
+.contenido-Senda {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 5rem;
   transition: transform var(--d) var(--e);
   z-index: 1;
 }
 
 
+.Titulo-Senda {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
 
+.descripcion-Senda {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
 
-
-
+.btn-T-Sendas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+  
+}
 
 
 
@@ -739,8 +814,8 @@ opacity: 0;
 
 /* El footer de la Pagina */
 footer {
-  background: black;
-  color: whitesmoke;
+  background: #750f3b;
+  color: #fff4c2;
   text-align: center;
   padding: 40px 20px;
 }
