@@ -82,19 +82,21 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              1, 
              "2025-05-19");
              
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Cata de vinos con un experto enólogo",
-             "Disfruta y aprende sobre el vino en este curso de iniciación a la cata con el experto Jesús Flores Téllez, reconocido enólogo, sumiller y Premio Nacional de Gastronomía. ", 
-             "2025-04-12",
-             "HORAS", 
-             3,
-             "Aula Española del Vino Simancas, 5- C", 
-             30, 
-             "ACTIVO", 
-             "S", 
-             28, 
-             1, 
-             "2025-05-19");
+
+INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
+			VALUES ("Cata de Vinos Premium Tomasin",
+			"Cata dirigida por un profesional, ideal para grupos o parejas, con una duración de 2,5 horas.",
+			"2025-07-05",
+			"HORAS",
+			2.5,
+			"Calle Príncipe de Vergara, 211",
+			12,
+			"ACTIVO",
+			"S",
+			35,
+			1,
+			"2025-05-19");
+
              
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
 			VALUES ("Curso de Cata de Vinos con Maridaje Gourmet",
@@ -148,7 +150,7 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 			"Calle Francisco Silvela, 70, Madrid",
 			18,
 			"ACTIVO",
-			"N",
+			"S",
 			45,
 			1,
 			"2025-05-19"); 
@@ -167,21 +169,21 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 			75,
 			1,
 			"2025-05-19");
-		
-
-INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
-			VALUES ("Cata de Tomasin",
-			"Cata dirigida por un profesional, ideal para grupos o parejas, con una duración de 2,5 horas.",
-			"2025-07-05",
-			"HORAS",
-			2.5,
-			"Calle Príncipe de Vergara, 211",
-			12,
-			"ACTIVO",
-			"N",
-			35,
-			1,
-			"2025-05-19");
+            
+            
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Cata de vinos con un experto enólogo",
+             "Disfruta y aprende sobre el vino en este curso de iniciación a la cata con el experto Jesús Flores Téllez, reconocido enólogo, sumiller y Premio Nacional de Gastronomía. ", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Aula Española del Vino Simancas, 5- C", 
+             30, 
+             "ACTIVO", 
+             "N", 
+             28, 
+             1, 
+             "2025-05-19");
 
 
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
@@ -507,108 +509,6 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 			3, 
 			"2025-05-19");
 
-
-CREATE TABLE RESERVAS
-(ID_RESERVA INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-ID_USUARIO INT NOT NULL,
-ID_EVENTO INT NOT NULL,
-PRECIO_VENTA DOUBLE,
-OBSERVACIONES VARCHAR(200),
-CANTIDAD INT not null default 1,
-FOREIGN KEY(ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO),
-FOREIGN KEY(ID_EVENTO) REFERENCES EVENTOS(ID_EVENTO),
-unique(id_usuario,id_evento),
-CHECK(CANTIDAD BETWEEN 1 AND 10)
-);
-
-INSERT INTO RESERVAS (ID_RESERVA, ID_USUARIO, ID_EVENTO, PRECIO_VENTA, OBSERVACIONES, CANTIDAD)
-VALUES 
-(1, 2, 1, 20.5, 'Reserva para cata vinos Bodega los reyes', 2),  
-(2, 2, 2, 15.0, 'Reserva para cata de vinos y quesos italianos premium', 1),  
-(3, 2, 3, 30.0, 'Reserva para cata de vinos con un experto enólogo', 3);
-
-
-
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Mundo de la cerveza en este taller con cata",
-             "Entre Cepas te propone experimentar y compartir unas sensaciones que quizá hayas notado alguna vez en los bares, pero que seguramente nunca te has parado a pensar en ellas.", 
-             "2025-04-12",
-             "HORAS", 
-             4,
-             "FITENI I Calle López de Hoyos, 42", 
-             30, 
-             "ACTIVO", 
-             "S", 
-             28, 
-             2, 
-             "2025-05-19");
-             
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Cervezas artesanas y quesos eco",
-             "Si eres de los que no puede pasar sin una buena cerveza bien fresca, conocerás las cervezas artesanas. ¿Aún no?", 
-             "2025-04-12",
-             "HORAS", 
-             2,
-             "C/ Francisco Silvela, 25", 
-             30, 
-             "ACTIVO", 
-             "N", 
-             28, 
-             2, 
-             "2025-05-19");
-             
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Visita La Caníbal fábrica de cerveza con cata",
-             "Sumérgete en el proceso cervecero, desde la magia de la elaboración hasta la cata de sus últimas creaciones.", 
-             "2025-04-12",
-             "HORAS", 
-             3,
-             "Julián Camarillo 19", 
-             30, 
-             "ACTIVO", 
-             "S", 
-             28, 
-             2, 
-             "2025-05-19");
-             
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Taller de gin-tonic",
-             "Camuflado en los bajos de un edificio de la Dreta de l’Eixample se encuentra el local de Cocktail Shop.", 
-             "2025-04-12",
-             "HORAS", 
-             2,
-             "Roger de Llúria, 46 Bajos", 
-             30, 
-             "ACTIVO", 
-             "S", 
-             28, 
-             3, 
-             "2025-05-19");
-             
-insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Masterclass de coctelería, crea y disfruta",
-             "La magia del Jardinet es de sobra conocida. Su decoración y su atmósfera evocan un oasis en mitad de la ciudad, que resalta sobre lo cotidiano.", 
-             "2025-04-12",
-             "HORAS", 
-             3,
-             "Carrer Mozart, 4", 
-             30, 
-             "ACTIVO", 
-             "N", 
-             28, 
-             3, 
-             "2025-05-19");
 
 CREATE TABLE RESERVAS
 (ID_RESERVA INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
