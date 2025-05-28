@@ -93,11 +93,11 @@ public class EventoDaoImplDataJpa implements EventoDao{
 				filas= 0;
 		
 		return filas;
+
 	}
 
 }
 
-	
 
 	
 

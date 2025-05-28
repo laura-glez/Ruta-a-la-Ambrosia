@@ -310,14 +310,13 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
     precio: parseInt(document.getElementById("precio").value),
     tipo: 
       {idTipo:parseInt(document.getElementById("idTipo").value)},
-    fechaAlta: Date.now,
+    fechaAlta: Date.now(),
     estado: 'ACTIVO',
     destacado: 'N'
-
   };
 
   try {
-    const response = await fetch('localhost:9003/evento/alta', {
+    const response = await fetch('http://localhost:9003/evento/alta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

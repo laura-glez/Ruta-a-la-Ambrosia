@@ -14,4 +14,5 @@ public interface UsuarioDao {
 	Usuario buscarUno(Integer idUsuario);
 	int eliminar(Integer idUsuario);
 	int modificar(Usuario usuario);
+	
 }
