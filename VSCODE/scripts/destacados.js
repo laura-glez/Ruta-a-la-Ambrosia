@@ -53,6 +53,7 @@ const img_ordenada = [
     const titulo = document.createElement('h3');
     titulo.classList.add('card-Titulo');
     titulo.textContent = evento.nombre;
+    const event = evento.idEvento;
 
     const descripcion = document.createElement('div');
     descripcion.classList.add('card-descripcion');
@@ -84,7 +85,8 @@ const img_ordenada = [
         btn.style.transform= 'translateX(-50%)';
         btn.addEventListener('click', e => {
         e.stopPropagation();
-        window.location.href="MisReservas.html";
+        localStorage.setItem("evento", JSON.stringify(event));
+        window.location.href="nuevaReserva.html";
         });
 
         const rect = card.getBoundingClientRect();

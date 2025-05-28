@@ -30,7 +30,8 @@
     <script>
         async function getUnEvento() {
             try {
-                const res = await fetch('http://localhost:9003/evento/uno/2');
+                const idEvento = JSON.parse(localStorage.getItem('evento'));
+                const res = await fetch(`http://localhost:9003/evento/uno/${idEvento}`);
                 if (!res.ok) {
                     throw new Error(`Error en la respuesta del evento: ${res.status}`);
                 }
@@ -45,7 +46,8 @@
 
         async function getUnUsuario() {
             try {
-                const res = await fetch('http://localhost:9003/usuario/uno/3');
+                const idUser = JSON.parse(localStorage.getItem('usuario')).idUsuario;
+                const res = await fetch(`http://localhost:9003/usuario/uno/${idUser}`);
                 if (!res.ok) {
                     throw new Error(`Error en la respuesta del usuario: ${res.status}`);
                 }
