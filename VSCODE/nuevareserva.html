@@ -73,15 +73,19 @@
                     const cantidad = parseInt(document.getElementById("cantidad").value);
                     const observaciones = document.getElementById("observaciones").value;
 
-                    const nuevoReserva = {
+                    // Precio fijo de 28
+                    const precioUnitario = 28;
+                    const precioVenta = cantidad * precioUnitario;
+
+                    const nuevaReserva = {
                         cantidad: cantidad,
                         observaciones: observaciones,
                         usuario: { idUsuario: usuario.idUsuario },
                         evento: { idEvento: evento.idEvento },
-                        precioVenta: evento.precioVenta
+                        precioVenta: precioVenta
                     };
 
-                    console.log("Enviando reserva:", nuevoReserva);
+                    console.log("Enviando reserva:", nuevaReserva);
 
                     try {
                         const response = await fetch('http://localhost:9003/reserva/alta', {
@@ -89,19 +93,21 @@
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify(nuevoReserva)
+                            body: JSON.stringify(nuevaReserva)
                         });
 
                         if (!response.ok) {
-                            // Si no es OK, lee el texto (puede estar vacío) para mostrar error
-                            const errorText = await response.text();
-                            throw new Error('Error al crear la reserva: ' + (errorText || response.statusText));
+                           
+                            let errorDetails = '';
+                            try {
+                                errorDetails = await response.json();
+                            } catch {
+                                errorDetails = 'No se pudo obtener detalle del error';
+                            }
+                            throw new Error('Error al crear la reserva: ' + JSON.stringify(errorDetails));
                         }
 
-                        // Leer el texto de respuesta, puede estar vacío
-                        const text = await response.text();
-                        const reservaCreada = text ? JSON.parse(text) : {};
-
+                        const reservaCreada = await response.json();
                         console.log("Reserva creada con éxito:", reservaCreada);
                         alert("Reserva realizada con éxito!");
 
