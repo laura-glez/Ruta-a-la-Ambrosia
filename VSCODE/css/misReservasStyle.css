@@ -152,3 +152,36 @@ left:300px;
     left:650px;
     font-size: 40px;
 }
+
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;  /* Asegúrate de que esté oculto por defecto */
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  margin: 10% auto;
+  width: 30%;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
