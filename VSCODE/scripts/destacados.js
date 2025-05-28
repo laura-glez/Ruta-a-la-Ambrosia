@@ -84,7 +84,7 @@ const img_ordenada = [
         btn.style.transform= 'translateX(-50%)';
         btn.addEventListener('click', e => {
         e.stopPropagation();
-        window.location.href = btn.dataset.destino;
+        window.location.href="MisReservas.html";
         });
 
         const rect = card.getBoundingClientRect();
