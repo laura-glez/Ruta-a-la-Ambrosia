@@ -327,12 +327,13 @@ opacity: 0;
 
 /*Reservas Destacadas */
 
+
+
 .ElTitulo {
-  font-size: 1.3rem;
+  font-size: 35px;
   font-weight: bold;
   line-height: 1.2;
 }
-
 
 .btn-P-Reseñas {
   cursor: pointer;
@@ -347,7 +348,6 @@ opacity: 0;
   border: none;
 }
 
-
 .content-P-reservas {
   position: relative;
   display: flex;
@@ -358,7 +358,6 @@ opacity: 0;
   transition: transform var(--d) var(--e);
   z-index: 1;
 }
-
 
 .P-reseña_Descrip {
   font-family: var(--font-serif);
@@ -372,6 +371,7 @@ opacity: 0;
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
 }
+
 
 
 .pagina-content-P-reservas {
@@ -407,6 +407,8 @@ opacity: 0;
 }
 
 
+
+
 .card-P-reservas {
   position: relative;
   display: flex;
@@ -425,7 +427,6 @@ opacity: 0;
   height: 350px;
 }
 
-
 .card-P-reservas:before {
   content: '';
   position: absolute;
@@ -438,7 +439,6 @@ opacity: 0;
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
 }
-
 
 .card-P-reservas:after {
   content: '';
@@ -458,7 +458,6 @@ opacity: 0;
   transition: transform calc(var(--d) * 2) var(--e);
 }
 
-
 .card-P-reservas:nth-child(1):before {
   background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
@@ -474,6 +473,9 @@ opacity: 0;
 .card-P-reservas:nth-child(5):before {
   background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
+
+
+
 
 
 @media (hover: hover) and (min-width: 600px) {
@@ -502,6 +504,7 @@ opacity: 0;
       transform: translateY(0);
   }
 }
+
 
 
 
