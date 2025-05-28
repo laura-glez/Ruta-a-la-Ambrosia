@@ -1,6 +1,8 @@
 // Función para obtener los datos desde localStorage
  const getData = () => JSON.parse(localStorage.getItem('user') || '[]');
  
+const ventana = document.getElementById('')
+
  const login = document.getElementById('login-popup');
  // Cuando se envía el del registro del cliente
  login.addEventListener('submit', async (e) => {
@@ -37,7 +39,7 @@
     });
 
 //POPUP LOGIN
-function mostarAlta(){
+function mostarLogin(){
         const popup = document.getElementById('login-popup');
         const overlay = document.getElementById('popup-overlay');
         const form = document.getElementById('login-form');
@@ -102,6 +104,6 @@ function mostrarLogin(){
 
 function openLoginPopup(e) {
     e.preventDefault();
-    mostarAlta();
+    mostarLogin();
 }
 
