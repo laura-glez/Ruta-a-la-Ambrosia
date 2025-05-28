@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 body {
   color: #2e2e2e;
   background-color: #F9F4EF;
@@ -14,9 +15,84 @@ body {
 
 
 
+
+/* Leyes para cada contenedor */
+
+.Espacio-Contenedores {
+  height: 87.5vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+
+.Espacio-Contenedores-2 {
+  height: 88vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  align-items: center;
+}
+
+
+.Espacio-Contenedores-3 {
+  height: 78vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  align-items: center;
+}
+
+
+.Espacio-Contenedores h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+
+.diferenciar {
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 20px;
+  background-color: #750f3b;
+  color:#F9F4EF;
+  position: relative;
+  z-index: 2;
+}
+
+
+.Espacio-Contenedores p {
+  max-width: auto;
+  margin: 0 auto 40px;
+  font-size: 16px;
+}
+
+
+.Contenedor-orden {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+
+
+
+
+/* Todo el nav incluido el logo y las rutas */
+
 header {
   background: #750f3b;
-  padding: 20px 40px;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,11 +102,13 @@ header {
   z-index: 1000;
 }
 
+
 header .logo {
   font-weight: 800;
   font-size: 24px;
   color: #111;
 }
+
 
 header nav a {
   margin-left: 20px;
@@ -42,9 +120,7 @@ header nav a {
 
 .nav1 ul {
   list-style: none;
-
   background:#750f3b;
-
 }
 
 .nav1 ul:before,
@@ -52,6 +128,7 @@ header nav a {
   content: "";
   display: table;
 }
+
 .nav1 ul:after {
   clear: both;
 }
@@ -99,14 +176,42 @@ header nav a {
 }
 
 
+.icono-usuario a {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.icono-usuario #icono2 {
+opacity: 0;
+}
+
+.icono-usuario img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icono-usuario a:hover #icono1 {
+  opacity: 0; 
+}
+
+.icono-usuario a:hover #icono2 {
+  opacity: 1; 
+}
+
+#logoRA{
+  position: relative;
+  top: 30px;
+}
 
 
 
 
 
-
-
-
+/* la primera imagin y el cuadrado */
 
 .Principal {
   position: relative;
@@ -121,7 +226,6 @@ header nav a {
   text-align: center;
   color: #333;
   background-attachment: fixed;
-  
 }
 
 
@@ -177,9 +281,6 @@ header nav a {
 }
 
 
-
-
-
 #reserva{
   font-family: "Cinzel";
   padding: 0 1rem;
@@ -193,7 +294,7 @@ header nav a {
   transition: background-color 0.3s, color 0.3s;
   border-radius: 5px;
   width: 180px;
-  height: 30px;
+  height: 40px;
 }
 
 
@@ -223,168 +324,66 @@ header nav a {
 
 
 
-.Espacio-Contenedores{
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 140px;
+
+/*Reservas Destacadas */
+
+.ElTitulo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 
-.Espacio-Contenedores h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.diferenciar{
-  font-size: 40px;
-  margin-bottom: 20px;
-  background-color: #750f3b;
-  color:#F9F4EF;
-}
-
-.Espacio-Contenedores p {
-  max-width: auto;
-  margin: 0 auto 40px;
-  font-size: 16px;
+.btn-P-Reseñas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
 }
 
 
-
-
-
-footer {
-  background: #750f3b;
-  color: #fff4c2;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-
-
-.Contenedor-orden {
+.content-P-reservas {
   position: relative;
-  height: 70vh;
-  width: 100%;
-  display:flex;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 35px;
-}
-
-
-
-
-
-
-
-.imagen-Reserva {
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  transform: translateY(-0px);
-  border-radius: 5px;
-  transition: 400ms ease-in-out;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
   z-index: 1;
 }
 
 
-
-.Reservas-Populares {
-  height: 350px;
-  width: 400px;
-  background-color: wheat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  transition: 700ms ease-in-out;
-  cursor: pointer;
+.P-reseña_Descrip {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
 }
-
-
-.Diseño-letra {
-
-  text-align: center;
-}
-
-.Reservas-Populares:hover {
-  height: 450px;
-  width: 1000px;
-}
-
-
-
-.Reservas-Populares:hover .imagen-Reserva {
-  height: 200px;
-  width: 200px;
-  transform: translateY(-120px);
-}
-
-
-.Reservas-Populares:hover .Diseño-letra {
-  transform: translateY(20px);
-}
-
-
-
-
-
-.Reservas-Populares {
-  padding: 15px 40px;
-  font-size: 20px;
-  color: black;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.Reservas-Populares:hover {
-  animation: gelatinosa 1.4s ease-in-out;
-
-}
-
-@keyframes gelatinosa {
-  0% { 
-    transform: scale(1, 1); 
-  }
-  25% { 
-    transform: scale(1.1, 0.9); 
-  }
-  50% { 
-    transform: scale(0.9, 1.1); 
-  }
-  75% { 
-    transform: scale(1.05, 0.95); 
-  }
-  100% { 
-    transform: scale(1, 1); 
-  }
-}
-
-
-
-
-
 
 
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: 'Rubik', sans-serif;
-  --font-serif: 'Cardo', serif;
 }
+
 
 .pagina-content-P-reservas {
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 100%;
-  margin: 0 ;
-  font-family: var(--font-sans);
+  font-family:'Rubik', sans-serif;
+  width: max-content;
+  margin: 105px auto;
+  
 }
+
 
 @media (min-width: 600px) {
   .pagina-content-P-reservas {
@@ -394,7 +393,16 @@ footer {
 
 @media (min-width: 800px) {
   .pagina-content-P-reservas {
-      grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    grid-template-columns: repeat(5, 320px); 
+    justify-content: center;               
+    grid-gap: 2rem;
+    padding: 5rem;
+    
+  }
+  .card-P-reservas {
+    width: 300px;   
+    height: 350px;  
   }
 }
 
@@ -417,6 +425,7 @@ footer {
   height: 350px;
 }
 
+
 .card-P-reservas:before {
   content: '';
   position: absolute;
@@ -429,6 +438,7 @@ footer {
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
 }
+
 
 .card-P-reservas:after {
   content: '';
@@ -448,6 +458,7 @@ footer {
   transition: transform calc(var(--d) * 2) var(--e);
 }
 
+
 .card-P-reservas:nth-child(1):before {
   background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
@@ -464,42 +475,6 @@ footer {
   background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
 
-.content-P-reservas {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 1;
-}
-
-.ElTitulo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.P-reseña_Descrip {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-style: italic;
-  line-height: 1.35;
-}
-
-.btn-P-Reseñas {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.65rem;
-  font-weight: bold;
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
-  color: white;
-  background-color: black;
-  border: none;
-}
 
 @media (hover: hover) and (min-width: 600px) {
   .card-P-reservas:after {
@@ -532,115 +507,7 @@ footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.card-reservas {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  padding: 1rem;
-  width: 100%;
-  text-align: center;
-  color: whitesmoke;
-  background-color: whitesmoke;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1),
-              0 2px 2px rgba(0,0,0,0.1),
-              0 4px 4px rgba(0,0,0,0.1),
-              0 8px 8px rgba(0,0,0,0.1),
-              0 16px 16px rgba(0,0,0,0.1);
-  height: 350px;
-}
-
-.card-reservas:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110%;
-  background-size: cover;
-  background-position: 0 0;
-  transition: transform calc(var(--d) * 1.5) var(--e);
-  pointer-events: none;
-}
-
-.card-reservas:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  pointer-events: none;
-  background-image: linear-gradient(
-      to bottom,
-      hsla(0, 0%, 0%, 0) 0%,
-      hsla(0, 0%, 0%, 0.790) 100%
-  );
-  transform: translateY(-50%);
-  transition: transform calc(var(--d) * 2) var(--e);
-}
-
-
-
-@media (hover: hover) and (min-width: 600px) {
-  .card-reservas:after {
-      transform: translateY(0);
-  }
-
-  .content-P-reservas {
-      transform: translateY(calc(100% - 4.5rem));
-  }
-
-  .card-reservas:hover,
-  .card-reservas:focus-within {
-      align-items: center;
-  }
-
-  .card-reservas:hover:before {
-      transform: translateY(-4%);
-  }
-
-  .card-reservas:hover:after {
-      transform: translateY(-50%);
-  }
-
-  .card-reservas:hover .content-P-reservas {
-      transform: translateY(0);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Todas las reseñas de la pagina */
 
 .container {
   padding: 16px; 
@@ -652,10 +519,10 @@ footer {
 }
 
 
-
 .flat {
   box-shadow: none !important;
 }
+
 
 .card {
   overflow: hidden;
@@ -665,110 +532,58 @@ footer {
   border: 1px solid darkgray; 
   transition: all 1.3s cubic-bezier(1, 0, 0, 1);
   cursor: pointer;
-}
-
-#A1{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  transition: 0.8s;
 }
-
-#A2{
-  background-image: url(https://www.vinopack.es/wp-content/uploads/2016/05/vp-vi%C3%B1edos-penedes.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A3{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A4{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A5{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A6{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A7{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A8{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A9{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#A10{
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
 
 
 .card:hover {
   box-shadow: 0 1px 26px lightgray; 
 }
 
-.card-title {
-  text-align: center;
 
-  font-size: 40px;
+.card-Cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;     
+  padding: 1.5rem; 
+}
+
+
+.card-Titulo {
+  text-align: center;
+  font-size: 30px;
   color: white;
 }
 
 
-.card-details {
+.card-descripcion {
   display: none;
+  flex-direction: column;
+  gap: 0.75rem;   
+  height: 100%;
+  padding: 0;      
+  box-sizing: border-box;
 }
 
-.block {
-  height: 32px; 
-  margin-bottom: 16px;
+
+.subContenedor {
+  margin: 0;
+  min-height: 1.5em;
+  font-size: 25px;
 }
 
 
-.card-full {
+.total-card {
   position: fixed !important;
   left: 50% !important;
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
   width: 60vw !important;
   height: 70vh !important;
-  font-size: 32px;
+  font-size: 26px;
   box-shadow: 0 1px 26px lightgray; 
   overflow-y: auto;
   overflow-x: hidden;
@@ -777,7 +592,6 @@ footer {
   transition: all 0.5s ease;
   z-index: 999;
 }
-
 
 
 .close-button {
@@ -793,21 +607,66 @@ footer {
   transition: color 0.5s ease; 
 }
 
+
 .close-button:hover {
-  color: red; 
+  color: #750f3b;
+}
+
+
+.total-card .card-descripcion {
+  display: flex;
+}
+
+
+.btn-todas-Reseñas {
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: 1.5rem;      
+  align-self: center;       
+  padding: 1rem 2rem;       
+  font-size: 1rem;            
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 4px;         
+  transition: transform 0.2s;
+}
+
+
+.btn-todas-Reseñas:hover {
+  transform: scale(1.05);
+}
+
+
+.total-card .btn-todas-Reseñas {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
 }
 
 
 
 
 
+/* El footer de la Pagina */
+
+footer {
+  background: #750f3b;
+  color: #fff4c2;
+  text-align: center;
+  padding: 40px 20px;
+}
 
 
 
 
 
-
-
+/* Para que el video quede bien*/
 
 .videoFondo {
   position: absolute;
@@ -830,14 +689,6 @@ footer {
   position: relative;
   z-index: 2; 
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -897,14 +748,6 @@ opacity: 0;
   position: relative;
   top: 30px;
 }
-
-
-
-
-
-
-
-
 
 
 

@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruta a la Ambrosia</title>
-    <link href="css/styleDePrueba.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ruta a la Ambrosia</title>
+        <link href="css/styleDePrueba.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="shortcut icon" href="img/Practicas-Definitivo.png">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+        </style>
+    </head>
 <body>
-    <header>
-        
+    <header> 
         <div class="logo"><img id="RA"src="img/Practicas-Definitivo.png" alt="logoRA"width="70" height="70"><!--Ruta a la Ambrosia--></div>
         <nav class="nav nav1">
             <ul>
-              <li><a href="SendaDionisio.HTML">Senda de Dionisio</a></li>
-              <li><a href="#">Senda de la Hidromiel</a></li>
-              <li><a href="#">Senda Espirituosa</a></li>
+                <li><a href="SendaDionisio.HTML">Senda de Dionisio</a></li>
+                <li><a href="SendaHidromiel.HTML">Senda de la Hidromiel</a></li>
+                <li><a href="SendaEspirituosa.HTML">Senda Espirituosa</a></li>
               <li class="icono-usuario">
                  <a href="#" onclick="openLoginPopup(event)">
                   <img id="icono1" src="img/icons8-usuario-48 (1).png" alt="icono1" width="30" height="30">
                   <img id="icono2" src="img/icons8-usuario-48.png" alt="icono2" width="30" height="30">
                 </a>
-              </li>
+               </li>
           </ul>
-          
-          </nav>
+        </nav>
     </header>
 
+    <!--Todo lo del principal y la imagen-->
     <section class="Principal" >
         <div class="foto_principal" >
             <div class="Principal-texto">
@@ -43,132 +42,98 @@
         </div>
     </section>
 
-    <section class="Espacio-Contenedores">
-        <h2 class="diferenciar">Reservas Populares</h2>
 
-        <section class="container">
-            <div class="card" role="button" id="A1">
-                <div class="card-body">
-                    <h3 class="card-title">Título de la tarjeta</h3>
-                    <div class="card-details">
-                        <div class="block"></div>
-                        <div class="block"></div>
-                        <div class="block"></div>
-                    </div>
-                </div>
-            </div>
-    
-    
-            <!-- Tarjeta final con contenido de ejemplo -->
-            <div class="card" role="button" id="A2">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card" role="button" id="A3">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
+    <!-- Todas las Reservas Destacadas  -->
+  <section class="Espacio-Contenedores">
+    <h2 class="diferenciar">Reservas Destacadas</h2>
+    <div class="pagina-content-P-reservas">
+
+      <div class="card-P-reservas">
+        <div class="content-P-reservas">
+          <h2 class="ElTitulo">Nombre-Reserva</h2>
+          <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+          <button class="btn-P-Reseñas">Reservar Ahora</button>
+        </div>
+      </div>
+
+      <div class="card-P-reservas">
+        <div class="content-P-reservas">
+          <h2 class="ElTitulo">Nombre-Reserva</h2>
+          <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+          <button class="btn-P-Reseñas">Reservar Ahora</button>
+        </div>
+      </div>
+
+      <div class="card-P-reservas">
+        <div class="content-P-reservas">
+          <h2 class="ElTitulo">Nombre-Reserva</h2>
+          <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+          <button class="btn-P-Reseñas">Reservar Ahora</button>
+        </div>
+      </div>
+
+      <div class="card-P-reservas">
+        <div class="content-P-reservas">
+          <h2 class="ElTitulo">Nombre-Reserva</h2>
+          <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+          <button class="btn-P-Reseñas">Reservar Ahora</button>
+        </div>
+      </div>
+
+      <div class="card-P-reservas">
+        <div class="content-P-reservas">
+          <h2 class="ElTitulo">Nombre-Reserva</h2>
+          <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+          <button class="btn-P-Reseñas">Reservar Ahora</button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- Todas las Reservas  de los vinos -->
+    <section class="Espacio-Contenedores-2">
+        <h2 class="diferenciar">Todas Posibilidades de Reservas</h2>
         
-    
-            <div class="card" role="button" id="A4">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <section class="container" id="container-card" >
+            <div class="card" role="button" id="A1">
+                <div class="card-Cuerpo">
+                    <h3 class="card-Titulo">Título de la tarjeta</h3>
+                    <div class="card-descripcion">
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
                     </div>
                 </div>
             </div>
-    
-    
-            <div class="card" role="button" id="A5">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+
+
+            <div class="card" role="button" id="A2">
+                <div class="card-Cuerpo">
+                    <h3 class="card-Titulo">Tarjeta con texto</h3>
+                    <div class="card-descripcion">
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <div class="subContenedor"></div>
+                        <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
                     </div>
                 </div>
             </div>
-    
-    
-            <div class="card" role="button" id="A6">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
-    
-    
-    
-            <div class="card" role="button" id="A7">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
-    
-    
-            <div class="card" role="button" id="A8">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card" role="button" id="A9">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card" role="button" id="A10">
-                <div class="card-body">
-                    <h3 class="card-title">Tarjeta con texto</h3>
-                    <div class="card-details">
-                        <div class="block"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        <div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-            </div>
+
+
         </section>
     </section>
 
-    <section class="Espacio-Contenedores">
+    <section class="Espacio-Contenedores-3">
         <h2 class="diferenciar">Informacion sobre Nosotros</h2>
+        <video src="./videos/135643-762117669_small.mp4" autoplay="true" loop="true" muted="true" class="videoFondo"></video>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut risus quis odio efficitur hendrerit vel nec lorem.</p>
     </section>
 
@@ -203,6 +168,142 @@
     <script src="scripts/Prueba.js"></script>
 
 
-    <script src="scripts/login.js"></script>
+    <script>
+        document.querySelectorAll('.btn-P-Reseñas').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const destino = btn.getAttribute('dirreccion-para-reservas');
+            if (destino) {
+                window.location.href = destino;
+            }
+            });
+        });
+    </script>
+
+    <script>
+        const img_ordenada = [
+        'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2023-10/Vinos%20tintos%20dulces.jpg',
+        'https://mejorconsalud.as.com/wp-content/uploads/2021/12/cielo-estrellado-negro.jpg',
+        ];
+
+        let eventos = [];
+
+        async function getEventos() {
+        try {
+            const res = await fetch('http://localhost:9003/evento/todos');
+            const listResult = await res.json();
+
+            console.log("Datos obtenidos:", listResult);
+
+            if (!Array.isArray(listResult) || listResult.length === 0) {
+            document.getElementById('container-card').innerHTML = `<p>No se encontraron eventos</p>`;
+            return;
+            }
+
+            eventos = listResult;
+            renderCards();
+        }   catch (error) {
+            console.error(error);
+            document.getElementById('container-card').innerHTML = `<p style="color:red">${error.message}</p>`;
+        }
+        }
+
+        function renderCards() {
+        for (let i = eventos.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [eventos[i], eventos[j]] = [eventos[j], eventos[i]];
+        }
+
+        const seleccionados = eventos.slice(0, 10);
+        document.getElementById('container-card').innerHTML = '';
+
+        seleccionados.forEach((evento, index) => {
+            evento.imagenUrl = img_ordenada[index % img_ordenada.length];
+            const card = crearCard(evento, index);
+            document.getElementById('container-card').appendChild(card);
+        });
+        }
+
+        function crearCard(evento, idx) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.style.backgroundImage = `url(${evento.imagenUrl})`;
+        card.dataset.index = idx;
+
+        const cuerpo = document.createElement('div');
+        cuerpo.classList.add('card-Cuerpo');
+
+        const titulo = document.createElement('h3');
+        titulo.classList.add('card-Titulo');
+        titulo.textContent = evento.nombre;
+
+        const descripcion = document.createElement('div');
+        descripcion.classList.add('card-descripcion');
+        descripcion.innerHTML = `
+            <div class="subContenedor">${evento.descripcion || ''}</div>
+            <div class="subContenedor">Dirección: ${evento.direccion ?? '—'}</div>
+            <div class="subContenedor">Precio: ${evento.precio ?? '—'}€</div>
+            <div class="subContenedor">Aforo Máximo: ${evento.aforoMaximo ?? '—'}</div>
+            <div class="subContenedor">Fecha del Evento: ${evento.fechaInicio ?? '—'}</div>
+            <button class="btn-todas-Reseñas" id="reservar-${idx}">Reservar Ahora</button>
+        `;
+
+        cuerpo.append(titulo, descripcion);
+        card.append(cuerpo);
+
+        card.addEventListener('click', () => {
+            const clone = card.cloneNode(true);
+            card.classList.toggle('flat');
+
+            const closeButton = document.createElement('button');
+            closeButton.classList.add('close-button');
+            closeButton.innerHTML = '&times;';
+            clone.appendChild(closeButton);
+
+            const btn = clone.querySelector('.btn-todas-Reseñas');
+            btn.style.position = 'absolute';
+            btn.style.bottom   = '1.5rem';
+            btn.style.left     = '50%';
+            btn.style.transform= 'translateX(-50%)';
+            btn.addEventListener('click', e => {
+            e.stopPropagation();
+            window.location.href = btn.dataset.destino;
+            });
+
+            const rect = card.getBoundingClientRect();
+            clone.style.position = 'fixed';
+            clone.style.left     = `${rect.left}px`;
+            clone.style.top      = `${rect.top}px`;
+            clone.style.width    = `${rect.width}px`;
+            clone.style.height   = `${rect.height}px`;
+            clone.style.zIndex   = 999;
+            clone.classList.add('total-card');
+
+            document.body.appendChild(clone);
+
+            closeButton.addEventListener('click', e => {
+            e.stopPropagation();
+            clone.classList.remove('total-card');
+            card.classList.toggle('flat');
+            setTimeout(() => clone.remove(), 300);
+            });
+            clone.addEventListener('click', e => {
+            if (e.target === clone) {
+                clone.classList.remove('total-card');
+                card.classList.toggle('flat');
+                setTimeout(() => clone.remove(), 300);
+            }
+            });
+        });
+
+        return card;
+        }
+
+        window.addEventListener('DOMContentLoaded', getEventos);
+
+    </script>
+
+
+
+
 </body>
 </html>
