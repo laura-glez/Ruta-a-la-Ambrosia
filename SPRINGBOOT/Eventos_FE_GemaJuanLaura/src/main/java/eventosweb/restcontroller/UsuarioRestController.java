@@ -73,10 +73,10 @@ public class UsuarioRestController {
 			 return null;
 	 }
 	 
-	 @GetMapping("buscarDatosUsuaro/{idUsuario}")
-	 public UsuarioDtoDatos buscarDatosUsuario (@PathVariable Integer id) {
+	 @GetMapping("/buscarDatosUsuario/{idUsuario}")
+	 public UsuarioDtoDatos buscarDatosUsuario (@PathVariable Integer idUsuario) {
 		
-		 return UsuarioDtoDatos.convert(udao.buscarUno(id));
+		 return UsuarioDtoDatos.convert(udao.buscarUno(idUsuario));
 	 }
 	  
 

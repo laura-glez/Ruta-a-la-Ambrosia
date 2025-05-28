@@ -52,50 +52,61 @@ document.querySelectorAll('.card').forEach(card => {
   });
 
 
-  const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
-  console.log(idUsuario);
-  
 
-        async function getReservasUsuario(idUsuario) {
-            try {
-                
-                const resUsuario = await fetch(`http://localhost:9003/reserva/usuarioId/${idUsuario}`);
-                const usuarios = await resUsuario.json();
-                console.log(usuarios);
+const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
 
-                if (!usuarios) {
-                    document.getElementById('tablaUsuarioContainer').innerHTML = `<p>No se encontraron datos para el usuario.</p>`;
-                    return;
-                }
 
-               
-                  
-            } catch (error) {
-                //console.error(error);
-                document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
-            }
+async function getUsuario(idUsuario) {
+    try {
+        const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
+        if (!res.ok) {
+            throw new Error(`Error al obtener el usuario: ${res.statusText}`);
         }
+        const user = await res.json();
+        return user;
+    } catch (error) {
+        document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+        throw error; 
+    }
+}
 
-        function renderizarTablaUsuario(u) {
-            //const tablaContainer = document.getElementById('tablaUsuarioContainer');
-            const divDetalles = document.getElementById('tablaUsuarioContainer');
-            u = getUsuario(idUsuario);
-            console.log(u);
-            divDetalles.innerHTML =`
-            <br>
-            <br>
-            <br>
-                <h2>Detalles del Usuario: ${u.nombre}</h2>
-                <p><strong>ID:</strong> ${u.idUsuario}</p>
-                <p><strong>Email:</strong> ${u.email}</p>
-                <p><strong>Nombre:</strong> ${u.nombre}</p>
-                <p><strong>Apellidos:</strong> ${u.apellidos}</p>
-                <p><strong>Password:</strong> <input type="password" value="${u.password}" disabled /></p>
-            `;
-        }
 
-      const usuario = getUsuario(idUsuario);
-      renderizarTablaUsuario(usuario);
+async function renderizarTablaUsuario() {
+    try {
+        const usuario = await getUsuario(idUsuario); 
+        const divDetalles = document.getElementById('tablaUsuarioContainer');
+        divDetalles.innerHTML = `
+            <br><br><br>
+            <h2>Detalles del Usuario: ${usuario.nombre}</h2>
+            <p><strong>ID:</strong> ${usuario.idUsuario}</p>
+            <p><strong>Email:</strong> ${usuario.email}</p>
+            <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+            <p><strong>Apellidos:</strong> ${usuario.apellidos}</p>
+            <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
+        `;
+    } catch (error) {
+        console.error("Error al renderizar la tabla de usuario:", error);
+    }
+}
+
+
+async function renderizarNombreUsuario() {
+    try {
+        const usuario = await getUsuario(idUsuario); 
+        const divNombre = document.getElementById('nombreUsuario');
+        divNombre.innerHTML = `
+            <nav class="nav nav1">
+                <li><a href="#"> ${usuario.nombre}</a></li>
+            </nav>
+        `;
+    } catch (error) {
+        console.error("Error al renderizar el nombre del usuario:", error);
+    }
+}
+
+renderizarTablaUsuario();
+renderizarNombreUsuario();
+
 
         //LIMPIAR EL LOCALSTORAG AL SALIR
     const cerrarSesion = document.getElementById('cerrarSesion');
@@ -104,3 +115,5 @@ document.querySelectorAll('.card').forEach(card => {
       localStorage.clear();
       window.location.href= "prueba.html";
     });
+
+    

@@ -9,14 +9,14 @@ public class UsuarioDtoDatos {
 	private Integer idUsuario;
 	private String email;
 	private String nombre;
-	private String apellido;
+	private String apellidos;
 	
 	public UsuarioDtoDatos(Integer idUsuario, String email, String nombre, String apellido) {
 		super();
 		this.idUsuario = idUsuario;
 		this.email = email;
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellidos = apellidos;
 	}
 	public UsuarioDtoDatos() {
 		super();
@@ -39,11 +39,11 @@ public class UsuarioDtoDatos {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 	
 	public static UsuarioDtoDatos convert (Usuario user) {
@@ -52,7 +52,7 @@ public class UsuarioDtoDatos {
 		usuario.setIdUsuario(user.getIdUsuario());
 		usuario.setEmail(user.getEmail());
 		usuario.setNombre(user.getNombre());
-		usuario.setApellido(user.getApellidos());
+		usuario.setApellidos(user.getApellidos());
 		
 		return usuario;
 	}

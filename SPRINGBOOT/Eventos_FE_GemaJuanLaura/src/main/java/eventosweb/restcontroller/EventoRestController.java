@@ -33,6 +33,17 @@ public class EventoRestController {
 		return edao.porNombreContain(cadena);
 	}
 	
+	@GetMapping("/destacado/{destacado}")
+	public List<Evento> destacado(@PathVariable String destacado){
+		return edao.porDestacado(destacado);
+	}
+	
+	@GetMapping("/estado/{estado}")
+	public List<Evento> estado(@PathVariable String estado){
+		return edao.porEstado(estado);
+	}
+	
+	
 	@GetMapping("/uno/{idEvento}")
 	public Evento uno(@PathVariable Integer idEvento){
 		return edao.buscarUno(idEvento);
@@ -53,7 +64,7 @@ public class EventoRestController {
 		 return edao.modificar(evento);
 		  
 		}
-	    
+
 
 
 }
