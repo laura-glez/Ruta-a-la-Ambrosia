@@ -310,7 +310,7 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
     precio: parseInt(document.getElementById("precio").value),
     tipo: 
       {idTipo:parseInt(document.getElementById("idTipo").value)},
-    fechaAlta: Date.now(),
+    fechaAlta: "2025-05-28",
     estado: 'ACTIVO',
     destacado: 'N'
   };
@@ -427,6 +427,7 @@ function mostrarModificarEvento(){
           popup.style.display = 'none';
           overlay.style.display = 'none';
         }, 200)
+        
 }); 
 async function getUsuario(idUsuario) {
   try {
