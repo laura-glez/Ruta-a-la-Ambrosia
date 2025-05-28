@@ -89,55 +89,45 @@ function renderizarTablaReservas(reservas) {
     });
   });
 }
-async function getUsuario(idUsuario) {
-    try {
-        const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
-        if (!res.ok) {
-            throw new Error(`Error al obtener el usuario: ${res.statusText}`);
-        }
-        const user = await res.json();
-        return user;
-    } catch (error) {
-        document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
-        throw error; 
+
+async function guardarCantidadModificada(idReserva, nuevaCantidad, nuevasObservaciones, fila) {
+  const precioUnitario = 28;
+  const precioVenta = nuevaCantidad * precioUnitario;
+
+  const idEvento = fila.children[1].textContent.trim();
+
+  const reservaModificada = { 
+    idReserva: parseInt(idReserva), 
+    cantidad: nuevaCantidad,
+    precioVenta: precioVenta,
+    observaciones: nuevasObservaciones,
+    usuario: { idUsuario: idUsuario }, 
+    evento: { idEvento: parseInt(idEvento) }
+  };
+
+  console.log("Datos para modificar reserva:", reservaModificada);
+
+  try {
+    const response = await fetch('http://localhost:9003/reserva/modificar', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(reservaModificada),
+    });
+
+    if (response.ok) {
+      alert("Reserva modificada con éxito");
+      obtenerReservas(idUsuario);
+    } else {
+      throw new Error('Error al modificar la reserva');
     }
+  } catch (error) {
+    console.error('Error al modificar la reserva:', error);
+    alert('Hubo un problema al modificar la reserva.');
   }
-
-async function guardarCantidadModificada(idReserva, nuevaCantidad) {
-    let eventos = [];
-    const reservaModificada = { idReserva, 
-        cantidad: nuevaCantidad,
-        precioVenta,
-        observaciones,
-        usuario:{idUsuario: idUsuario} 
-    };
-    console.log(reservaModificada);
-    try {
-        const response = await fetch('http://localhost:9003/reserva/modificar', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(reservaModificada),
-        });
-
-        if (response.ok) {
-            alert("Reserva modificada con éxito");
-            obtenerReservas(idUsuario); 
-        } else {
-            throw new Error('Error al modificar la reserva');
-        }
-    } catch (error) {
-        console.error('Error al modificar la reserva:', error);
-        alert('Hubo un problema al modificar la reserva.');
-    }
-console.log(reservaModificada);
 }
 
-
-
 async function eliminarReserva(idReserva) {
-  const confirmDelete = confirm("¿Estás seguro de eliminar esta reserva?");
+  const confirmDelete = confirm("¿Estás seguro de cancelar esta reserva?");
   
   if (confirmDelete) {
     try {
