@@ -69,7 +69,7 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              "2025-05-19");
              
 insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Vinos y quesos italianos premium en cata",
+			 values ("Vinos y quesos italianos premium ",
              "Just Italia te ofrece un plan insuperable, relación calidad precio, una cata como si estuvieras en Italia, con 5 vinos, y una tabla con la mejor selección de 4 de los mejores quesos italianos.", 
              "2025-04-12",
              "HORAS", 
@@ -99,7 +99,7 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 
              
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
-			VALUES ("Curso de Cata de Vinos con Maridaje Gourmet",
+			VALUES ("Cata de Vinos con Maridaje Gourmet",
 			"Curso de iniciación con maridaje gourmet en un restaurante de 5 estrellas, dirigido por un sommelier exclusivo. Incluye la cata de 6 a 8 vinos.",
 			"2025-06-10", 
 			"HORAS", 
@@ -230,7 +230,7 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              "2025-05-19");
              
 insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Visita La Caníbal fábrica de cerveza con cata",
+			 values ("Caníbal fábrica de cerveza con cata",
              "Sumérgete en el proceso cervecero, desde la magia de la elaboración hasta la cata de sus últimas creaciones.", 
              "2025-04-12",
              "HORAS", 
@@ -244,7 +244,7 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              "2025-05-19");
              
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
-			VALUES ("Cata de Cervezas Artesanas en Fábrica Maravillas",
+			VALUES ("Cervezas Artesanas en Fábrica Maravillas",
 			 "Disfruta de una experiencia sensorial con seis estilos diferentes de cervezas artesanas en pleno centro de Madrid.",
 			 "2025-06-08",
 			 "HORAS",
@@ -374,7 +374,7 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              "2025-05-19");
              
 insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
-			 values ("Masterclass de coctelería, crea y disfruta",
+			 values ("Masterclass coctelería, crea y disfruta",
              "La magia del Jardinet es de sobra conocida. Su decoración y su atmósfera evocan un oasis en mitad de la ciudad, que resalta sobre lo cotidiano.", 
              "2025-04-12",
              "HORAS", 

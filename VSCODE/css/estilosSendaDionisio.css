@@ -84,6 +84,7 @@ body {
 
 /* Todo el nav incluido el logo y las rutas */
 
+
 header {
   background: #750f3b;
   padding: 15px 40px;
@@ -96,11 +97,13 @@ header {
   z-index: 1000;
 }
 
+
 header .logo {
   font-weight: 800;
   font-size: 24px;
   color: #111;
 }
+
 
 header nav a {
   margin-left: 20px;
@@ -108,6 +111,7 @@ header nav a {
   color: #333;
   font-weight: 600;
 }
+
 
 .nav1 ul {
   list-style: none;
@@ -119,6 +123,7 @@ header nav a {
   content: "";
   display: table;
 }
+
 .nav1 ul:after {
   clear: both;
 }
@@ -196,6 +201,38 @@ opacity: 0;
   position: relative;
   top: 30px;
 }
+
+.icono-usuario a, .icono-registro a{
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.icono-usuario #icono2 {
+opacity: 0;
+}
+.icono-usuario img,  .icono-registro img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icono-usuario a:hover #icono1 {
+  opacity: 0; 
+}
+
+.icono-usuario a:hover #icono2 {
+  opacity: 1;
+}
+
+#logoRA{
+  position: relative;
+  top: 30px;
+}
+
+
+
 
 
 
@@ -809,6 +846,120 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#login-popup, #login-popup2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* se muestra con JS */
+  z-index: 1050;  /* Mayor que otros elementos */
+}
+
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;  /* Aseguramos que esté por debajo de los pop-ups pero por encima de otros elementos */
+  display: none; /* Ocultar por defecto */
+}
+
+#popup-content1, #popup-content2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #750f3b;
+  padding: 40px;
+  border-radius: 10px;
+  z-index: 1050; /* Asegura que el contenido del pop-up esté al frente */
+  width: 500px;
+  height: auto; /* Dejar que la altura dependa del contenido */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+
+#popup-content1 h2,#popup-content2 h2 {
+    margin-bottom: 20px; /* Añadir espacio debajo del título */
+}
+#popup-content2 #email{
+
+  width: 420px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#popup-content2 button{
+  background-color:wheat;  /* Rojo vino */
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+button#entrar-btn {
+    background-color:wheat;  /* Rojo vino */
+    color: rgb(0, 0, 0);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#entrar-btn:hover {
+    background-color: rgb(176, 158, 125);  /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Estilo para la 'X' de cierre */
+#popup-close, #popup-close2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
 
 
 
