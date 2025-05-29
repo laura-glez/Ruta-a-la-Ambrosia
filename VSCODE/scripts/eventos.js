@@ -123,7 +123,7 @@ function renderTabla() {
         precio: parseInt(document.getElementById("MODprecio").value),
         tipo: { idTipo: parseInt(document.getElementById("MODidTipo").value) },
       };
-    
+
       // Enviar el evento modificado al servidor
       fetch(`http://localhost:9003/evento/modificar`, {
         method: "PUT", 
@@ -143,6 +143,16 @@ function renderTabla() {
           console.log("Evento se ha actualizado con exito");
           document.getElementById("formModificarEvento").style.display = "none"; // Ocultar formulario
           eventos[idEvento] = eventoActualizado; // Actualizar el evento en el array
+    
+          
+            const popup = document.getElementById('popupM');
+            const overlay = document.getElementById('popup-overlay');
+  
+            popup.classList.remove('show');
+            setTimeout(() => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';});
+
           getEventos();
           renderTabla(); // Volver a renderizar la tabla
         })
@@ -150,7 +160,8 @@ function renderTabla() {
           console.error("Error al modificar el evento:", error);
           alert("Hubo un problema al modificar el evento.");
         });
-        
+            // Event listener para cerrar el modal
+      
     });
 
     const celdaEliminar = fila.insertCell();
