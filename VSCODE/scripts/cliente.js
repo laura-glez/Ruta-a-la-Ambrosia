@@ -62,11 +62,6 @@ if (!usuarioStored) {
   console.log("ID del usuario:", idUsuario);
 
 
-  const nombreUsuarioElement = document.getElementById('nombreUsuario');
-  if (nombreUsuarioElement) {
-    nombreUsuarioElement.textContent = `Hola, ${usuario.nombre}`; 
-  }
-
  
   getReservasUsuario(idUsuario);
 }
@@ -115,6 +110,21 @@ function renderizarTablaUsuario(u) {
       <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
   `;
 }
+async function getUsuario(idUsuario) {
+  try {
+      const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
+      if (!res.ok) {
+          throw new Error(`Error al obtener el usuario: ${res.statusText}`);
+      }
+      const user = await res.json();
+      return user;
+  } catch (error) {
+      document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      throw error; 
+  }
+}
+
+
 
 
 const cerrarSesion = document.getElementById('cerrarSesion');
