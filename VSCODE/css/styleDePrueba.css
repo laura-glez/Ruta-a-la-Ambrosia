@@ -804,6 +804,13 @@ opacity: 0;
 #popup-content1 h2,#popup-content2 h2 {
     margin-bottom: 20px; /* Añadir espacio debajo del título */
 }
+#popup-content2 #email{
+
+  width: 420px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
 
 label {
     display: block;
@@ -820,6 +827,17 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+}
+#popup-content2 button{
+  background-color:wheat;  /* Rojo vino */
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
 }
 
 button#entrar-btn {
