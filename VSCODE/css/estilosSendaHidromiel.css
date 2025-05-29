@@ -709,13 +709,13 @@ opacity: 0;
 }
 
 .card-t-Senda:nth-child(1):before {
-  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
 }
 .card-t-Senda:nth-child(2):before {
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg);
 }
 .card-t-Senda:nth-child(3):before {
-  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
 
 .contenido-Senda {
