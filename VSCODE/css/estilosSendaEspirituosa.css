@@ -81,7 +81,9 @@ body {
 
 
 
+
 /* Todo el nav incluido el logo y las rutas */
+
 
 header {
   background: #750f3b;
@@ -95,11 +97,13 @@ header {
   z-index: 1000;
 }
 
+
 header .logo {
   font-weight: 800;
   font-size: 24px;
   color: #111;
 }
+
 
 header nav a {
   margin-left: 20px;
@@ -107,6 +111,7 @@ header nav a {
   color: #333;
   font-weight: 600;
 }
+
 
 .nav1 ul {
   list-style: none;
@@ -118,6 +123,7 @@ header nav a {
   content: "";
   display: table;
 }
+
 .nav1 ul:after {
   clear: both;
 }
@@ -196,7 +202,34 @@ opacity: 0;
   top: 30px;
 }
 
+.icono-usuario a, .icono-registro a{
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.icono-usuario #icono2 {
+opacity: 0;
+}
+.icono-usuario img,  .icono-registro img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
 
+.icono-usuario a:hover #icono1 {
+  opacity: 0; 
+}
+
+.icono-usuario a:hover #icono2 {
+  opacity: 1;
+}
+
+#logoRA{
+  position: relative;
+  top: 30px;
+}
 
 /* la primera imagin y el cuadrado */
 

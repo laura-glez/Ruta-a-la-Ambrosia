@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senda de Dionisio copia</title>
+    <title>Senda de Dionisio</title>
     <link href="css/estilosSendaDionisio.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,24 +14,27 @@
     </style>
 </head>
 <body>
+  
   <!-- Todo el nav incluido el logo y las rutas -->
-  <header>
-    <div class="logo">
-      <a href="prueba.html">
-        <img id="RA" src="img/Practicas-Definitivo.png" alt="logoRA" width="70" height="70">
-      </a>
-    </div>
+  
+  <header> 
+    <div class="logo"><a href="prueba.html"><img id="RA"src="img/Practicas-Definitivo.png" alt="logoRA"width="70" height="70"></a></div>
     <nav class="nav nav1">
-      <ul>
-        <li><a href="prueba.html">Inicio de la Senda</a></li>
-        <li><a href="SendaHidromiel.HTML">Senda de la Hidromiel</a></li>
-        <li><a href="SendaEspirituosa.HTML">Senda Espirituosa</a></li>
-        <li class="icono-usuario">
-          <a href="#" onclick="openLoginPopup(event)">
-            <img id="icono1" src="img/icons8-usuario-48 (1).png" alt="icono1" width="30" height="30">
-            <img id="icono2" src="img/icons8-usuario-48.png" alt="icono2" width="30" height="30">
-          </a>
-        </li>
+        <ul>
+            <li><a href="prueba.html">Inicio de la Senda</a></li>
+            <li><a href="SendaHidromiel.HTML">Senda de la Hidromiel</a></li>
+            <li><a href="SendaEspirituosa.HTML">Senda Espirituosa</a></li>
+          <li class="icono-usuario">
+            <a href="#" id="usuario-icono">
+              <img src="img/icons8-usuario-48 (1).png" alt="icono usuario" width="30" height="30">
+            </a>
+          </li>
+          
+          <li class="icono-registro">
+            <a href="#" id="registro-icono">
+              <img src="img/icons8-usuario-48.png" alt="icono registro" width="30" height="30">
+            </a>
+           </li>
       </ul>
     </nav>
   </header>
@@ -49,71 +52,66 @@
     </div>
   </section>
 
-
-
-  <!-- Todas las Reservas Destacadas de los vinos -->
-  <section class="Espacio-Contenedores">
-    <h2 class="diferenciar">Reservas Destacadas</h2>
-    <div class="pagina-content-P-reservas">
+    <!-- Todas las Reservas Destacadas  -->
+    <section class="Espacio-Contenedores">
+      <h2 class="diferenciar">Reservas Destacadas</h2>
+      <div class="pagina-content-P-reservas">
 
       <div class="card-P-reservas">
-        <div class="content-P-reservas">
+          <div class="content-P-reservas">
           <h2 class="ElTitulo"></h2>
           <p class="P-reseña_Descrip"></p>
           <button class="btn-P-Reseñas"></button>
-        </div>
+          </div>
       </div>
 
       <div class="card-P-reservas">
-        <div class="content-P-reservas">
+          <div class="content-P-reservas">
           <h2 class="ElTitulo"></h2>
           <p class="P-reseña_Descrip"></p>
           <button class="btn-P-Reseñas"></button>
+          </div>
       </div>
-        
-    </div>
   </section>
 
-
-
-  <!-- Todas las Reservas  de los vinos -->
+<!-- Todas las Reservas  de los vinos -->
   <section class="Espacio-Contenedores-2">
-    <h2 class="diferenciar">Todas Posibilidades de Reservas</h2>
-    
-    <section class="container" id="container-card" >
-        <div class="card" role="button" id="A1">
-            <div class="card-Cuerpo">
-                <h3 class="card-Titulo">Título de la tarjeta</h3>
-                <div class="card-descripcion">
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
-                </div>
-            </div>
-        </div>
+      <h2 class="diferenciar">Todas Posibilidades de Reservas</h2>
+      
+      <section class="container" id="container-card" >
+          <div class="card" role="button" id="A1">
+              <div class="card-Cuerpo">
+                  <h3 class="card-Titulo">Título de la tarjeta</h3>
+                  <div class="card-descripcion">
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
+                  </div>
+              </div>
+          </div>
 
 
-        <div class="card" role="button" id="A2">
-            <div class="card-Cuerpo">
-                <h3 class="card-Titulo">Tarjeta con texto</h3>
-                <div class="card-descripcion">
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <div class="subContenedor"></div>
-                    <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
-                </div>
-            </div>
-        </div>
+          <div class="card" role="button" id="A2">
+              <div class="card-Cuerpo">
+                  <h3 class="card-Titulo">Tarjeta con texto</h3>
+                  <div class="card-descripcion">
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <div class="subContenedor"></div>
+                      <button class="btn-todas-Reseñas" dirreccion-para-todas-reservas="SendaDionisio.html" >Reservar Ahora</button>
+                  </div>
+              </div>
+          </div>
 
 
-    </section>
+      </section>
   </section>
 
 
@@ -161,16 +159,13 @@
 
 
   <!-- Todos los script -->
-
   <script src="scripts/SendaDionisio.js"></script>
-
-
-
 
 
 
 </body>
 </html>
+
 
 
 
