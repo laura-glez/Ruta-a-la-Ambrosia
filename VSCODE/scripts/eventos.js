@@ -361,7 +361,7 @@ document.getElementById('cerrarPopupD').addEventListener('click', async () => {
     popup.style.display = 'none';
     overlay.style.display = 'none';
   }, 200); // coincide con la duración de la animación
-});
+
 
   //divDetalles.style.display = "block"; // Hacer visible el div de detalles
 
@@ -380,7 +380,7 @@ document.getElementById('cerrarPopupD').addEventListener('click', async () => {
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
 
-}
+});}
 
 function mostarAlta(){
         const popup = document.getElementById('popupA');
@@ -428,23 +428,12 @@ function mostrarModificarEvento(){
           overlay.style.display = 'none';
         }, 200)
         
-}); 
-async function getUsuario(idUsuario) {
+}); }
+
+ function renderizarNombreUsuario() {
   try {
-      const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
-      if (!res.ok) {
-          throw new Error(`Error al obtener el usuario: ${res.statusText}`);
-      }
-      const user = await res.json();
-      return user;
-  } catch (error) {
-      document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
-      throw error; 
-  }
-}
-async function renderizarNombreUsuario() {
-  try {
-      const usuario = await getUsuario(idUsuario); 
+      const usuario = getUsuario(); 
+     
       const divNombre = document.getElementById('nombreUsuario');
       divNombre.innerHTML = `
           <nav class="nav nav1">
@@ -455,16 +444,34 @@ async function renderizarNombreUsuario() {
       console.error("Error al renderizar el nombre del usuario:", error);
   }
 }
+
+async function getUsuario() {
+  try {
+      const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
+      if (!res.ok) {
+          throw new Error(`Error al obtener el usuario: ${res.statusText}`);
+      }
+      const user = await res.json();
+      console.log(user);
+      return user;
+  } catch (error) {
+      document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      throw error; 
+  }
+}
+
 const idUsuario = JSON.parse(localStorage.getItem('usuario')).idUsuario;
-obtenerReservas(idUsuario);
 renderizarNombreUsuario();
 
 //LIMPIAR EL LOCALSTORAG AL SALIR
-const cerrarSesion = document.getElementById('cerrarSesion');
-cerrarSesion.addEventListener('click', function(e){
-  e.preventDefault();
-  localStorage.clear();
-  window.location.href= "prueba.html";
-});
-}
+  const cerrarSesion = document.getElementById('cerrarSesion');
+  console.log(cerrarSesion); // Esto debería mostrar el elemento en la consola
+
+  cerrarSesion.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Limpiando localStorage...');
+      localStorage.clear();
+      window.location.href = "prueba.html";
+    })
+
 
