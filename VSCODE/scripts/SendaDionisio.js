@@ -182,7 +182,7 @@ card.addEventListener('click', () => {
     btn.style.transform= 'translateX(-50%)';
     btn.addEventListener('click', e => {
     e.stopPropagation();
-    mostrarLogin();
+    mostarLogin();
     });
 
     const rect = card.getBoundingClientRect();

@@ -184,7 +184,7 @@ card.addEventListener('click', () => {
     btn.style.transform= 'translateX(-50%)';
     btn.addEventListener('click', e => {
     e.stopPropagation();
-    window.location.href = btn.dataset.destino;
+    mostarLogin();
     });
 
     const rect = card.getBoundingClientRect();
