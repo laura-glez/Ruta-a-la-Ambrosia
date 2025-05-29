@@ -123,3 +123,21 @@ gap: 1rem;
 border-color: #111;
 
 }
+
+#tablaUsuarioContainer {
+  position: relative;
+  top: 140px;
+  left: 715px;
+  width: 600px;
+  padding: 20px;
+  font-size: 30px;
+  
+}
+
+#tablaUsuarioContainer h2{
+  font-family: "Playfair Display";
+
+}
+#tablaUsuarioContainer p{
+  font-family: "Source Sans 3" ;
+}
