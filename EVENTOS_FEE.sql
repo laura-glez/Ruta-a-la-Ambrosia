@@ -142,7 +142,7 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 
 
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
-			VALUES ("Curso de Cata – Escuela Española de Cata",
+			VALUES ("Escuela Española de Cata",
 			"Cursos presenciales, online y semipresenciales para convertirse en sommelier o mejorar habilidades de cata.",
 			"2025-06-22",
 			"HORAS",
@@ -157,7 +157,7 @@ INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACIO
 
 
 INSERT INTO EVENTOS (nombre, DESCRIPCION, FECHA_INICIO, UNIDAD_DURACION, DURACION, DIRECCION, AFORO_MAXIMO, ESTADO, DESTACADO, PRECIO, ID_TIPO, FECHA_ALTA) 
-			VALUES ("Curso Avanzado de Cata de Vinos – Enoteca Barolo",
+			VALUES ("Enoteca Barolo",
 			"Curso avanzado en 4 sesiones para profundizar en varietales y regiones vinícolas.",
 			"2025-07-01",
 			"HORAS",

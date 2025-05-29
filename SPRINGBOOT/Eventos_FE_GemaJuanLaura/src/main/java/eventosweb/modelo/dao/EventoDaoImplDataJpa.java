@@ -46,6 +46,13 @@ public class EventoDaoImplDataJpa implements EventoDao{
 
 
 	@Override
+	public List<Evento> porTipo(Integer tipo) {
+		// TODO Auto-generated method stub
+		return prepo.findBytipo(tipo);
+	}
+
+	
+	@Override
 	public Evento insertOne(Evento evento) {
 		try {
 			return prepo.save(evento);

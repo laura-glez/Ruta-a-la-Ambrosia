@@ -12,4 +12,5 @@ public interface EventoRepository extends JpaRepository<Evento, Integer>{
 	public List<Evento> findByNombreContaining(String cadena);
 	public List<Evento> findByDestacado(Destacado destacado);
 	public List<Evento> findByEstado(EstadoEvento estadoEvento);
+	/*public List<Evento> findBytipo(Tipo tipo);*/
 }

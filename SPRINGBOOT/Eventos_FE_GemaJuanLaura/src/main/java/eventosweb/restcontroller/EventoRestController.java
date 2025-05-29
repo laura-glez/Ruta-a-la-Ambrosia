@@ -43,6 +43,12 @@ public class EventoRestController {
 		return edao.porEstado(estado);
 	}
 	
+	/*
+	@GetMapping("/tipo/{tipo}")
+	public List<Evento> tipo(@PathVariable Integer tipo){
+		return edao.porTipo(tipo);
+	}
+	*/
 	
 	@GetMapping("/uno/{idEvento}")
 	public Evento uno(@PathVariable Integer idEvento){

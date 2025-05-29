@@ -6,7 +6,7 @@
 
 body {
   color: #333;
-  background-color: #F9F4EF;;
+  background-color: #F9F4EF;
   line-height: 1.6;
   font-family: "cinzel";
 }
@@ -73,7 +73,6 @@ body {
   align-items: center;
   gap: 35px;
 }
-
 
 
 
@@ -205,6 +204,7 @@ opacity: 0;
   position: relative;
   height: 85vh;     
   width: 100%;
+  background: url('https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg') center/cover no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -260,6 +260,187 @@ opacity: 0;
 
 .Principal-texto a:hover {
   background: #333;
+}
+
+
+
+
+
+
+
+
+/*Reservas Populaders */
+
+
+
+.ElTitulo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.btn-P-Reseñas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+.content-P-reservas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+
+.P-reseña_Descrip {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+
+.pagina-content-P-reservas {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  font-family:'Rubik', sans-serif;
+  width: max-content;
+  margin: 0 auto;
+  
+}
+
+
+
+@media (min-width: 600px) {
+  .pagina-content-P-reservas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .pagina-content-P-reservas {
+    display: grid;
+    grid-template-columns: repeat(3, 380px); 
+    justify-content: center;                 
+    grid-gap: 1rem;
+    padding: 1rem;
+    
+  }
+  .card-P-reservas {
+    width: 300px;   
+    height: 350px;  
+  }
+}
+
+
+.card-P-reservas {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1),
+              0 2px 2px rgba(0,0,0,0.1),
+              0 4px 4px rgba(0,0,0,0.1),
+              0 8px 8px rgba(0,0,0,0.1),
+              0 16px 16px rgba(0,0,0,0.1);
+  height: 350px;
+}
+
+.card-P-reservas:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+
+.card-P-reservas:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.790) 100%
+  );
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+
+.card-P-reservas:nth-child(1):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+.card-P-reservas:nth-child(2):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+.card-P-reservas:nth-child(3):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+
+
+
+
+
+
+@media (hover: hover) and (min-width: 600px) {
+  .card-P-reservas:after {
+      transform: translateY(0);
+  }
+
+  .content-P-reservas {
+      transform: translateY(calc(100% - 4.5rem));
+  }
+
+  .card-P-reservas:hover,
+  .card-P-reservas:focus-within {
+      align-items: center;
+  }
+
+  .card-P-reservas:hover:before {
+      transform: translateY(-4%);
+  }
+
+  .card-P-reservas:hover:after {
+      transform: translateY(-50%);
+  }
+
+  .card-P-reservas:hover .content-P-reservas {
+      transform: translateY(0);
+  }
 }
 
 
@@ -362,20 +543,20 @@ opacity: 0;
 
 
 .card-P-reservas:nth-child(1):before {
-  background-image: url(https://s10.s3c.es/imag/_v0/2121x1193/b/8/4/Mejores-vinos-menos-15-euros.jpg);
+  background-image: url(https://www.saborusa.com/gt/wp-content/uploads/sites/6/2020/05/Sorprende-a-tus-invitados-con-estos-espectaculares-cocteles-Foto-destacada.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .card-P-reservas:nth-child(2):before {
-  background-image: url(https://cdn.vinissimus.com/img/unsafe/keep/plain/local:///landings/d4945841-b02c-4aa6-9a17-cad5b2873eb2/700airam_296473d0.jpg);
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .card-P-reservas:nth-child(3):before {
-  background-image: url(https://licoreriasunidas.pe/cdn/shop/articles/tipos-de-vinos.jpg?v=1693249338);
+  background-image: url(https://s2.ppllstatics.com/diariovasco/www/multimedia/202008/10/media/cortadas/COCTELES_FAMOSOS_2ok-Ri4uYU0f8uOE7LDssWi0lTN-1248x770@Diario%20Vasco.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -404,6 +585,7 @@ opacity: 0;
   font-size: 1.125rem;
   font-style: italic;
   line-height: 1.35;
+  margin-top: 55px;
 }
 
 .btn-P-Reseñas {
@@ -456,6 +638,13 @@ opacity: 0;
 
 
 
+
+
+
+
+
+
+
 /* Todas las reseñas de la pagina */
 
 
@@ -485,7 +674,7 @@ opacity: 0;
   background-repeat: no-repeat;
   background-position: center center;
   transition: 0.8s;
-  
+
 }
 
 
@@ -498,9 +687,6 @@ opacity: 0;
   flex-direction: column;
   gap: 1rem;     
   padding: 1.5rem; 
-  background-color: rgba(0, 0, 0, 0.37); 
-  
-
 }
 
 .card-Titulo {
@@ -517,7 +703,6 @@ opacity: 0;
   height: 100%;
   padding: 0;      
   box-sizing: border-box;
-  color: white;
 }
 
 
@@ -607,19 +792,6 @@ opacity: 0;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Todo para cambiar las Sendas */
 
 .pagina-contenido-Senda {
@@ -699,8 +871,9 @@ opacity: 0;
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg);
 }
 .card-t-Senda:nth-child(3):before {
-  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
+
 
 .contenido-Senda {
   position: relative;
@@ -740,6 +913,21 @@ opacity: 0;
   border: none;
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

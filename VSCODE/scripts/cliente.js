@@ -67,12 +67,18 @@ if (!usuarioStored) {
 }
 
 
-function getUsuario(idUsuario) {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
-  if (usuario && usuario.idUsuario === idUsuario) {
-      return usuario;
-  } else {
-      return null; 
+async function getUsuario() {
+  try {
+      const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
+      if (!res.ok) {
+          throw new Error(`Error al obtener el usuario: ${res.statusText}`);
+      }
+      const user = await res.json();
+      console.log(user);
+      return user;
+  } catch (error) {
+      document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      throw error; 
   }
 }
 
@@ -124,6 +130,22 @@ async function getUsuario(idUsuario) {
   }
 }
 
+
+
+function renderizarNombreUsuario() {
+  try {
+      const usuario = getUsuario(); 
+     
+      const divNombre = document.getElementById('nombreUsuario');
+      divNombre.innerHTML = `
+          <nav class="nav nav1">
+              <li><a href="#"> ${usuario.nombre}</a></li>
+          </nav>
+      `;
+  } catch (error) {
+      console.error("Error al renderizar el nombre del usuario:", error);
+  }
+}
 
 
 
