@@ -656,6 +656,44 @@ opacity: 0;
 
 
 
+
+/* Informacion de Nosotros*/
+
+#sobreNosotros {
+  position: absolute; 
+  top: 50%;  /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); 
+  width: 80%;  
+  background-color: rgba(255, 255, 255, 0.7);  
+  padding: 20px; 
+  border-radius: 10px; 
+  z-index: 2; 
+  color: #333;  
+  font-size: 16px;
+  text-align: justify; 
+}
+
+#sobreNosotros p {
+  font-family: "Cinzel", serif;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* El footer de la Pagina */
 
 footer {
@@ -698,26 +736,6 @@ footer {
   margin-right: 20px;  /* Ajusta el valor según lo que desees */
 }
 
-#sobreNosotros {
-  position: absolute; /* Esto coloca el div sobre el video */
-  top: 50%;  /* Centra verticalmente */
-  left: 50%; /* Centra horizontalmente */
-  transform: translate(-50%, -50%); /* Ajusta el div para centrarlo perfectamente */
-  width: 80%;  /* Ajusta el tamaño del div */
-  background-color: rgba(255, 255, 255, 0.7);  /* Fondo translúcido para el texto */
-  padding: 20px; /* Espaciado interno */
-  border-radius: 10px;  /* Bordes redondeados */
-  z-index: 2;  /* Asegura que esté sobre el video */
-  color: #333;  /* Color de texto */
-  font-size: 16px;
-  text-align: justify; /* Alineación de texto */
-}
-
-#sobreNosotros p {
-  font-family: "Cinzel", serif;
-  line-height: 1.8;
-  font-size: 1.1rem;
-}
 
 
 
@@ -891,33 +909,5 @@ button#entrar-btn:hover {
     cursor: pointer;
 }
 
-.Espacio-Contenedores-3 {
-  position: relative; 
-  height: 78vh;
-  overflow: hidden;
-  z-index: 1;
-  text-align: center;
-  align-items: center;
-}
 
-#sobreNosotros {
- 
-  position: absolute; 
-  top: 50%; 
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  width: 50%;  
-  height: 36%;
-  background-color: #750f3b; 
-  padding: 20px;
-  z-index: 1;  
-  color: #ffffff; 
-  font-size: 16px;
-  text-align: justify; 
-}
 
-#sobreNosotros p {
-  font-family: "Playfair Display";
-  line-height: 1.8;
-   font-size: 18px;
-}
