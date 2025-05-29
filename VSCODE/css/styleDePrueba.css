@@ -660,7 +660,7 @@ opacity: 0;
 
 footer {
   background: #750f3b;
-  color: #fff4c2;
+  color: #F9F4EF;
   text-align: center;
   padding: 40px 20px;
 }
@@ -901,22 +901,22 @@ button#entrar-btn:hover {
 }
 
 #sobreNosotros {
- 
   position: absolute; 
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%); 
   width: 50%;  
   height: 36%;
-  background-color: #750f3b; 
+  background-color: #2e2e2e80; /* Color original con opacidad */
   padding: 20px;
   z-index: 1;  
-  color: #ffffff; 
+  color: #F9F4EF; 
   font-size: 16px;
   text-align: justify; 
 }
 
 #sobreNosotros p {
+  text-align: center;
   font-family: "Playfair Display";
   line-height: 1.8;
    font-size: 18px;
