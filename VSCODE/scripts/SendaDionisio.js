@@ -215,3 +215,7 @@ return card;
 }
 
 window.addEventListener('DOMContentLoaded', getEventos);
+
+
+
+  
