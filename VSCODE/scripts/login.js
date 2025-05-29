@@ -29,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     mostarRegistro();
   });
 
+  document.getElementById('reserva').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostarLogin();
+  });
+
+  document.querySelector('btn-P-Reseñas').addEventListener('click', (e) => {
+    e.preventDefault();
+    mostarLogin();
+  });
+
 
   // Envío del formulario de login
   document.getElementById("login-form").addEventListener("submit", async function (event) {
