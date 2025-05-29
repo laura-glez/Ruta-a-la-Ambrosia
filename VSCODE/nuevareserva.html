@@ -6,22 +6,35 @@
     <title>Reserva Directa</title>
     <link href="css/datosClienteStyle.css" rel="stylesheet">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
         #formularioreserva {
             position: relative;
             left: 650px;
-            top:140px;
+            top:180px;
             display: block; /* Ahora está visible desde el inicio */
+            font-family: "Source Sans 3" ;
+        }
+        #detalleEvento h2{
+            font-family: "Playfair Display";
+        }
+        #detalleEvento p{
+            font-family: "Source Sans 3" ;
         }
         #detalleEvento {
             width: 500px;
             left: 650px;
             position: relative;
-            top: 130px;
+            top: 180px;
             display: none;
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 15px;
             background-color: #f9f9f9;
+            
+        }
+
+        #reservarEvento{
+            font-family: "Source Sans 3" ;
         }
     </style>
 </head>
@@ -100,17 +113,13 @@
             // Aquí agregamos el contenido del evento directamente en el div
             divDetalles.innerHTML = `
                 <h2>Detalles del Evento: ${evento.nombre}</h2>
-                <p><strong>ID:</strong> ${evento.idEvento}</p>
-                <p><strong>Estado:</strong> ${evento.estado}</p>
+                <br>
                 <p><strong>Aforo Máximo:</strong> ${evento.aforoMaximo}</p>
                 <p><strong>Descripción:</strong> ${evento.descripcion || "Sin descripción disponible"}</p>
                 <p><strong>Fecha Inicio:</strong> ${evento.fechaInicio || "Sin fecha de inicio disponible"}</p>
                 <p><strong>Duración del Evento:</strong> ${evento.duracion} ${evento.unidadDuracion || "Sin duración"}</p>
                 <p><strong>Dirección:</strong> ${evento.direccion || "Sin dirección"}</p>
-                <p><strong>Destacado:</strong> ${evento.destacado}</p>
                 <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
-                <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
-                <p><strong>Fecha Alta:</strong> ${evento.fechaAlta || "Sin fecha de alta definida"}</p>
             `;
 
             // Hacer visible el div con los detalles

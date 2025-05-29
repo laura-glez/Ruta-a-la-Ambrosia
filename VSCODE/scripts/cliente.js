@@ -107,7 +107,6 @@ function renderizarTablaUsuario(u) {
   console.log(usuario);
 
   divDetalles.innerHTML = `
-      <br><br><br>
       <h2>Detalles del Usuario: ${usuario.nombre}</h2>
       <p><strong>ID:</strong> ${usuario.idUsuario}</p>
       <p><strong>Email:</strong> ${usuario.email}</p>
