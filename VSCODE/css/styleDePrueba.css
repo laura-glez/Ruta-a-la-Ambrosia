@@ -660,7 +660,7 @@ opacity: 0;
 
 footer {
   background: #750f3b;
-  color: #fff4c2;
+  color: #F9F4EF;
   text-align: center;
   padding: 40px 20px;
 }
@@ -846,3 +846,6 @@ button#entrar-btn:hover {
     font-size: 25px;
     cursor: pointer;
 }
+
+
+
