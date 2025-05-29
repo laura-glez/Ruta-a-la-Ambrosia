@@ -152,5 +152,5 @@ const cerrarSesion = document.getElementById('cerrarSesion');
 cerrarSesion.addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.clear();
-  window.location.href = "prueba.html";
+  window.location.href = "index.html";
 });

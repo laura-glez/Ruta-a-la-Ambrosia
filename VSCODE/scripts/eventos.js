@@ -482,7 +482,7 @@ renderizarNombreUsuario();
       e.preventDefault();
       console.log('Limpiando localStorage...');
       localStorage.clear();
-      window.location.href = "prueba.html";
+      window.location.href = "index.html";
     })
 
 

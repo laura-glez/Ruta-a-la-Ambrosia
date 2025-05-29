@@ -192,6 +192,7 @@
                         const reservaCreada = await response.json();
                         console.log("Reserva creada con éxito:", reservaCreada);
                         alert("Reserva realizada con éxito!");
+                        window.location.href = "MisReservas.html";
 
                         document.getElementById("reserva").reset();
                         document.getElementById('formularioreserva').style.display = "none";
