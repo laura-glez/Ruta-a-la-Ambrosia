@@ -99,8 +99,8 @@ window.addEventListener('DOMContentLoaded', loadeventosDes);
 
 
 const img_ordenada = [
-'https://therumlab.com/wp-content/uploads/2023/11/barriles-2-1000x641.jpg',
-'https://mejorconsalud.as.com/wp-content/uploads/2021/12/cielo-estrellado-negro.jpg',
+'https://static8.depositphotos.com/1020804/1063/i/450/depositphotos_10633534-stock-photo-beer-barrel-with-beer-glasses.jpg',
+'https://media.istockphoto.com/id/1888004684/es/foto/black-gold-background-gradient-texture-soft-golden-with-light-technology-diagonal-gray-and.jpg?s=612x612&w=0&k=20&c=551myZSWTLXPfggskNhty05i8NeSBnffm6cIyQxvt0k=',
 ];
 
 let eventos = [];

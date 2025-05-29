@@ -1,6 +1,6 @@
 const img_ordenada = [
-    'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2023-10/Vinos%20tintos%20dulces.jpg',
-    'https://mejorconsalud.as.com/wp-content/uploads/2021/12/cielo-estrellado-negro.jpg',
+    'https://caracol.com.co/resizer/v2/YIXVDJXCTBAFZCT4YI5QNWXG3A.jpg?auth=4127c5c76ae776ec3bf36f6f1456fc480260a44399d197a71b2e6c25ac91f57a&width=650&height=488&quality=70&smart=true',
+    'https://www.blogdelfotografo.com/wp-content/uploads/2021/12/Fondo_Negro_4.webp',
     ];
 
     let eventos = [];

@@ -231,6 +231,10 @@ opacity: 0;
   top: 30px;
 }
 
+
+
+
+
 /* la primera imagin y el cuadrado */
 
 .Principal {
@@ -726,6 +730,7 @@ opacity: 0;
   text-align: center;
   font-size: 30px;
   color: white;
+  font-family: "Source Sans 3" ;
 }
 
 
@@ -736,8 +741,8 @@ opacity: 0;
   height: 100%;
   padding: 0;      
   box-sizing: border-box;
+  font-family: "Source Sans 3" ;
 }
-
 
 .subContenedor {
   margin: 0;

@@ -76,8 +76,8 @@ document.querySelectorAll('.btn-P-Reseñas').forEach(btn => {
 
         // Funcion de todas las reservas
         const img_ordenada = [
-            'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2023-10/Vinos%20tintos%20dulces.jpg',
-            'https://mejorconsalud.as.com/wp-content/uploads/2021/12/cielo-estrellado-negro.jpg',
+            'https://img.freepik.com/foto-gratis/disparo-enfoque-selectivo-arboles-vid-capturados-hermoso-vinedo-crepusculo_181624-43455.jpg?semt=ais_hybrid&w=740',
+            'https://i.pinimg.com/474x/ea/e4/dc/eae4dc8c924f75141f14df13c2f5c10f.jpg',
             ];
     
             let eventos = [];
