@@ -3,31 +3,63 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Botón de Reserva</title>
+    <title>Reserva Directa</title>
+    <link href="css/datosClienteStyle.css" rel="stylesheet">
     <style>
         #formularioreserva {
+            position: relative;
+            left: 650px;
+            top:140px;
+            display: block; /* Ahora está visible desde el inicio */
+        }
+        #detalleEvento {
+            width: 500px;
+            left: 650px;
+            position: relative;
+            top: 130px;
             display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            background-color: #f9f9f9;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <button class="btn-reserva" id="btnReserva">Hacer Reserva</button>
+<body> 
+    <header>
+        
+        <div class="logo"><a href='loginCliente.html'></a><img id="RA"src="img/Practicas.png" alt="logoRA"width="70" height="70"><!--Ruta a la Ambrosia--></div>
+        <nav class="nav nav1">
+            <ul>
+              <li><a href='DatosCliente.html'>Mis Datos</a></li>
+              <li><a href="MisReservas.html">Mis Reservas</a></li>
+              <li><a href="#" id="nombreUsuario">Hola</a></li> <!-- Este es el enlace donde se añadirá el nombre -->
+              <li><a id ="cerrarSesion">Cerrar Sesión</a></li>
+          </ul>
+          
+          
+          </nav>
+    </header>
+    <!-- Aquí se mostrarán los detalles del evento -->
+    <div id="detalleEvento">
+        <!-- Los detalles del evento se mostrarán aquí -->
     </div>
 
     <div id="formularioreserva">
         <form id="reserva">
-            <label>Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" placeholder="cantidad" max="10" min="1" required />
+            <label>Nº personas: </label>
+            <input type="number" name="cantidad" id="cantidad" placeholder="Nº personas" max="10" min="1" required />
+            <br>
 
             <label>Observaciones</label>
             <input type="text" name="observaciones" id="observaciones" placeholder="observaciones" />
-
+            <br>
             <button type="submit" id="reservarEvento">Reservar</button>
         </form>
     </div>
-
-    <script>
+    <script src="scripts/cliente.js"></script>
+       <script>
+        // Función para obtener los datos de un evento desde el servidor
         async function getUnEvento() {
             try {
                 const idEvento = JSON.parse(localStorage.getItem('evento'));
@@ -44,6 +76,7 @@
             }
         }
 
+        // Función para obtener los datos de un usuario desde el servidor
         async function getUnUsuario() {
             try {
                 const idUser = JSON.parse(localStorage.getItem('usuario')).idUsuario;
@@ -60,15 +93,40 @@
             }
         }
 
+        // Función para mostrar los detalles del evento en un div
+        function mostrarDatosEvento(evento) {
+            const divDetalles = document.getElementById('detalleEvento');  // Contenedor donde mostrarás los detalles
+
+            // Aquí agregamos el contenido del evento directamente en el div
+            divDetalles.innerHTML = `
+                <h2>Detalles del Evento: ${evento.nombre}</h2>
+                <p><strong>ID:</strong> ${evento.idEvento}</p>
+                <p><strong>Estado:</strong> ${evento.estado}</p>
+                <p><strong>Aforo Máximo:</strong> ${evento.aforoMaximo}</p>
+                <p><strong>Descripción:</strong> ${evento.descripcion || "Sin descripción disponible"}</p>
+                <p><strong>Fecha Inicio:</strong> ${evento.fechaInicio || "Sin fecha de inicio disponible"}</p>
+                <p><strong>Duración del Evento:</strong> ${evento.duracion} ${evento.unidadDuracion || "Sin duración"}</p>
+                <p><strong>Dirección:</strong> ${evento.direccion || "Sin dirección"}</p>
+                <p><strong>Destacado:</strong> ${evento.destacado}</p>
+                <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
+                <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
+                <p><strong>Fecha Alta:</strong> ${evento.fechaAlta || "Sin fecha de alta definida"}</p>
+            `;
+
+            // Hacer visible el div con los detalles
+            divDetalles.style.display = 'block';  // Asegúrate de que el div sea visible
+        }
+
+        // Función para inicializar los datos
         async function inicializarDatos() {
             try {
                 const evento = await getUnEvento();
                 const usuario = await getUnUsuario();
 
-                document.getElementById('btnReserva').addEventListener('click', function () {
-                    document.getElementById('formularioreserva').style.display = "block";
-                });
+                // Mostrar los detalles del evento automáticamente al cargar la página
+                mostrarDatosEvento(evento);  // Muestra los detalles del evento
 
+                // Procesar la reserva al enviar el formulario
                 document.getElementById('reserva').addEventListener('submit', async function (e) {
                     e.preventDefault();
 
@@ -99,7 +157,6 @@
                         });
 
                         if (!response.ok) {
-                           
                             let errorDetails = '';
                             try {
                                 errorDetails = await response.json();
@@ -125,7 +182,10 @@
             }
         }
 
+        // Inicializar los datos al cargar la página
         inicializarDatos();
     </script>
+
+
 </body>
 </html>
