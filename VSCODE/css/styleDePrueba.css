@@ -510,6 +510,12 @@ opacity: 0;
 
 
 
+
+
+
+
+
+
 /* Todas las reseñas de la pagina */
 
 .container {
@@ -559,6 +565,7 @@ opacity: 0;
   text-align: center;
   font-size: 30px;
   color: white;
+  font-family: "Source Sans 3" ;
 }
 
 
@@ -569,6 +576,7 @@ opacity: 0;
   height: 100%;
   padding: 0;      
   box-sizing: border-box;
+  font-family: "Source Sans 3" ;
 }
 
 

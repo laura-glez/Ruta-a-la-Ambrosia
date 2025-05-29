@@ -99,9 +99,9 @@ window.addEventListener('DOMContentLoaded', loadeventosDes);
 
 
 const img_ordenada = [
-'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2023-10/Vinos%20tintos%20dulces.jpg',
-'https://mejorconsalud.as.com/wp-content/uploads/2021/12/cielo-estrellado-negro.jpg',
-];
+    'https://i0.wp.com/rockade.es/wp-content/uploads/2021/10/coctelbarcade1920x1280.jpg?fit=1920%2C1280&ssl=1',
+    'https://wallpapers.com/images/hd/dark-orange-background-bfh01baqi7v70x6c.jpg',
+    ];
 
 let eventos = [];
 

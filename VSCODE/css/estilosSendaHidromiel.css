@@ -500,7 +500,7 @@ opacity: 0;
 
 .card {
   overflow: hidden;
-  color: lightgray; 
+  color: whitesmoke; 
   font-size: 18px;
   height: 245px; 
   border: 1px solid darkgray; 
@@ -528,7 +528,7 @@ opacity: 0;
 .card-Titulo {
   text-align: center;
   font-size: 30px;
-  color: white;
+  font-family: "Source Sans 3" ;
 }
 
 
@@ -539,6 +539,7 @@ opacity: 0;
   height: 100%;
   padding: 0;      
   box-sizing: border-box;
+  font-family: "Source Sans 3" ;
 }
 
 
