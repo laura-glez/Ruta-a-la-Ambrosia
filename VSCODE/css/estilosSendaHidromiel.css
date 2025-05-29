@@ -6,7 +6,7 @@
 
 body {
   color: #333;
-  background-color: #F9F4EF;;
+  background-color: #F9F4EF;
   line-height: 1.6;
   font-family: "cinzel";
 }
@@ -73,7 +73,6 @@ body {
   align-items: center;
   gap: 35px;
 }
-
 
 
 
@@ -268,8 +267,6 @@ opacity: 0;
 
 
 
-
-
 /*Reservas Destacadas */
 
 :root {
@@ -283,7 +280,7 @@ opacity: 0;
   padding: 1rem;
   font-family:'Rubik', sans-serif;
   width: max-content;
-  margin: 155px auto;
+  margin: 170px auto;
   
 }
 
@@ -358,24 +355,20 @@ opacity: 0;
   transition: transform calc(var(--d) * 2) var(--e);
 }
 
-
-
-
 .card-P-reservas:nth-child(1):before {
-  background-image: url(https://s10.s3c.es/imag/_v0/2121x1193/b/8/4/Mejores-vinos-menos-15-euros.jpg);
+  background-image: url(https://www.cbbhosteleria.com/19825-large_default/jarra-cerveza-600ml-ps-82x153x93cm-24uc.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
-
 .card-P-reservas:nth-child(2):before {
-  background-image: url(https://cdn.vinissimus.com/img/unsafe/keep/plain/local:///landings/d4945841-b02c-4aa6-9a17-cad5b2873eb2/700airam_296473d0.jpg);
+  background-image: url(https://cdn.palbincdn.com/users/36776/images/1-1610009759.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .card-P-reservas:nth-child(3):before {
-  background-image: url(https://licoreriasunidas.pe/cdn/shop/articles/tipos-de-vinos.jpg?v=1693249338);
+  background-image: url(https://img.freepik.com/fotos-premium/aclamaciones-grupo-jarra-cerveza-hombres-jovenes-preparan-vasos-cerveza-celebrar-su-exito_61243-129.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -455,7 +448,6 @@ opacity: 0;
 
 
 
-
 /* Todas las reseñas de la pagina */
 
 
@@ -485,7 +477,7 @@ opacity: 0;
   background-repeat: no-repeat;
   background-position: center center;
   transition: 0.8s;
-  
+
 }
 
 
@@ -498,9 +490,6 @@ opacity: 0;
   flex-direction: column;
   gap: 1rem;     
   padding: 1.5rem; 
-  background-color: rgba(0, 0, 0, 0.37); 
-  
-
 }
 
 .card-Titulo {
@@ -517,7 +506,6 @@ opacity: 0;
   height: 100%;
   padding: 0;      
   box-sizing: border-box;
-  color: white;
 }
 
 
@@ -614,12 +602,6 @@ opacity: 0;
 
 
 
-
-
-
-
-
-
 /* Todo para cambiar las Sendas */
 
 .pagina-contenido-Senda {
@@ -693,7 +675,7 @@ opacity: 0;
 }
 
 .card-t-Senda:nth-child(1):before {
-  background-image: url(https://cdn.palbincdn.com/users/36776/images/1-1610009759.jpg);
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
 }
 .card-t-Senda:nth-child(2):before {
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg);
@@ -753,10 +735,6 @@ opacity: 0;
 
 
 
-
-
-
-
 /* El footer de la Pagina */
 footer {
   background: #750f3b;
@@ -792,12 +770,6 @@ footer {
   position: relative;
   z-index: 2; 
 }
-
-
-
-
-
-
 
 
 
