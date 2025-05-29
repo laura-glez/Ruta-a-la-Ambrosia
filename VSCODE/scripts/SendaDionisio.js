@@ -105,7 +105,7 @@ let eventos = [];
 
 async function getEventos() {
 try {
-    const res = await fetch('http://localhost:9003/evento/todos');
+    const res = await fetch('http://localhost:9003/evento/tipo/1');
     const listResult = await res.json();
 
     console.log("Datos obtenidos:", listResult);

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eventosweb.modelo.dao.EventoDao;
 import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.Tipo;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -43,12 +44,13 @@ public class EventoRestController {
 		return edao.porEstado(estado);
 	}
 	
-	/*
+
 	@GetMapping("/tipo/{tipo}")
 	public List<Evento> tipo(@PathVariable Integer tipo){
+
 		return edao.porTipo(tipo);
 	}
-	*/
+	
 	
 	@GetMapping("/uno/{idEvento}")
 	public Evento uno(@PathVariable Integer idEvento){
