@@ -62,11 +62,6 @@ if (!usuarioStored) {
   console.log("ID del usuario:", idUsuario);
 
 
-  const nombreUsuarioElement = document.getElementById('nombreUsuario');
-  if (nombreUsuarioElement) {
-    nombreUsuarioElement.textContent = `Hola, ${usuario.nombre}`; 
-  }
-
  
   getReservasUsuario(idUsuario);
 }
@@ -113,7 +108,6 @@ function renderizarTablaUsuario(u) {
   console.log(usuario);
 
   divDetalles.innerHTML = `
-      <br><br><br>
       <h2>Detalles del Usuario: ${usuario.nombre}</h2>
       <p><strong>ID:</strong> ${usuario.idUsuario}</p>
       <p><strong>Email:</strong> ${usuario.email}</p>
@@ -122,6 +116,21 @@ function renderizarTablaUsuario(u) {
       <p><strong>Password:</strong> <input type="password" value="${usuario.password}" disabled /></p>
   `;
 }
+async function getUsuario(idUsuario) {
+  try {
+      const res = await fetch(`http://localhost:9003/usuario/buscarDatosUsuario/${idUsuario}`);
+      if (!res.ok) {
+          throw new Error(`Error al obtener el usuario: ${res.statusText}`);
+      }
+      const user = await res.json();
+      return user;
+  } catch (error) {
+      document.getElementById('tablaUsuarioContainer').innerHTML = `<p style="color:red">${error.message}</p>`;
+      throw error; 
+  }
+}
+
+
 
 function renderizarNombreUsuario() {
   try {
