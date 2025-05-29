@@ -3,6 +3,7 @@ package eventosweb.modelo.dao;
 import java.util.List;
 
 import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.Tipo;
 
 public interface EventoDao {
 

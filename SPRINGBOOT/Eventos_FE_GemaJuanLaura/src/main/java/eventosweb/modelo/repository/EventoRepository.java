@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import eventosweb.modelo.entities.Destacado;
 import eventosweb.modelo.entities.EstadoEvento;
 import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.Tipo;
 
 public interface EventoRepository extends JpaRepository<Evento, Integer>{
 	public List<Evento> findByNombreContaining(String cadena);
 	public List<Evento> findByDestacado(Destacado destacado);
 	public List<Evento> findByEstado(EstadoEvento estadoEvento);
-	/*public List<Evento> findBytipo(Tipo tipo);*/
+	public List<Evento> findByTipoIdTipo(Integer tipo);
 }

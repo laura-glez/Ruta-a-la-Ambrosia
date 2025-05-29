@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import eventosweb.modelo.entities.Destacado;
 import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.Tipo;
 import eventosweb.modelo.entities.EstadoEvento;
 import eventosweb.modelo.repository.EventoRepository;
 @Service
@@ -48,7 +49,8 @@ public class EventoDaoImplDataJpa implements EventoDao{
 	@Override
 	public List<Evento> porTipo(Integer tipo) {
 		// TODO Auto-generated method stub
-		return prepo.findBytipo(tipo);
+		
+		return prepo.findByTipoIdTipo(tipo);
 	}
 
 	
