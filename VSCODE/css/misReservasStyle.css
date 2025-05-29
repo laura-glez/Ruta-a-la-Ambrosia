@@ -60,14 +60,21 @@ header {
   }
   
   .nav1 a {
+    font-family: 'cinzel';
     display: block;
     padding: 10px 17px;
     line-height: 1.2em;
     color:  #F9F4EF;
     transition: color 0.7s ;
   }
-  
+  .guardarCantidadBtn, .eliminarReservaBtn{
+  background-color:#c7c7c7 ;
+  border: none;
+  padding: 3px;
+  border-radius: 5px;
+  }
   .nav1 a:hover {
+    
     text-decoration: none;
     color:rgb(241, 208, 145);
   }

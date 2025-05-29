@@ -39,6 +39,7 @@ header {
   
   
   .nav1 ul {
+
     list-style: none;
   
     background:#750f3b;
@@ -60,6 +61,7 @@ header {
   }
   
   .nav1 a {
+    font-family: 'cinzel';
     display: block;
     padding: 10px 17px;
     line-height: 1.2em;

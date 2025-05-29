@@ -846,7 +846,7 @@ input[type="password"] {
     font-size: 16px;
 }
 #popup-content2 button{
-  background-color:wheat;  /* Rojo vino */
+  background-color:wheat; 
   color: rgb(0, 0, 0);
   padding: 12px;
   border: none;
@@ -858,7 +858,7 @@ input[type="password"] {
 }
 
 button#entrar-btn {
-    background-color:wheat;  /* Rojo vino */
+    background-color:wheat; 
     color: rgb(0, 0, 0);
     padding: 12px;
     border: none;

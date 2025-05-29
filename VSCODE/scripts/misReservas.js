@@ -31,7 +31,7 @@ function renderizarTablaReservas(reservas) {
         <input type="number" value="${reserva.cantidad ?? 1}" class="cantidadInput" data-idReserva="${reserva.idReserva}" min="1" max="10" />
       </td>
       <td>
-        <input type="text" value="${reserva.observaciones ?? ''}" class="observacionesInput" />
+        <input type="text" value="${reserva.observaciones ?? 'Observaciones'}" class="observacionesInput" />
       </td>
       <td>
         <button class="guardarCantidadBtn" data-idReserva="${reserva.idReserva}">Guardar</button>
